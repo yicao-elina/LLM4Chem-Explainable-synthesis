@@ -116,8 +116,11 @@ def extract_menu_items(engine):
 
 def create_menu_card(item, category, selected_items):
     """Create a McDonald's style menu card for an item"""
-    is_selected = item in selected_items.get(category, [])
-    
+    if category not in selected_items:
+        selected_items[category] = {}
+
+    is_selected = item in selected_items[category].get("items", [])
+
     col1, col2 = st.columns([4, 1])
     with col1:
         if st.button(
@@ -125,13 +128,18 @@ def create_menu_card(item, category, selected_items):
             key=f"{category}_{item}",
             use_container_width=True
         ):
+            if "items" not in selected_items[category]:
+                selected_items[category]["items"] = []
             if is_selected:
-                selected_items[category].remove(item)
+                selected_items[category]["items"].remove(item)
             else:
-                if category not in selected_items:
-                    selected_items[category] = []
-                selected_items[category].append(item)
+                selected_items[category]["items"].append(item)
             st.rerun()
+
+    with col2:
+        if is_selected:
+            st.success("Added!")
+
     
     with col2:
         if is_selected:
