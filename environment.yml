@@ -1,0 +1,10 @@
+name: gemini-chem
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - google-generativeai>=0.5.2
+      - PyMuPDF>=1.24.0
