@@ -1,0 +1,2484 @@
+{
+  "doping_experiments": [
+    {
+      "experiment_id": "exp_1",
+      "host_material": "hydrogen boride (HB)",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "Li adatoms"
+      },
+      "synthesis_conditions": {
+        "method": "adsorption/intercalation",
+        "temperature_c": 300,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "hexagonal hollow site"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": {
+            "before": null,
+            "after": 0
+          },
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": "thermally stable at 300K after Li adsorption"
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations",
+        "AIMD simulations",
+        "DOS calculations",
+        "Binding energy calculations",
+        "Differential charge density plots"
+      ],
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "hydrogen boride (HB)",
+      "dopant": {
+        "element": "Na",
+        "concentration": null,
+        "precursor": "Na adatoms"
+      },
+      "synthesis_conditions": {
+        "method": "adsorption/intercalation",
+        "temperature_c": 300,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "hexagonal hollow site"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": {
+            "before": null,
+            "after": 0
+          },
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": "thermally stable at 300K after Na adsorption"
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations",
+        "AIMD simulations",
+        "DOS calculations",
+        "Binding energy calculations",
+        "Differential charge density plots"
+      ],
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "MoS2",
+      "dopant": {
+        "element": "Nb",
+        "concentration": "3%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": null,
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "p-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "Electron density distribution map (Figure 4)"
+      ],
+      "source_file": "Ab_initio_study_of_bilateral_doping_within_the_MoS2-NbS2_system.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "MoS2",
+      "dopant": {
+        "element": "Nb",
+        "concentration": "3%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": null,
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "interstitial",
+          "site_specificity": "octahedral"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "n-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [],
+      "source_file": "Ab_initio_study_of_bilateral_doping_within_the_MoS2-NbS2_system.txt"
+    },
+    {
+      "experiment_id": "exp_3",
+      "host_material": "NbS2",
+      "dopant": {
+        "element": "Mo",
+        "concentration": "3%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": null,
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "mixed",
+          "site_specificity": "interstitial and substitutional"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [],
+      "source_file": "Ab_initio_study_of_bilateral_doping_within_the_MoS2-NbS2_system.txt"
+    },
+    {
+      "experiment_id": "exp_4",
+      "host_material": "MoS2",
+      "dopant": {
+        "element": "Nb",
+        "concentration": "5-25%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": null,
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": {
+            "a": null
+          },
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "homogeneous alloy",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "metallic",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": "downward shift",
+          "other_electronic": "semiconductor-metal transition at 5% Nb"
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": "no degradation expected"
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "X-ray diffraction (compared to Hotje et al.19)",
+        "EXAFS (confirms substitutional doping)"
+      ],
+      "source_file": "Ab_initio_study_of_bilateral_doping_within_the_MoS2-NbS2_system.txt"
+    },
+    {
+      "experiment_id": "exp_5",
+      "host_material": "NbS2",
+      "dopant": {
+        "element": "Mo",
+        "concentration": "Up to 25%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": null,
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "mixed",
+          "site_specificity": "both interstitial and substitutional can co-exist"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": {
+            "a": null
+          },
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "metallic",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": "upward shift",
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "X-ray diffraction (compared to Hotje et al.19)"
+      ],
+      "source_file": "Ab_initio_study_of_bilateral_doping_within_the_MoS2-NbS2_system.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "graphite",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "Li ribbon (99.9%)"
+      },
+      "synthesis_conditions": {
+        "method": "electrochemical intercalation",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "1M LiPF6 in EC/DMC (1:1 vol%), C/35 cycling rate, voltage range 3.000-0.001 V vs Li/Li+"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "Staging observed, forming various LixC6 phases"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": {
+            "c": null
+          },
+          "phase_transition": "Formation of different LixC6 phases (stage IL, IV, III, IIL, II, I)",
+          "defect_formation": "SEI formation"
+        },
+        "distribution_characteristics": {
+          "uniformity": "Initially slight gradient from separator side, later relatively homogeneous for LiC6, delayed lithiation/delithiation in central region",
+          "penetration_depth": "Throughout the 400 μm thick electrode",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "Neutron imaging: Li distribution and SEI formation",
+        "Neutron diffraction: LixC6 phase identification and quantification"
+      ],
+      "source_file": "Concurrent_operando_neutron_imaging_and_diffraction_analysis_revealing\n__spatial_lithiation_phase_ev.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "RuCl3",
+      "dopant": {
+        "element": "Cr",
+        "concentration": null,
+        "precursor": "Cr powder"
+      },
+      "synthesis_conditions": {
+        "method": "chemical vapor transport",
+        "temperature_c": [
+          750,
+          650
+        ],
+        "time_hours": 120,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "Two-zone furnace with temperature gradient; Chlorine gas as transport agent"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": "Cr substitutes Ru"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": {
+            "a": null,
+            "b": "compression",
+            "c": "increases"
+          },
+          "phase_transition": "none",
+          "defect_formation": "stacking faults"
+        },
+        "distribution_characteristics": {
+          "uniformity": "homogeneous",
+          "penetration_depth": "throughout bulk",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "XRD: lattice parameter changes",
+        "SEM-EDX: homogeneous Cr distribution",
+        "TEM: stacking faults",
+        "STEM: substitutional Cr",
+        "Magnetic susceptibility: change in magnetic behavior"
+      ],
+      "source_file": "Detuning_the_Honeycomb_of_the_α-RuCl3_Kitaev_lattice_A_case_of\n__Cr3+_dopant.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "MoS2",
+      "dopant": {
+        "element": "O",
+        "concentration": null,
+        "precursor": "O2 plasma (20% O2, 80% Ar)"
+      },
+      "synthesis_conditions": {
+        "method": "plasma treatment",
+        "temperature_c": null,
+        "time_hours": [
+          0.033,
+          0.017,
+          0.025,
+          0.033,
+          0.042,
+          0.05
+        ],
+        "atmosphere": "20% O2, 80% Ar",
+        "pressure_pa": 33332.5,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "rf power 100W, frequency 50kHz, gas flow rate 15 sccm"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "unclear",
+          "site_specificity": "MoO3 rich disordered domains formation, replacing S atoms and causing lattice distortion."
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": "S vacancies, lattice distortion"
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "not reported"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "n-type (decreased with treatment)",
+          "mobility_cm2_v_s": {
+            "before": 6,
+            "after": 0.0004
+          },
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": "on-current decreased by >4 orders of magnitude, resistance increased by >4 orders of magnitude."
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "Raman spectroscopy: decrease in MoS2 peak intensity, appearance of MoO3 peaks",
+        "XPS: Mo 3d peak for Mo+6 state confirms MoO3",
+        "Electrical measurements (ID-VG, ID-VDS): mobility and on-current decrease, resistance increases exponentially with plasma time"
+      ],
+      "source_file": "Electrical_property_tuning_via_defect_engineering_of_single_layer_MoS2\n__by_oxygen_plasma.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "LuFeO3",
+      "dopant": {
+        "element": "Hf",
+        "concentration": "16.67 at%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitutional doping",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations"
+      ],
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "LuFeO3",
+      "dopant": {
+        "element": "Hf",
+        "concentration": "33.33 at%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitutional doping",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations",
+        "AIMD simulations"
+      ],
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "experiment_id": "exp_3",
+      "host_material": "LuFeO3",
+      "dopant": {
+        "element": "Hf",
+        "concentration": "50 at%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitutional doping",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations",
+        "AIMD simulations"
+      ],
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "experiment_id": "exp_4",
+      "host_material": "LuFeO3",
+      "dopant": {
+        "element": "Hf",
+        "concentration": "66.67 at%",
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitutional doping",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations"
+      ],
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "graphene",
+      "dopant": {
+        "element": "F",
+        "concentration": null,
+        "precursor": "F2"
+      },
+      "synthesis_conditions": {
+        "method": "intercalation",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "between graphene layers"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [],
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "MoS2/graphene heterostructure (Structure II)",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "LiTFSI"
+      },
+      "synthesis_conditions": {
+        "method": "electrochemical intercalation",
+        "temperature_c": 325,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "Electrolyte: LiTFSI/PEO, Magnetic field: 0.5 T, Sweep rate: ~1 mV/s"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "Preferentially at the MoS2/graphene heterointerface"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": "2H-MoS2 to T'/T-MoS2",
+          "defect_formation": "Voids (~1 nm) and cracks in MoS2"
+        },
+        "distribution_characteristics": {
+          "uniformity": "homogeneous across interfacial areas",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "not reported"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": "2 × 10^14 cm^-2 (Hall)",
+            "change_factor": "3-10x increase compared to Structure I"
+          },
+          "carrier_type": "n-type",
+          "mobility_cm2_v_s": {
+            "before": null,
+            "after": 270
+          },
+          "conductivity_s_cm": null,
+          "band_gap_ev": {
+            "before": null,
+            "after": null
+          },
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": "Quenched after full intercalation; Trion (A-) peak appears before quenching"
+        }
+      },
+      "characterization_evidence": [
+        "In situ magnetoresistance and Hall measurements",
+        "Operando photoluminescence and Raman spectroscopy",
+        "Low-temperature quantum magneto-oscillation measurements",
+        "STEM-HAADF and SAED"
+      ],
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "Graphene (Structure I)",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "LiTFSI"
+      },
+      "synthesis_conditions": {
+        "method": "electrochemical intercalation",
+        "temperature_c": 325,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "Electrolyte: LiTFSI/PEO, Magnetic field: 0.5T, Sweep rate: ~1 mV/s"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "not reported"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": "2-7 x 10^13 cm^-2",
+            "change_factor": null
+          },
+          "carrier_type": "n-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "In situ magnetoresistance and Hall measurements"
+      ],
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "experiment_id": "exp_3",
+      "host_material": "MoS2 bilayer/graphene heterostructure (Structure III)",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "LiTFSI"
+      },
+      "synthesis_conditions": {
+        "method": "electrochemical intercalation",
+        "temperature_c": 325,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "Electrolyte: LiTFSI/PEO, Magnetic field: 0.5T, Sweep rate: ~1 mV/s"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "vdW gap",
+          "site_specificity": "Primarily at the MoS2/graphene interface, less at MoS2/MoS2 or MoS2/hBN"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "not reported"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": "1.4-1.9 × 10^14 cm^-2 (Hall)",
+            "change_factor": "Similar to structure II, despite more MoS2"
+          },
+          "carrier_type": "n-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "In situ magnetoresistance and Hall measurements"
+      ],
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "experiment_id": "exp_4",
+      "host_material": "Few-layer MoS2/MoSe2",
+      "dopant": {
+        "element": "Li",
+        "concentration": null,
+        "precursor": "LiTFSI"
+      },
+      "synthesis_conditions": {
+        "method": "electrochemical intercalation",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "Electrolytes: LiTFSI/DEME-TFSI (MoSe2); LiTFSI/PEO (MoS2)"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "unclear",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "not reported"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": {
+            "before": null,
+            "after": "Insulating (Loss of electrical contact)"
+          },
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "Four-terminal resistance measurement"
+      ],
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "graphene",
+      "dopant": {
+        "element": "B",
+        "concentration": "2.5%",
+        "precursor": "borane tetrahydrofuran (BTHF, BH3OC4H8)"
+      },
+      "synthesis_conditions": {
+        "method": "CVD",
+        "temperature_c": [
+          1073,
+          1233
+        ],
+        "time_hours": null,
+        "atmosphere": "ultra-high vacuum",
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": "repeated cycles of sputtering (Ar+ ions at an energy of 1 keV), followed by two-step annealing at 1173 K under O2 atmosphere (3×10-8 mbar) and at 1233 K subsequently",
+        "additional_parameters": "5.2 L of BTHF"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": "geometrically low regions of the moiré superlattice, forms small aggregates"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "clustered",
+          "penetration_depth": "not reported",
+          "lateral_distribution": "quasi-hexagonal array mimicking moiré superlattice"
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "p-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": "Dirac point remains largely unchanged (~24 ± 5 mV above Fermi level)"
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "XPS: B 1s peak confirms B presence, C 1s shows C-B bonding",
+        "STM: visualizes B aggregates in moiré low regions",
+        "STS: Dirac point position measured",
+        "ARPES: Dirac cone dispersion unchanged",
+        "LEED: multiple rotational domains observed"
+      ],
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "graphene",
+      "dopant": {
+        "element": null,
+        "concentration": null,
+        "precursor": "ethylene"
+      },
+      "synthesis_conditions": {
+        "method": "CVD",
+        "temperature_c": 1123,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": "5.4 L of ethylene"
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": null,
+          "interstitial": null,
+          "primary_site": "undoped",
+          "site_specificity": null
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": null,
+          "penetration_depth": null,
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": "p-type",
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": null,
+          "fermi_level_shift_ev": null,
+          "other_electronic": "Dirac point measured for comparison"
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "XPS: C 1s peak characteristic of graphene/Ir(111)",
+        "LEED: sharp spots, single rotational domain"
+      ],
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "experiment_id": "exp_1",
+      "host_material": "silicene nanocluster (H-SiNC)",
+      "dopant": {
+        "element": "C",
+        "concentration": null,
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitution",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": "14 inequivalent sites (S1-S14) investigated"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": {
+            "before": null,
+            "after": "0.42-0.68 depending on the site"
+          },
+          "fermi_level_shift_ev": null,
+          "other_electronic": "Ferromagnetic behavior observed"
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": "Significant distortions observed (in-plane and out-of-plane)"
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations (B3LYP functional with cc-pVDZ basis set and D3 dispersion correction)"
+      ],
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "experiment_id": "exp_2",
+      "host_material": "silicene monolayer",
+      "dopant": {
+        "element": "C",
+        "concentration": null,
+        "precursor": null
+      },
+      "synthesis_conditions": {
+        "method": "substitution",
+        "temperature_c": null,
+        "time_hours": null,
+        "atmosphere": null,
+        "pressure_pa": null,
+        "electric_field": {
+          "strength_v_cm": null,
+          "direction": null
+        },
+        "cooling_rate_c_min": null,
+        "substrate_pretreatment": null,
+        "additional_parameters": null
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": null,
+          "surface_adsorption": null,
+          "substitutional": 100,
+          "interstitial": null,
+          "primary_site": "substitutional",
+          "site_specificity": "2x2, 3x3, and 4x4 supercells investigated"
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": null,
+          "lattice_parameter_change": null,
+          "phase_transition": null,
+          "defect_formation": null
+        },
+        "distribution_characteristics": {
+          "uniformity": "not reported",
+          "penetration_depth": "not reported",
+          "lateral_distribution": null
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": null,
+            "change_factor": null
+          },
+          "carrier_type": null,
+          "mobility_cm2_v_s": null,
+          "conductivity_s_cm": null,
+          "band_gap_ev": {
+            "before": null,
+            "after": "dependent on doping site and supercell size (e.g., 0.181 eV for single doping in 2x2, 1.006 eV for double doping in 2x2)"
+          },
+          "fermi_level_shift_ev": null,
+          "other_electronic": null
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": null,
+          "seebeck_coefficient_uv_k": null,
+          "thermal_stability": null
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": null,
+          "hardness": null,
+          "strain_response": null
+        },
+        "optical": {
+          "optical_gap_ev": null,
+          "absorption_changes": null,
+          "photoluminescence": null
+        }
+      },
+      "characterization_evidence": [
+        "DFT calculations (PBE and B3LYP functionals)"
+      ],
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    }
+  ],
+  "causal_relationships": [
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Smaller size and higher activity of Li compared to Na",
+      "effect_on_doping": "Li migrates closer to the HB surface than Na",
+      "affected_property": "Binding energy",
+      "mechanism_quote": "Due to the smaller size and higher activity of the Li element compared to that of the Na type... the former group of atoms tend to migrate closer to the surface.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Li concentration > 0.5",
+      "effect_on_doping": "Li attacks HB bonds and destroys monolayer structure",
+      "affected_property": "Structural stability",
+      "mechanism_quote": "After the optimal concentration (x > 0.5), highly active Li atoms destroy the monolayer structure by attacking the HB bonds.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Na concentration > 0.5",
+      "effect_on_doping": "Na creates a second layer of adatoms instead of destroying monolayer",
+      "affected_property": "Storage capacity, Structural Stability",
+      "mechanism_quote": "Whereas, Na atoms prefer to limit the anode capacity by creating the second layer of adatoms instead of destroying the monolayer structure, and preventing additional electronic charge transfer.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "Weaker interaction of Na with HB surface compared to Li",
+      "effect_on_doping": "Easier and faster Na diffusion",
+      "affected_property": "Diffusion energy barrier",
+      "mechanism_quote": "The lower barrier for the Na adatom might be described by weaker interaction between the Na atom with the HB surface (-1.27 eV) compared to that of the small Li element (-2.32 eV), which causes an easier and faster transfer rate for this adatom.",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "2D_Hydrogenated_graphene-like_borophene_as_a_high_capacity_anode\n__material_for_improved_LiNa_ion_ba.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Oxygen plasma exposure time",
+      "effect_on_doping": "Increased formation of insulating MoO3-rich disordered domains",
+      "affected_property": "Electrical conductivity/resistance and mobility",
+      "mechanism_quote": "The significant variation of electronic properties is caused by the creation of insulating MoO3-rich disordered domains in the MoS2 sheet upon oxygen plasma exposure, leading to an exponential variation of resistance and mobility as a function of plasma exposure time.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Electrical_property_tuning_via_defect_engineering_of_single_layer_MoS2\n__by_oxygen_plasma.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Formation of MoO3 defects",
+      "effect_on_doping": "Lattice distortions",
+      "affected_property": "Electrical properties",
+      "mechanism_quote": "Therefore, the creation of MoO3 in MoS2 creates significant distortion of lattice which increases with increasing plasma exposure time. The resulting material can be treated as an EMSC which can explain the exponential variation of resistance",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Electrical_property_tuning_via_defect_engineering_of_single_layer_MoS2\n__by_oxygen_plasma.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Oxygen plasma exposure",
+      "effect_on_doping": "Increases work function of exposed region",
+      "affected_property": "Mobility and On-current",
+      "mechanism_quote": "This calculation also suggest that with longer oxygen plasma exposure, the work function of the exposed region increases. For the same reason, the mobility and on-current decreases with plasma exposure time.",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Electrical_property_tuning_via_defect_engineering_of_single_layer_MoS2\n__by_oxygen_plasma.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Lu → Hf substitution (electron doping)",
+      "effect_on_doping": "Induces spin disproportionation in the Fe sublattices, leading to robust out-of-plane collinear ferrimagnetism.",
+      "affected_property": "Magnetism",
+      "mechanism_quote": "spin-disproportionation in heavily-electron-doped versions Lu1−xHfxFeO3 (h-LHFO), especially for x=1/3 and 1/2, leads to robust out-of-plane collinear ferrimagnetism",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Polar distortion",
+      "effect_on_doping": "Triggers electronic redistribution on the energy axis and a metal-to-insulator transition.",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "the electronic redistribution on the energy axis is triggered by a polar mode which is a combination of Jahn-Teller distortion and the trimmer distortion. This mode...causes a metal-to-insulator (MIT) transition",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Hf doping concentration (x)",
+      "effect_on_doping": "Creates various spin configurations by tuning the Fe+2/Fe+3 ratio.",
+      "affected_property": "Magnetic configuration",
+      "mechanism_quote": "various spin configurations can be created by tuning x, namely the Fe+2/Fe+3 ratio",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "Uni-axial strain along the c-axis",
+      "effect_on_doping": "Reduces inter-layer distance and tunes the interaction between successive layers.",
+      "affected_property": "Interlayer magnetic interaction",
+      "mechanism_quote": "By applying uni-axial strain along the crystallographic c-axis, the inter-layer distance can be reduced, thereby, we can tune the interaction between the successive layers",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "Temperature",
+      "effect_on_doping": "Influences magnetic ordering. Layers with two magnetic sublattices (Fe+2 and Fe+3) exhibit collinear FiM along the c-axis at 100 K.",
+      "affected_property": "Magnetic ordering",
+      "mechanism_quote": "Whichever layer has two magnetic sublattices features collinear FiM along the crystallographic c-axis at 100 K.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "h-Lu1/3Hf2/3FeO3 polarization direction",
+      "effect_on_doping": "Changes the direction of DMI of MnSTe, enabling skyrmion switching.",
+      "affected_property": "Skyrmion direction",
+      "mechanism_quote": "Thus, the Te completing the TBP also distorts according to the polarization direction, which results in a change in the direction of the DMI of MnSTe...the skyrmion direction can be switched by switching the polarization direction of h-Lu1/3Hf2/3FeO3",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Engineering_strong_magnetoelectricity_using_a_hexagonal_2D_material_on\n__electron-doped_hexagonal_Lu.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "F2 intercalation between graphene layers",
+      "effect_on_doping": "F2 bond stretching (∼1.9−2.0 ˚A)",
+      "affected_property": "induces local spin-moments",
+      "mechanism_quote": "when ﬂuorine molecules are intercalated between two mono/multilayer graphene, their bonds get stretched enough (∼1.9−2.0 ˚A) to weaken their molecular singlet eigenstate",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "charge transfer from carbon layers to fluorine layers",
+      "effect_on_doping": "stabilizes triplet and doublet states",
+      "affected_property": "induces local spin-moments at each ﬂuorine site",
+      "mechanism_quote": "As there is a signiﬁcant charge transfer from the adjacent carbon layers to the ﬂuorine layers, a mixture of triplet and doublet states stabilize to induce local spin-moments at each ﬂuorine sites",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "F-F distance of 1.9-2.0 Å",
+      "effect_on_doping": "weakly bound triplet state",
+      "affected_property": "magnetism",
+      "mechanism_quote": "if F2 molecule is stretched to the bond distance of 1.9−2.0 ˚A, a weakly bound triplet state is achieved",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "larger charge transfer",
+      "effect_on_doping": "lesser magnetic moment",
+      "affected_property": "magnetic moment",
+      "mechanism_quote": "Larger the charge transfer lesser the magnetic moment",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "increase in charge transfer",
+      "effect_on_doping": "increases intercalation energy",
+      "affected_property": "stability",
+      "mechanism_quote": "Increase in charge transfer increases the intercalation energy which perturbs the system",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "temperature > 100K (free standing)",
+      "effect_on_doping": "AA to AB stacking transition, adatom formation",
+      "affected_property": "magnetic moment reduction",
+      "mechanism_quote": "the system have transformed to AB stacked bilayer graphene, with F forming covalent bond with C",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_7",
+      "cause_parameter": "fixing graphene layers",
+      "effect_on_doping": "maintains pseudoatomized F even at room temperature",
+      "affected_property": "maintains magnetic moment",
+      "mechanism_quote": "ﬂuorine atoms remain pseudoatomized and does not form bond with carbon atoms",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Fluorine_Intercalated_Graphene_Formation_of_a_2D_Spin_Lattice_through\n__Pseudoatomization.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Creation of intimate vdW heterointerfaces between graphene and MoX2",
+      "effect_on_doping": "Over 10-fold accumulation of charge in MoX2 compared to MoX2/MoX2 homointerfaces",
+      "affected_property": "Carrier density/charge capacity",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Presence of graphene heterolayer",
+      "effect_on_doping": "More negative intercalation potential by at least 0.5 V compared to bulk MoX2",
+      "affected_property": "Intercalation potential",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Increasing negative voltage (E)",
+      "effect_on_doping": "Intercalation processes occur, revealed by pronounced jumps in Rxx and nH.",
+      "affected_property": "Resistance (Rxx) and Hall carrier density (nH)",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "Intercalation process",
+      "effect_on_doping": "Decline in electron mobility as Li+ ions act as scattering sites; Ultimately resistance is driven down as carrier density increases.",
+      "affected_property": "Electron mobility and Resistance",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "Intercalation / electron doping of 2H-MoS2 beyond ~0.35 Li per MoS2 unit",
+      "effect_on_doping": "Structural phase transition from semiconducting H phase to metallic T/T' phase",
+      "affected_property": "Crystal structure, electronic properties",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "Graphene heterolayer in MoS2 heterostructure",
+      "effect_on_doping": "Enhances electrochemical charge accumulation in MoS2 and shifts intercalation potential more negative than bulk MoS2",
+      "affected_property": "Charge accumulation, intercalation potential",
+      "mechanism_quote": "The low resistivity of graphene […] furnishes a lower-resistance electronic pathway […] which allows its immediate interface with the MoX2 layer to undergo ionic doping more efficiently than adjacent MoX2/MoX2 homointerfaces.",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_7",
+      "cause_parameter": "Local phase transformation from H-MoS2 to T’-MoS2 upon doping",
+      "effect_on_doping": "Cooperative effect where it becomes increasingly favorable to intercalate Li, lowering the activation barrier for Li+ insertion",
+      "affected_property": "Li binding energy, intercalation activation barrier",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "strongly suggested based on DFT",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_8",
+      "cause_parameter": "Graphene (G) heterolayers in MoS2/Graphene",
+      "effect_on_doping": "Substantially stronger attenuating effect on the binding energy of Li (compared to hBN) , yet still the reaction is more exergonic than that of Li with hBN/G or G/G",
+      "affected_property": "Li binding energy",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "DFT calculations",
+      "source_file": "Heterointerface_effects_in_the_electro-intercalation_of_van_der_Waals\n__heterostructures.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "fluence energy of laser pulse",
+      "effect_on_doping": "modifies electron and phonon temperatures, influencing magnetization dynamics and spin texture formation.",
+      "affected_property": "magnetization (Mz/Ms), spin texture type (skyrmions, stripes, bubbles)",
+      "mechanism_quote": "An initial sharp increase of Telec is observed within the sub-picosecond regime (~0.5 ps) taking the system above the Curie temperature TC = 68 K2. Tphon follows the variation of Telec as thermal relaxation takes place shortly after the excitation. The behaviour of both temperatures is dependent on the ﬂuence energy applied to the layers displaying variation on the stabilisation of Telec and Tphon towards equilibration. That is, the higher the ﬂuence the larger the stabilised temperatures. This affects directly how the magnetisation (Mz/Ms) responds to the laser pulse, which is strongly ﬂuence-dependent.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "low fluence magnitudes (e.g., 0.03 mJ cm−2)",
+      "effect_on_doping": "type-I demagnetization dynamics",
+      "affected_property": "magnetization dynamics",
+      "mechanism_quote": "At low ﬂuence magnitudes (e.g., 0.03 mJ cm−2), the demagnetisation process completes before the electron-phonon temperature equilibration is reached (0.34 K). There is a short decay of the magnetisation from the saturation state to Mz/Ms = 0.75 which rapidly recovers on the timescale of ~4 ps. This demagnetisation process can be classiﬁed as type-I dynamics as a single-step demagnetization within the electron-phonon equilibration is achieved.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "higher fluences (i.e., 0.2 mJ cm−2)",
+      "effect_on_doping": "type-II demagnetization dynamics",
+      "affected_property": "magnetization dynamics",
+      "mechanism_quote": "At higher ﬂuences (i.e., 0.2 mJ cm−2) there is an initial rapid demagnetisation (Mz/Ms = 0.04) of the CrGeTe3 driven by the electron temperature. After the electron-phonon temperature equilibration is achieved (2.25 K) the magnetisation does not signiﬁcantly recover, and instead a second, far slower stage of demagnetisation proceeds which is determined by the phonon temperature. This is a two-stage demagnetisation process deﬁned as a type-II dynamics.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "laser fluence in transitional regime",
+      "effect_on_doping": "formation of variety of magnetic objects (bubbles, spirals, stripes, donuts)",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "Interestingly, between the low and large ﬂuence limits, there is a transitional regime where a rapid and almost complete recovery of the magnetisation occurs within 200 ps initially following a type-I dynamics. Nevertheless, over a much longer timescale ( >200 ps) the system enters in a second demagnetisation stage steered by the phonon temperature as in a type-II dynamics. In this transitional domain, the laser pulse drives the formation of a variety of magnetic objects such as bubbles (circular and elongated), spirals or stripe domains, and donut-shaped textures (e.g., 0.14 mJ cm−2)",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "fluence 0.001−0.055 mJ cm−2",
+      "effect_on_doping": "Final topological charge near zero, type-I magnetization dynamics",
+      "affected_property": "topological charge, magnetization dynamics",
+      "mechanism_quote": "At low ﬂuences, 0.001−0.055 mJ cm−2 the ﬁnal topological charge is nearly zero with the magnetisation in the type-I dynamics.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "fluence 0.055−0.087 mJ cm−2",
+      "effect_on_doping": "formation of spin stripes",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "As the ﬂuence increases within the range of 0.055−0.087 mJ cm−2, the pulse signiﬁcantly demagnetises the system, creating densely packed magnon droplets transiting the system to the formation of non-trivial objects such as spin stripes.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_7",
+      "cause_parameter": "fluence 0.09−0.180 mJ cm−2",
+      "effect_on_doping": "formation of skyrmions, sometimes with skyrmioniums",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "The formation of skyrmions however can be achieved as the energy is slightly increased to 0.09−0.180 mJ cm−2. At this limit, the temperature of the system is suitable for the magnon droplets to gain topological features, and hence they evolve into skyrmions rather than merging. It is noteworthy that is within the region of 0.14−0.18 mJ cm−2 there is the simultaneous formation of skyrmioniums with skyrmions which are randomly distributed over the surface.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_8",
+      "cause_parameter": "fluence above 0.18 mJ cm−2",
+      "effect_on_doping": "hybrid spin state of skyrmions, stripes and skyrmioniums",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "At ﬂuences above 0.18 mJ cm−2, a hybrid spin state consisting of skyrmions, stripes and skyrmioniums are formed. The large amount of energy deposited in the CrGeTe3 layers at this limit results in thermal ﬂuctuations which are sufﬁcient to inhibit the creation of magnon droplets. Instead, the non-equilibrium spin textures tend to merge and evolve in mixed labyrinthine domains with the appearance of skyrmions and skyrmioniums.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_9",
+      "cause_parameter": "Number of laser pulses (N)",
+      "effect_on_doping": "Determines whether magnon droplets form skyrmions/bubbles or stripe domains",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "A closer look at the magnetisation dynamics reveals that depending on the amount of energy transferred to the layers via the different number of pulses N, the magnon droplets can either be isolated and give place to the formation of skyrmions or magnetic bubbles; or, they can coalesce and form long stripe domains with smaller contributions from localised droplets.",
+      "competing_processes": "isolated droplet formation vs. coalescence",
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_10",
+      "cause_parameter": "application of laser pulses with magnetic field",
+      "effect_on_doping": "transformation of magnetic textures (stripes to bubbles/skyrmions and vice versa)",
+      "affected_property": "spin texture type",
+      "mechanism_quote": "As laser pulses are applied to CrGeTe3, there are clear transformations of the magnetic textures from one state to another which can be further manipulated via a magnetic ﬁeld.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_11",
+      "cause_parameter": "Field polarization",
+      "effect_on_doping": "controls polarity of created spin textures",
+      "affected_property": "spin texture polarity",
+      "mechanism_quote": "Different ﬁeld polarisation also controls the polarity of the created spin textures (e.g., stripes, bubbles, skyrmions, anti-skyrmions) as we compare the ﬁnal spin state with ﬁelds of different signs.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Laser-induced_topological_spin_switching_in_a_2D_van_der_Waals_magnet.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Geometrically low regions of the moiré superlattice",
+      "effect_on_doping": "Energetically favored for substitutional boron incorporation",
+      "affected_property": "Boron distribution",
+      "mechanism_quote": "BC species are the most plausible candidates for the observed defects, since this element is present in the BTHF precursor and, unlike oxygen, was detected by XPS",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Substitutional boron incorporation",
+      "effect_on_doping": "Induces local bending of graphene towards Ir(111)",
+      "affected_property": "Interfacial charge transfer",
+      "mechanism_quote": "the substitutional boron strongly perturbs the graphene/Ir(111) interaction by inducing a larger charge transfer from the underlying Ir atoms to the carbon atoms",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Local bending of graphene and enhanced charge transfer",
+      "effect_on_doping": "Compensates hole doping induced by substitutional boron",
+      "affected_property": "Electronic doping level",
+      "mechanism_quote": "the holes that they introduce in graphene are compensated by the uptake of electron charges from the substrate through a stronger interfacial interaction",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "Highly corrugated moiré superlattice (Ir(111) or Ru(0001))",
+      "effect_on_doping": "Enables site-selective pinning of substitutional boron",
+      "affected_property": "Boron distribution",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "Incorporation of boron during graphene growth",
+      "effect_on_doping": "Enhances boron segregation at elevated temperatures, facilitating access to favorable moiré regions",
+      "affected_property": "Boron distribution",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Spatial_segregation_of_substitutional_B_atoms_in_graphene_patterned_by\n__the_moiré_superlattice_on_I.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Doping site (closer to edge)",
+      "effect_on_doping": "Increased formation energy (less stable)",
+      "affected_property": "Thermodynamic stability",
+      "mechanism_quote": "Si atoms closer to the edge are more likely to be substituted than those in the interior sites",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "C doping",
+      "effect_on_doping": "Induces out-of-plane and bond distortions",
+      "affected_property": "Structure",
+      "mechanism_quote": "C substitutions...induce significant distortions caused by disorder",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "C doping",
+      "effect_on_doping": "Ferromagnetic behavior",
+      "affected_property": "Magnetic properties",
+      "mechanism_quote": "all of the doped configurations prefer to be in a triplet state indicating that these structures are ferromagnetic",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "C-C bond in adjacent doping sites (e.g., S12-S14)",
+      "effect_on_doping": "Higher strain, lower stability",
+      "affected_property": "Structure and stability",
+      "mechanism_quote": "the C-C bond introduces a higher strain into the structures, due to its shorter length, making those nanoclusters the most unstable ones",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "Doping site (for single C substitution)",
+      "effect_on_doping": "Affects HOMO-LUMO gap",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "For single C substitutions near the center have a larger effect on the band gap",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "Doping site and number of C atoms",
+      "effect_on_doping": "Affects HOMO-LUMO gap",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "For double C doping, the larger effects on the gap are shown near the edges due to correlation effects and structural relaxation",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_7",
+      "cause_parameter": "C substitution (same vs. different sublattices)",
+      "effect_on_doping": "Affects band gap",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "For those structures in which the carbon atoms are located at the same sublattice exhibit similar and larger band gaps than those for which the doping occurs in opposite sublattices.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_8",
+      "cause_parameter": "Symmetry-breaking doping",
+      "effect_on_doping": "Opens band gap",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "This symmetry-breaking doping induces a sublattice potential difference which in turn breaks the band degeneracy and opens the band gap.",
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_9",
+      "cause_parameter": "Increasing disorder strength",
+      "effect_on_doping": "Closes band gap, recovers Dirac cones",
+      "affected_property": "Electronic structure",
+      "mechanism_quote": "as the strength of the disorder increases, the gaps close eventually recovering the presence of Dirac cones",
+      "competing_processes": null,
+      "confidence_level": "strongly suggested",
+      "source_file": "Understanding_disorder_in_2D_materials_the_case_of_carbon_doping_of\n__Silicene.txt"
+    },
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "Using H2O as an oxygen precursor in ALD on 2D materials",
+      "effect_on_doping": "Non-uniform and island-like growth on defects or step edges of 2D materials",
+      "affected_property": "Leakage current in devices",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_2",
+      "cause_parameter": "Ozone pretreatment in ALD",
+      "effect_on_doping": "Provides additional dangling bonds for uniform and homogeneous growth",
+      "affected_property": "Uniformity of dielectric film",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_3",
+      "cause_parameter": "Ozone pretreatment in ALD",
+      "effect_on_doping": "May lead to damage of the 2D material or unintentional doping",
+      "affected_property": "PL quenching and alteration of electronic properties",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_4",
+      "cause_parameter": "Deposition of a thin metal seed layer for ALD",
+      "effect_on_doping": "Decreases mobility of devices and may damage atomically thin 2D semiconductors",
+      "affected_property": "Device mobility",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_5",
+      "cause_parameter": "O-terminated Al2O3 on bilayer graphene",
+      "effect_on_doping": "Stronger interaction leading to charge density redistribution at the interface and band-gap opening in bilayer graphene",
+      "affected_property": "Electronic properties of graphene",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "suggested by DFT calculations",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_6",
+      "cause_parameter": "Al-terminated Al2O3 on bilayer graphene",
+      "effect_on_doping": "Weak interaction preserving the Dirac cone of graphene layers",
+      "affected_property": "Electronic properties of graphene",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "suggested by DFT calculations",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_7",
+      "cause_parameter": "O-terminated Al2O3 on WSe2",
+      "effect_on_doping": "Stronger interaction leading to the emergence of mid-gap states",
+      "affected_property": "Electronic properties of WSe2",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "suggested by DFT calculations",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_8",
+      "cause_parameter": "Al-terminated Al2O3 on WSe2",
+      "effect_on_doping": "Weak interaction preserving the electronic properties of WSe2",
+      "affected_property": "Electronic properties of WSe2",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "suggested by DFT calculations",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_9",
+      "cause_parameter": "Oxygen plasma pretreatment of graphite and WSe2 templates before Al2O3 growth",
+      "effect_on_doping": "Al2O3 exfoliates along with the underlying graphite and WSe2 due to oxidation and chemical bond formation",
+      "affected_property": "Exfoliation behavior",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_10",
+      "cause_parameter": "Direct ALD growth of alumina on WS2 monolayer using O3",
+      "effect_on_doping": "Significant PL quenching (7x) due to doping",
+      "affected_property": "Photoluminescence",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "experimentally proven",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    },
+    {
+      "relationship_id": "rel_11",
+      "cause_parameter": "Hydroxyl-passivated O-terminated Al2O3 on WS2",
+      "effect_on_doping": "Weak interaction with WS2 similar to Al-terminated Al2O3, preventing doping",
+      "affected_property": "Interfacial interaction and doping",
+      "mechanism_quote": null,
+      "competing_processes": null,
+      "confidence_level": "suggested by DFT calculations",
+      "source_file": "Van_der_Waals_enabled_formation_and_integration_of_ultrathin_high-κ_dielectrics_.txt"
+    }
+  ]
+}
