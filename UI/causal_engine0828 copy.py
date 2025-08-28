@@ -154,78 +154,20 @@ class CausalReasoningEngine:
                 if mechanism:
                     mechanisms.append(f"{nodes[i]} → {nodes[i+1]}: {mechanism}")
         return mechanisms
-    
-    # new method to extract detailed path sources
-    def _extract_path_sources(self, paths: list):
-        """
-        Extract detailed source information for each path including mechanisms and citations.
-        """
-        path_sources = []
-        for path_str in paths:
-            nodes = [node.strip() for node in path_str.split(" -> ")]
-            path_info = {
-                "path": path_str,
-                "edges": [],
-                "mechanisms": []
-            }
-            
-            for i in range(len(nodes) - 1):
-                source_node = nodes[i]
-                target_node = nodes[i+1]
-                
-                if self.graph.has_edge(source_node, target_node):
-                    edge_data = self.graph[source_node][target_node]
-                    mechanism = edge_data.get('mechanism', 'No mechanism specified')
-                    
-                    edge_info = {
-                        "from": source_node,
-                        "to": target_node,
-                        "mechanism": mechanism,
-                        "edge_type": "direct_causal_link"
-                    }
-                    
-                    path_info["edges"].append(edge_info)
-                    if mechanism and mechanism != 'No mechanism specified':
-                        path_info["mechanisms"].append(f"{source_node} → {target_node}: {mechanism}")
-            
-            path_sources.append(path_info)
-        
-        return path_sources
 
     def _direct_path_query(self, original_prompt_data: dict, causal_paths: list, query_type: str):
         """
-        Enhanced query for when direct paths exist. Explicitly prints paths and sources,
-        and includes detailed citations in the reasoning.
+        NEW: Enhanced query for when direct paths exist. Asks the LLM to provide
+        mechanistic explanations and chain-of-thought reasoning.
         """
-        print(f"\n{'='*60}")
-        print(f"DIRECT CAUSAL PATHS FOUND ({len(causal_paths)} paths)")
-        print(f"{'='*60}")
-        
-        # Extract detailed source information
-        path_sources = self._extract_path_sources(causal_paths)
-        
-        # Print each path with its sources
-        for i, path_info in enumerate(path_sources, 1):
-            print(f"\nPath {i}: {path_info['path']}")
-            print(f"  Causal Links:")
-            for edge in path_info['edges']:
-                print(f"    • {edge['from']} → {edge['to']}")
-                print(f"      Mechanism: {edge['mechanism']}")
-                print(f"      Source: Knowledge Graph (Direct Causal Link)")
-            
-            if not path_info['mechanisms']:
-                print(f"    • No specific mechanisms provided in knowledge graph")
-        
-        print(f"\n{'='*60}")
+        print(f"Found {len(causal_paths)} direct causal paths. Requesting mechanistic explanation...")
 
         # Extract mechanisms for all paths
         all_mechanisms = []
-        all_citations = []
-        for path_info in path_sources:
-            all_mechanisms.extend(path_info['mechanisms'])
-            for edge in path_info['edges']:
-                citation = f"DAG Edge: '{edge['from']}' → '{edge['to']}' (mechanism: {edge['mechanism']})"
-                all_citations.append(citation)
+        for path in causal_paths:
+            mechanisms = self._get_path_mechanisms(path)
+            if mechanisms:
+                all_mechanisms.extend(mechanisms)
 
         if query_type == "forward":
             task_description = "explain the mechanistic pathway from synthesis conditions to material properties"
@@ -240,7 +182,6 @@ class CausalReasoningEngine:
 
         formatted_paths = "\n- ".join(causal_paths)
         formatted_mechanisms = "\n- ".join(all_mechanisms) if all_mechanisms else "No specific mechanisms provided in knowledge graph"
-        formatted_citations = "\n- ".join(all_citations)
 
         prompt = f"""
         You are an expert materials scientist AI. Your knowledge graph contains direct causal pathways relevant to the user's query.
@@ -255,97 +196,65 @@ class CausalReasoningEngine:
         **Known Mechanisms from Knowledge Graph:**
         - {formatted_mechanisms}
 
-        **Source Citations for Knowledge Graph Data:**
-        - {formatted_citations}
-
         **Your Task:**
-        1. **Mechanistic Analysis**: Explain the chemical/physical mechanisms underlying each step in the causal pathway. 
-        - CITE SPECIFIC DAG EDGES when using knowledge graph information
-        - Clearly distinguish between DAG-sourced information and general chemical knowledge
+        1. **Mechanistic Analysis**: Explain the chemical/physical mechanisms underlying each step in the causal pathway. Draw upon your general knowledge to fill in details not explicitly stated in the graph.
         
-        2. **Chain-of-Thought Reasoning**: Provide step-by-step logical explanation with explicit source attribution:
-        - For each step, specify if information comes from "Knowledge Graph" or "General Chemistry Knowledge"
-        - Include electronic structure changes, defect chemistry, thermodynamics, kinetics
-        - Reference specific DAG pathways when applicable
+        2. **Chain-of-Thought Reasoning**: Provide a step-by-step logical explanation of how each cause leads to its effect. Include:
+           - Electronic structure changes
+           - Defect chemistry
+           - Thermodynamic considerations
+           - Kinetic factors
+           - Structure-property relationships
 
-        3. **Quantitative Insights**: Provide estimates based on DAG data where available, general knowledge otherwise
+        3. **Quantitative Insights**: Where possible, provide quantitative estimates or ranges based on typical values in materials science.
 
-        4. **Source Attribution**: In your reasoning, explicitly cite whether each piece of information comes from:
-        - "DAG Direct Path: [specific path]"
-        - "DAG Mechanism: [specific mechanism]" 
-        - "General Chemistry Knowledge"
-        - "Materials Science Principles"
+        4. **Alternative Pathways**: Briefly mention any alternative mechanisms that could lead to similar outcomes.
 
         **Output Format:**
         Provide your answer in a structured JSON format within a ```json block.
-        The JSON MUST include detailed source citations and distinguish between DAG and general knowledge.
+        The JSON MUST include detailed mechanistic reasoning and chain-of-thought analysis.
 
         Example JSON output:
         {{
-        "{output_format_label}": {example_output},
-        "mechanistic_explanation": {{
+          "{output_format_label}": {example_output},
+          "mechanistic_explanation": {{
             "primary_mechanism": "Surface oxidation creates oxygen vacancies that act as p-type dopants by removing electrons from the valence band...",
             "electronic_effects": "The removal of electrons creates holes in the valence band, shifting the Fermi level toward the valence band edge...",
             "defect_chemistry": "O2 molecules adsorb on the surface and extract electrons: O2 + 2e- → 2O-. This leaves behind holes...",
-            "thermodynamics": "At 200°C, the Gibbs free energy favors oxygen chemisorption without bulk oxidation..."
-        }},
-        "chain_of_thought": [
-            "Step 1: [DAG Direct Path: Temperature → Oxidation] At 200°C, oxygen molecules adsorb on the surface",
-            "Step 2: [General Chemistry Knowledge] Oxygen abstracts electrons from Mo d-orbitals, creating Mo5+ states", 
-            "Step 3: [DAG Mechanism: Oxidation → p-type behavior] These oxidized states act as acceptors, creating holes",
-            "Step 4: [Materials Science Principles] Hole concentration increases with oxidation time following sqrt(t) kinetics"
-        ],
-        "source_attribution": {{
-            "dag_paths_used": {causal_paths},
-            "dag_mechanisms_cited": {all_mechanisms},
-            "general_knowledge_applied": ["Electronic band theory", "Defect chemistry principles", "Thermodynamic analysis"],
-            "dag_citations": {all_citations}
-        }},
-        "quantitative_estimates": {{
+            "thermodynamics": "At 200°C, the Gibbs free energy favors oxygen chemisorption without bulk oxidation...",
+            "kinetics": "The reaction rate follows Arrhenius behavior with activation energy ~0.5 eV..."
+          }},
+          "chain_of_thought": [
+            "Step 1: At 200°C, oxygen molecules adsorb on the MoS2 surface",
+            "Step 2: Oxygen abstracts electrons from Mo d-orbitals, creating Mo5+ states",
+            "Step 3: These oxidized states act as acceptors, creating holes",
+            "Step 4: Hole concentration increases with oxidation time following sqrt(t) kinetics",
+            "Step 5: The Fermi level shifts toward the valence band, establishing p-type behavior"
+          ],
+          "quantitative_estimates": {{
             "hole_concentration": "~10^12 to 10^13 cm^-2 for monolayer",
-            "source": "General materials science knowledge - no specific values in DAG"
-        }},
-        "confidence": 1.0,
-        "reasoning": "Direct causal pathway found in knowledge graph, enhanced with mechanistic understanding from general chemistry knowledge."
+            "fermi_level_shift": "~0.1-0.2 eV toward valence band",
+            "activation_energy": "~0.5 eV for oxygen chemisorption"
+          }},
+          "alternative_mechanisms": [
+            "Substitutional doping with group V elements could also achieve p-type behavior",
+            "Plasma treatment could accelerate the oxidation process"
+          ],
+          "confidence": 1.0,
+          "reasoning": "Direct causal pathway found in knowledge graph, enhanced with mechanistic understanding from general chemistry knowledge."
         }}
         """
 
         print("Querying Gemini for mechanistic explanation of direct pathway...")
         response = self.model.generate_content(prompt)
-        result = extract_json_from_response(response.text)
-        
-        # Add the path information to the result for reference
-        if isinstance(result, dict) and "error" not in result:
-            result["dag_paths_found"] = causal_paths
-            result["dag_path_details"] = path_sources
-        
-        return result
+        return extract_json_from_response(response.text)
 
     def _transfer_learning_query(self, original_prompt_data: dict, analogous_context: str, confidence: float, query_type: str, 
-                                similar_node: str = None, query_string: str = None):
+                                 similar_node: str = None, query_string: str = None):
         """
-        Enhanced transfer learning query with explicit path printing and source citations.
+        Enhanced transfer learning query that includes mechanistic reasoning.
         """
-        print(f"\n{'='*60}")
-        print(f"ANALOGOUS PATH FOUND (Transfer Learning)")
-        print(f"{'='*60}")
-        print(f"Query: {query_string}")
-        print(f"Most Similar Node: {similar_node}")
-        print(f"Similarity Score: {confidence:.3f}")
-        print(f"Analogous Path: {analogous_context}")
-        
-        # Extract source information for the analogous path
-        path_sources = self._extract_path_sources([analogous_context])
-        
-        if path_sources:
-            print(f"\nAnalogous Path Details:")
-            path_info = path_sources[0]
-            for edge in path_info['edges']:
-                print(f"  • {edge['from']} → {edge['to']}")
-                print(f"    Mechanism: {edge['mechanism']}")
-                print(f"    Source: Knowledge Graph (Analogous Causal Link)")
-        
-        print(f"{'='*60}")
+        print(f"WARNING: No exact path found. Using most similar context with confidence {confidence:.2f} for transfer learning.")
 
         if query_type == "forward":
             task_description = "predict the resulting material properties with mechanistic explanation"
@@ -362,15 +271,9 @@ class CausalReasoningEngine:
         if query_type == "inverse" and similar_node and query_string:
             property_embedding_diff = self._calculate_embedding_difference(query_string, similar_node)
 
-        # Extract mechanisms and citations for the analogous path
+        # Extract mechanisms for the analogous path
         mechanisms = self._get_path_mechanisms(analogous_context)
         formatted_mechanisms = "\n- ".join(mechanisms) if mechanisms else "No specific mechanisms provided"
-        
-        analogous_citations = []
-        if path_sources:
-            for edge in path_sources[0]['edges']:
-                citation = f"Analogous DAG Edge: '{edge['from']}' → '{edge['to']}' (mechanism: {edge['mechanism']})"
-                analogous_citations.append(citation)
 
         prompt = f"""
         You are an expert materials scientist AI. Your task is to reason from analogous data using mechanistic understanding.
@@ -378,80 +281,75 @@ class CausalReasoningEngine:
 
         **Task:**
         Based on the provided analogous information and your chemical knowledge, {task_description} for the user's target.
-        You must provide detailed mechanistic reasoning with explicit source citations.
+        You must provide detailed mechanistic reasoning and chain-of-thought analysis.
 
         **{input_data_label} (User's Query):**
         {json.dumps(original_prompt_data, indent=2)}
 
-        **Most Similar Known Causal Pathway (Analogous):**
+        **Most Similar Known Causal Pathway:**
         - {analogous_context}
 
-        **Known Mechanisms for Analogous Pathway:**
+        **Known Mechanisms for Similar Pathway:**
         - {formatted_mechanisms}
 
-        **Source Citations for Analogous Knowledge Graph Data:**
-        - {chr(10).join(analogous_citations) if analogous_citations else "No specific citations available"}
+        **Quantitative Analysis:**
+        The embedding distance between the user's query and the most similar known case is {property_embedding_diff:.4f} 
+        (where 0 is identical and 2 is opposite).
 
-        **Similarity Analysis:**
-        - Most Similar Node: {similar_node}
-        - Similarity Score: {confidence:.3f}
-        - Embedding Distance: {property_embedding_diff:.4f} (0=identical, 2=opposite)
+        **Your Reasoning Process (Mandatory):**
+        1. **Mechanistic Comparison**: Compare the mechanisms in the known pathway with what would be expected for the user's case. What fundamental chemistry remains the same? What changes?
+        
+        2. **Adaptation Strategy**: Based on the embedding distance and mechanistic understanding, explain how to adapt the known pathway: - If distance < 0.4: Minor parameter adjustments with same mechanism
+           - If distance 0.4-0.7: Modified mechanism with similar principles  
+           - If distance > 0.7: Fundamentally different mechanism required
 
-        **Your Reasoning Process (Mandatory with Source Attribution):**
-        1. **Mechanistic Comparison**: Compare mechanisms in analogous pathway with target case
-        - Clearly cite "Analogous DAG Path" vs "General Chemistry Knowledge"
-        
-        2. **Adaptation Strategy**: Explain how to adapt the known pathway with source attribution
-        
-        3. **Chain-of-Thought Prediction**: Step-by-step reasoning with explicit citations:
-        - "Analogous DAG Mechanism: [specific mechanism]"
-        - "General Chemistry Knowledge: [principle applied]"
-        - "Materials Science Principles: [theory used]"
+        3. **Chain-of-Thought Prediction**: Provide step-by-step reasoning for your prediction, including:
+           - Electronic structure considerations
+           - Defect chemistry modifications
+           - Thermodynamic feasibility
+           - Kinetic pathway changes
+
+        4. **Uncertainty Quantification**: Explicitly state which aspects are well-supported by analogy and which require extrapolation.
 
         **Output Format:**
+        Provide your answer in a structured JSON format within a ```json block.
+
+        Example JSON output:
         {{
-        "{output_format_label}": {example_output},
-        "mechanistic_reasoning": {{
-            "similarity_analysis": "The analogous pathway involves... [cite sources]",
-            "adapted_mechanism": "Adapting from analogous case... [cite sources]",
-            "electronic_structure": "Based on general band theory... [cite source type]"
-        }},
-        "chain_of_thought": [
-            "Step 1: [Analogous DAG Path] From similar case, we know that...",
-            "Step 2: [General Chemistry Knowledge] Adapting this principle...",
-            "Step 3: [Materials Science Principles] Electronic structure considerations...",
-            "Step 4: [Reasoning by Analogy] Extrapolating to target case..."
-        ],
-        "source_attribution": {{
-            "analogous_dag_path": "{analogous_context}",
-            "analogous_mechanisms_used": {mechanisms},
-            "general_knowledge_applied": ["List of principles used"],
-            "analogous_citations": {analogous_citations},
-            "adaptation_reasoning": "How analogous knowledge was modified for target case"
-        }},
-        "uncertainty_analysis": {{
-            "high_confidence": "Aspects well-supported by analogy",
-            "medium_confidence": "Reasonable extrapolations", 
-            "low_confidence": "Speculative aspects requiring validation"
-        }},
-        "confidence": {confidence:.4f},
-        "property_embedding_distance": {property_embedding_diff:.4f},
-        "analogous_path_used": "{analogous_context}"
+          "{output_format_label}": {example_output},
+          "mechanistic_reasoning": {{
+            "similarity_analysis": "The known pathway involves p-doping via oxidation. The user seeks n-doping, requiring opposite charge carriers...",
+            "adapted_mechanism": "Instead of oxygen creating acceptor states, we need donor states. Rhenium substitution can provide extra electrons...",
+            "electronic_structure": "Re has one more valence electron than Mo, creating shallow donor states near the conduction band...",
+            "thermodynamic_analysis": "Re-Mo substitution is energetically favorable with formation energy ~1.2 eV..."
+          }},
+          "chain_of_thought": [
+            "Step 1: Identify that n-doping requires electron donors, not acceptors",
+            "Step 2: Select Re as it has 7 valence electrons vs Mo's 6",
+            "Step 3: Use CVD for controlled substitutional doping",
+            "Step 4: Re atoms substitute Mo sites, donating electrons",
+            "Step 5: Fermi level shifts toward conduction band, creating n-type behavior"
+          ],
+          "uncertainty_analysis": {{
+            "high_confidence": "Re as n-type dopant is well-established",
+            "medium_confidence": "Exact doping concentration achievable",
+            "low_confidence": "Precise temperature optimization without experimental data"
+          }},
+          "confidence": {confidence:.4f},
+          "property_embedding_distance": {property_embedding_diff:.4f},
+          "analogous_path_used": "{analogous_context}"
         }}
         """
 
-        print("Querying Gemini with mechanistic transfer learning prompt (with source citations)...")
+        print("\n" + "="*80)
+        print("TRANSFER LEARNING PROMPT WITH MECHANISTIC REASONING:")
+        print("="*80)
+        print(prompt)
+        print("="*80 + "\n")
+
+        print("Querying Gemini with mechanistic transfer learning prompt...")
         response = self.model.generate_content(prompt)
-        result = extract_json_from_response(response.text)
-        
-        # Add the analogous path information to the result
-        if isinstance(result, dict) and "error" not in result:
-            result["analogous_path_found"] = analogous_context
-            result["analogous_path_details"] = path_sources[0] if path_sources else None
-            result["similarity_node"] = similar_node
-            result["similarity_score"] = confidence
-        
-        return result
+        return extract_json_from_response(response.text)
 
     def forward_prediction(self, synthesis_inputs: dict):
         """
@@ -480,28 +378,10 @@ class CausalReasoningEngine:
                         similar_node=similar_node, query_string=query_string
                     )
 
-        # print("No direct path or sufficiently similar node found. Using general knowledge fallback.")
-        # In forward_prediction method, replace the final fallback:
-        print(f"\n{'='*60}")
-        print("NO SUITABLE PATHS FOUND")
-        print(f"{'='*60}")
-        print(f"Query keywords: {input_keywords}")
-        print(f"Available synthesis parameters in DAG: {len(all_synthesis_params)}")
-        print(f"Available properties in DAG: {len(all_properties)}")
-        if similar_node:
-            print(f"Best similar node: {similar_node} (score: {score:.3f})")
-        print(f"{'='*60}")
-
+        print("No direct path or sufficiently similar node found. Using general knowledge fallback.")
         return {
             "error": "Failed to find a direct or analogous path in the knowledge graph.",
             "confidence": 0.0,
-            "query_analysis": {
-                "input_keywords": input_keywords,
-                "available_synthesis_params": len(all_synthesis_params),
-                "available_properties": len(all_properties),
-                "best_similar_node": similar_node,
-                "similarity_score": score if similar_node else 0.0
-            },
             "suggestion": "Consider expanding the knowledge graph or use a general-purpose query."
         }
 

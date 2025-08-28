@@ -386,17 +386,66 @@ def visualize_causal_path(engine, result, query_type):
     
     return fig
 
+
 def display_quantitative_estimates(estimates):
-    """Display quantitative estimates in a structured format"""
+    """Display quantitative estimates in a structured format with robust error handling"""
     st.markdown("### 📏 Quantitative Estimates")
     
-    cols = st.columns(len(estimates))
-    for i, (key, value) in enumerate(estimates.items()):
-        with cols[i]:
-            st.metric(
-                label=key.replace('_', ' ').title(),
-                value=value
-            )
+    # Check if estimates exists and is valid
+    if not estimates:
+        st.info("No quantitative estimates available for this query.")
+        return
+    
+    if not isinstance(estimates, dict):
+        st.warning("⚠️ Quantitative estimates format is invalid.")
+        st.write(f"Received type: {type(estimates)}")
+        return
+    
+    # Filter out empty, null, or invalid estimates
+    valid_estimates = {}
+    for k, v in estimates.items():
+        if v is not None and str(v).strip() and str(v).lower() not in ['none', 'null', 'n/a', '']:
+            valid_estimates[k] = v
+    
+    if not valid_estimates:
+        st.info("No valid quantitative estimates found in the response.")
+        return
+    
+    # Safely create columns with reasonable limits
+    num_estimates = len(valid_estimates)
+    max_columns = min(num_estimates, 4)  # Limit to max 4 columns for better display
+    
+    try:
+        cols = st.columns(max_columns)
+        
+        for i, (key, value) in enumerate(valid_estimates.items()):
+            col_idx = i % max_columns  # Wrap around if more estimates than columns
+            
+            with cols[col_idx]:
+                # Clean up the key for display
+                display_key = key.replace('_', ' ').replace('-', ' ').title()
+                
+                # Handle different value types gracefully
+                try:
+                    # If it's a number, format it nicely
+                    if isinstance(value, (int, float)):
+                        display_value = f"{value:,.3f}".rstrip('0').rstrip('.')
+                    else:
+                        display_value = str(value)
+                    
+                    st.metric(
+                        label=display_key,
+                        value=display_value
+                    )
+                except Exception as e:
+                    # Fallback display if metric fails
+                    st.write(f"**{display_key}:** {value}")
+                    
+    except Exception as e:
+        # Ultimate fallback - just display as key-value pairs
+        st.warning("⚠️ Could not display estimates in metric format. Showing as list:")
+        for key, value in valid_estimates.items():
+            st.write(f"• **{key.replace('_', ' ').title()}:** {value}")
 
 def display_alternative_mechanisms(alternatives):
     """Display alternative mechanisms"""
