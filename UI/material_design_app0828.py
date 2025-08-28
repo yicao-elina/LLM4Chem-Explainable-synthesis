@@ -10,7 +10,7 @@ from pathlib import Path
 
 # Import your existing CausalReasoningEngine
 # Make sure the engine file is in the same directory or adjust the path
-from causal_engine import CausalReasoningEngine, extract_json_from_response
+from causal_engine0828 import CausalReasoningEngine, extract_json_from_response
 
 # Page configuration
 st.set_page_config(
@@ -130,6 +130,12 @@ if 'engine' not in st.session_state:
         'material_properties': {}
     }
 
+# Add this function to reset the order structure if needed
+def reset_current_order():
+    st.session_state.current_order = {
+        'synthesis_conditions': {},
+        'material_properties': {}
+    }
 # Helper functions
 def load_engine(json_path):
     """Load the causal reasoning engine"""
@@ -180,6 +186,33 @@ def create_menu_card(item, category, selected_items):
         if is_selected:
             st.success("Added!")
 
+# def display_current_order(order):
+#     """Display the current order in a receipt-like format"""
+#     st.markdown('<div class="order-card">', unsafe_allow_html=True)
+#     st.markdown("### 📋 Your Current Order")
+    
+#     col1, col2 = st.columns(2)
+    
+#     with col1:
+#         st.markdown("**🔧 Synthesis Conditions:**")
+#         if order['synthesis_conditions']:
+#             for key, items in order['synthesis_conditions'].items():
+#                 for item in items.get('items', []):
+#                     st.write(f"• {item}")
+#         else:
+#             st.write("*No items selected*")
+    
+#     with col2:
+#         st.markdown("**🎯 Material Properties:**")
+#         if order['material_properties']:
+#             for key, items in order['material_properties'].items():
+#                 for item in items.get('items', []):
+#                     st.write(f"• {item}")
+#         else:
+#             st.write("*No items selected*")
+    
+#     st.markdown('</div>', unsafe_allow_html=True)
+
 def display_current_order(order):
     """Display the current order in a receipt-like format"""
     st.markdown('<div class="order-card">', unsafe_allow_html=True)
@@ -191,7 +224,15 @@ def display_current_order(order):
         st.markdown("**🔧 Synthesis Conditions:**")
         if order['synthesis_conditions']:
             for key, items in order['synthesis_conditions'].items():
-                for item in items.get('items', []):
+                # Handle both list and dict formats
+                if isinstance(items, dict):
+                    item_list = items.get('items', [])
+                elif isinstance(items, list):
+                    item_list = items
+                else:
+                    item_list = []
+                
+                for item in item_list:
                     st.write(f"• {item}")
         else:
             st.write("*No items selected*")
@@ -200,7 +241,15 @@ def display_current_order(order):
         st.markdown("**🎯 Material Properties:**")
         if order['material_properties']:
             for key, items in order['material_properties'].items():
-                for item in items.get('items', []):
+                # Handle both list and dict formats
+                if isinstance(items, dict):
+                    item_list = items.get('items', [])
+                elif isinstance(items, list):
+                    item_list = items
+                else:
+                    item_list = []
+                
+                for item in item_list:
                     st.write(f"• {item}")
         else:
             st.write("*No items selected*")
@@ -415,7 +464,8 @@ def main():
         # Menu selection area
         st.markdown("### Choose Your Synthesis Ingredients:")
         
-        # Group synthesis parameters by category (simplified for demo) col1, col2, col3 = st.columns(3)
+        # Group synthesis parameters by category (simplified for demo) 
+        col1, col2, col3 = st.columns(3)
         
         params_per_col = len(synthesis_params) // 3 + 1
         
@@ -441,11 +491,24 @@ def main():
                 if st.session_state.current_order['synthesis_conditions']:
                     with st.spinner("👨‍🔬 Our scientists are working on your order..."):
                         # Prepare synthesis inputs
+                        # synthesis_inputs = {}
+                        # for category, data in st.session_state.current_order['synthesis_conditions'].items():
+                        #     for item in data.get('items', []):
+                        #         synthesis_inputs[item] = item
+                        # Prepare synthesis inputs
                         synthesis_inputs = {}
                         for category, data in st.session_state.current_order['synthesis_conditions'].items():
-                            for item in data.get('items', []):
+                            # Handle both list and dict formats
+                            if isinstance(data, dict):
+                                item_list = data.get('items', [])
+                            elif isinstance(data, list):
+                                item_list = data
+                            else:
+                                item_list = []
+                            
+                            for item in item_list:
                                 synthesis_inputs[item] = item
-                        
+
                         # Run prediction
                         result = st.session_state.engine.forward_prediction(synthesis_inputs)
                         
@@ -578,11 +641,23 @@ def main():
                 if st.session_state.current_order['material_properties']:
                     with st.spinner("👨‍🍳 Our materials chefs are creating your recipe..."):
                         # Prepare property inputs
+                        # property_inputs = {}
+                        # for category, data in st.session_state.current_order['material_properties'].items():
+                        #     for item in data.get('items', []):
+                        #         property_inputs[item] = item
                         property_inputs = {}
                         for category, data in st.session_state.current_order['material_properties'].items():
-                            for item in data.get('items', []):
-                                property_inputs[item] = item
-                        
+                            # Handle both list and dict formats
+                            if isinstance(data, dict):
+                                item_list = data.get('items', [])
+                            elif isinstance(data, list):
+                                item_list = data
+                            else:
+                                item_list = []
+                            
+                            for item in item_list:
+                                property_inputs[item] = item       
+
                         # Run inverse design
                         result = st.session_state.engine.inverse_design(property_inputs)
                         
@@ -747,7 +822,7 @@ def main():
                 confidence = order['result'].get('confidence', 0)
                 confidence_emoji = "🟢" if confidence > 0.8 else "🟡" if confidence > 0.5 else "🔴"
                 
-                with st.expander(f"{order_type} - Order #{len(st.session_state.order_history)-i} {confidence_emoji} ({confidence:.2% })"):
+                with st.expander(f"{order_type} - Order #{len(st.session_state.order_history)-i} {confidence_emoji} ({confidence:.2%})"):
                     col1, col2 = st.columns(2)
                     
                     with col1:

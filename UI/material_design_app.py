@@ -10,7 +10,7 @@ from pathlib import Path
 
 # Import your existing CausalReasoningEngine
 # Make sure the engine file is in the same directory or adjust the path
-from causal_engine import CausalReasoningEngine, extract_json_from_response
+from causal_engine0828 import CausalReasoningEngine, extract_json_from_response
 
 # Page configuration
 st.set_page_config(

@@ -20,4 +20,4 @@ source ~/.bashrc
 conda activate gemini-chem
 
 # export GOOGLE_API_KEY="your-api-key-here"
-streamlit run material_design_app.py 
+streamlit run material_design_app0828.py --server.port 8028
