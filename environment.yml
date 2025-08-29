@@ -1,4 +1,4 @@
-name: gemini-chem
+name: causalmat
 channels:
   - defaults
   - conda-forge

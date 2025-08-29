@@ -138,25 +138,25 @@ Advanced AI backend providing mechanistic understanding.
 #### Option 1: Using Conda (Recommended)
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/yicao-elina/LLM4Chem-Explainable-synthesis.git
 cd material-design-studio
 
 # Create conda environment
 conda env create -f environment.yml
-conda activate materials-design
+conda activate causalmat
 
 # Install additional requirements if needed
 pip install -r requirements.txt
 
 # Run the application
-streamlit run app.py
+streamlit run material_design_app.py
 ```
 
 #### Option 2: Using pip
 ```bash
 # Clone the repository
-git clone <repository-url>
-cd material-design-studio
+git clone https://github.com/yicao-elina/LLM4Chem-Explainable-synthesis.git
+cd LLM4Chem-Explainable-synthesis
 
 # Create virtual environment
 python -m venv materials_env
@@ -166,7 +166,7 @@ source materials_env/bin/activate  # On Windows: materials_env\Scripts\activate
 pip install -r requirements.txt
 
 # Run the application
-streamlit run app.py
+streamlit run material_design_app.py
 ```
 
 ### Required Files Structure
