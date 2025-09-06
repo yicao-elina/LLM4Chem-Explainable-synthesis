@@ -41,20 +41,6 @@ def extract_json_from_response(text: str):
         }
 
 
-# (Helper functions like extract_json_from_response remain the same)
-def extract_json_from_response(text: str):
-    import re
-    match = re.search(r"```json\s*([\s\S]*?)\s*```", text, re.DOTALL)
-    if not match:
-        return {"warning": "No JSON object found in the response.", "raw_response": text}
-    json_string = match.group(1)
-    try:
-        return json.loads(json_string)
-    except json.JSONDecodeError as e:
-        print(f"\n--- JSON DECODE ERROR ---\n{e}\nProblematic text:\n{json_string}\n-------------------------\n")
-        return {"error": "Failed to decode JSON", "details": str(e), "malformed_json_string": json_string}
-
-
 class CausalReasoningEngine:
     """
     Integrates a Directed Acyclic Graph (DAG) of scientific knowledge with the 
@@ -78,7 +64,6 @@ class CausalReasoningEngine:
         self.model = genai.GenerativeModel(model_id)
 
     def _build_graph(self, json_file_path: str):
-        # This function remains the same
         input_path = Path(json_file_path)
         if not input_path.exists():
             raise FileNotFoundError(f"Input file not found at {input_path}")
@@ -109,7 +94,6 @@ class CausalReasoningEngine:
         return G
 
     def _precompute_node_embeddings(self):
-        # This function remains the same
         print("Pre-computing node embeddings...")
         self.node_list = list(self.graph.nodes())
         if not self.node_list:
@@ -119,7 +103,6 @@ class CausalReasoningEngine:
         print("Embeddings computed.")
 
     def _find_most_similar_node(self, query: str, candidate_nodes: list):
-        # This function remains the same
         if not candidate_nodes or self.node_embeddings.size == 0:
             return None, 0.0
         query_embedding = self.embedding_model.encode([query])
@@ -133,7 +116,6 @@ class CausalReasoningEngine:
         best_node = candidate_nodes[best_match_local_index]
         return best_node, best_score
 
-    # --- NEW: Helper function to calculate embedding distance ---
     def _calculate_embedding_difference(self, text1: str, text2: str):
         """
         Calculates the cosine distance (1 - cosine similarity) between two text embeddings.
@@ -146,7 +128,6 @@ class CausalReasoningEngine:
         return distance
 
     def _find_relevant_paths(self, start_keywords: list, end_keywords: list, reverse: bool = False):
-        # This function remains the same
         start_keywords_str = [str(kw).lower() for kw in start_keywords if kw is not None]
         end_keywords_str = [str(kw).lower() for kw in end_keywords if kw is not None]
         start_nodes = {n for n in self.graph.nodes if any(kw in n.lower() for kw in start_keywords_str)}
@@ -161,111 +142,234 @@ class CausalReasoningEngine:
                         valid_paths.append(" -> ".join(path))
         return list(set(valid_paths))
 
-    def _transfer_learning_query(self, original_prompt_data: dict, analogous_context: str, confidence: float, query_type: str, 
-                                 similar_node: str = None, query_string: str = None):
+    def _get_path_mechanisms(self, path_str: str):
         """
-        --- MODIFIED: This prompt is now much more explicit about the reasoning process. ---
-        Performs a query to Gemini by asking it to reason by analogy and show its work.
+        Extract mechanism information for edges in a path.
         """
-        print(f"WARNING: No exact path found. Using most similar context with confidence {confidence:.2f} for transfer learning.")
+        nodes = [node.strip() for node in path_str.split(" -> ")]
+        mechanisms = []
+        for i in range(len(nodes) - 1):
+            if self.graph.has_edge(nodes[i], nodes[i+1]):
+                mechanism = self.graph[nodes[i]][nodes[i+1]].get('mechanism', '')
+                if mechanism:
+                    mechanisms.append(f"{nodes[i]} → {nodes[i+1]}: {mechanism}")
+        return mechanisms
+
+    def _direct_path_query(self, original_prompt_data: dict, causal_paths: list, query_type: str):
+        """
+        NEW: Enhanced query for when direct paths exist. Asks the LLM to provide
+        mechanistic explanations and chain-of-thought reasoning.
+        """
+        print(f"Found {len(causal_paths)} direct causal paths. Requesting mechanistic explanation...")
+
+        # Extract mechanisms for all paths
+        all_mechanisms = []
+        for path in causal_paths:
+            mechanisms = self._get_path_mechanisms(path)
+            if mechanisms:
+                all_mechanisms.extend(mechanisms)
 
         if query_type == "forward":
-            task_description = "predict the resulting material properties"
-            input_data_label = "Target Synthesis Conditions"
+            task_description = "explain the mechanistic pathway from synthesis conditions to material properties"
+            input_data_label = "Synthesis Conditions"
             output_format_label = "predicted_properties"
-            example_output = '{"carrier_type": "p-type", "band_gap_ev": 1.5}'
+            example_output = '{"carrier_type": "p-type", "band_gap_ev": 1.5, "carrier_concentration": "increased"}'
         else: # inverse
-            task_description = "suggest synthesis conditions to achieve the desired properties"
-            input_data_label = "Target Material Properties"
+            task_description = "explain the mechanistic reasoning for selecting synthesis conditions to achieve desired properties"
+            input_data_label = "Desired Material Properties"
             output_format_label = "suggested_synthesis_conditions"
-            example_output = '{"method": "Chemical Vapor Deposition", "temperature_c": 800}'
-        
-        # --- NEW: Calculate embedding distance for quantitative reasoning ---
-        property_embedding_diff = 1.0 # Default value
-        if query_type == "inverse" and similar_node and query_string:
-            property_embedding_diff = self._calculate_embedding_difference(query_string, similar_node)
+            example_output = '{"method": "Surface oxidation", "temperature_c": 200, "duration_hours": 2}'
+
+        formatted_paths = "\n- ".join(causal_paths)
+        formatted_mechanisms = "\n- ".join(all_mechanisms) if all_mechanisms else "No specific mechanisms provided in knowledge graph"
 
         prompt = f"""
-        You are an expert materials scientist AI. Your task is to reason from analogous data using a structured, interpretable process.
-        Your knowledge graph does not contain an exact causal pathway for the user's query.
-        However, you have identified the most semantically similar information available.
-
-        **Task:**
-        Based on the provided analogous information, {task_description} for the user's target.
-        You must explicitly detail your reasoning process.
+        You are an expert materials scientist AI. Your knowledge graph contains direct causal pathways relevant to the user's query.
+        Your task is to {task_description} using both the specific knowledge from the graph AND your general chemical understanding.
 
         **{input_data_label} (User's Query):**
         {json.dumps(original_prompt_data, indent=2)}
 
-        **Most Similar Known Causal Pathway (from Knowledge Graph):**
-        - {analogous_context}
+        **Direct Causal Pathways from Knowledge Graph:**
+        - {formatted_paths}
 
-        **Quantitative Analysis:**
-        The embedding distance between the user's desired properties and the most similar known property is {property_embedding_diff:.4f} (where 0 is identical and 2 is opposite).
+        **Known Mechanisms from Knowledge Graph:**
+        - {formatted_mechanisms}
 
-        **Your Reasoning Process (Mandatory):**
-        1.  **Analyze & Compare:** Briefly compare the User's Query with the Known Pathway. What are the key similarities and, more importantly, the key differences (e.g., opposite doping type, different materials, different conditions)?
-        2.  **Formulate Hypothesis:** Based on the differences and the quantitative embedding distance, state a hypothesis. For example: "The known pathway describes p-doping via oxidation. The user wants n-doping. The large embedding distance of ~1.0 confirms these concepts are dissimilar. Therefore, a reductive process or a dopant with more valence electrons is required, making the known pathway a poor analogy for direct parameter transfer."
-        3.  **Extrapolate or Diverge:** Decide if you can adjust the parameters from the known pathway (extrapolate) or if you must suggest a completely different approach (diverge). Justify this decision using the embedding distance. A small distance (< 0.4) suggests extrapolation is viable; a large distance (> 0.7) suggests divergence is necessary.
-        4.  **Synthesize Final Answer:** Based on your hypothesis, construct the final prediction/suggestion.
+        **Your Task:**
+        1. **Mechanistic Analysis**: Explain the chemical/physical mechanisms underlying each step in the causal pathway. Draw upon your general knowledge to fill in details not explicitly stated in the graph.
+        
+        2. **Chain-of-Thought Reasoning**: Provide a step-by-step logical explanation of how each cause leads to its effect. Include:
+           - Electronic structure changes
+           - Defect chemistry
+           - Thermodynamic considerations
+           - Kinetic factors
+           - Structure-property relationships
+
+        3. **Quantitative Insights**: Where possible, provide quantitative estimates or ranges based on typical values in materials science.
+
+        4. **Alternative Pathways**: Briefly mention any alternative mechanisms that could lead to similar outcomes.
 
         **Output Format:**
         Provide your answer in a structured JSON format within a ```json block.
-        The JSON MUST include a detailed 'transfer_learning_analysis' object containing your step-by-step reasoning.
+        The JSON MUST include detailed mechanistic reasoning and chain-of-thought analysis.
 
         Example JSON output:
         {{
           "{output_format_label}": {example_output},
-          "reasoning": "The user desires n-type properties, but the most similar context is for p-type doping via oxidation. Acknowledging this contradiction (embedding distance > 1.0), I suggest CVD with a Re precursor, a known n-type doping strategy, rather than adapting the oxidation parameters.",
-          "confidence": {confidence:.4f},
-          "analogous_path_used": "{analogous_context}",
-          "property_embedding_distance": {property_embedding_diff:.4f},
-          "transfer_learning_analysis": {{
-              "1_comparison": "The user's query is for electron-doping (n-type). The known pathway is for hole-doping (p-type) via oxidation. The core electronic goal is opposite.",
-              "2_hypothesis": "Because the desired electronic outcome is the inverse of the known pathway, confirmed by a large embedding distance, the synthesis method must also be fundamentally different. Simple parameter adjustments to the oxidation process are inappropriate.",
-              "3_decision": "Diverge. The provided context serves as a counterexample. I will ignore its specific parameters and instead access my general knowledge about n-type doping for 2D materials.",
-              "4_synthesis": "The final suggestion is based on general knowledge of using Group 7 elements like Rhenium (Re) to n-dope MoS2-like materials, typically via CVD."
+          "mechanistic_explanation": {{
+            "primary_mechanism": "Surface oxidation creates oxygen vacancies that act as p-type dopants by removing electrons from the valence band...",
+            "electronic_effects": "The removal of electrons creates holes in the valence band, shifting the Fermi level toward the valence band edge...",
+            "defect_chemistry": "O2 molecules adsorb on the surface and extract electrons: O2 + 2e- → 2O-. This leaves behind holes...",
+            "thermodynamics": "At 200°C, the Gibbs free energy favors oxygen chemisorption without bulk oxidation...",
+            "kinetics": "The reaction rate follows Arrhenius behavior with activation energy ~0.5 eV..."
           }},
-          "suggested_next_steps": "Perform DFT calculations to model Re doping. Experimentally, synthesize via CVD and characterize using Hall effect and XPS."
+          "chain_of_thought": [
+            "Step 1: At 200°C, oxygen molecules adsorb on the MoS2 surface",
+            "Step 2: Oxygen abstracts electrons from Mo d-orbitals, creating Mo5+ states",
+            "Step 3: These oxidized states act as acceptors, creating holes",
+            "Step 4: Hole concentration increases with oxidation time following sqrt(t) kinetics",
+            "Step 5: The Fermi level shifts toward the valence band, establishing p-type behavior"
+          ],
+          "quantitative_estimates": {{
+            "hole_concentration": "~10^12 to 10^13 cm^-2 for monolayer",
+            "fermi_level_shift": "~0.1-0.2 eV toward valence band",
+            "activation_energy": "~0.5 eV for oxygen chemisorption"
+          }},
+          "alternative_mechanisms": [
+            "Substitutional doping with group V elements could also achieve p-type behavior",
+            "Plasma treatment could accelerate the oxidation process"
+          ],
+          "confidence": 1.0,
+          "reasoning": "Direct causal pathway found in knowledge graph, enhanced with mechanistic understanding from general chemistry knowledge."
         }}
         """
-        # --- NEW: Print the full prompt for complete transparency ---
+
+        print("Querying Gemini for mechanistic explanation of direct pathway...")
+        response = self.model.generate_content(prompt)
+        return extract_json_from_response(response.text)
+
+    def _transfer_learning_query(self, original_prompt_data: dict, analogous_context: str, confidence: float, query_type: str, 
+                                 similar_node: str = None, query_string: str = None):
+        """
+        Enhanced transfer learning query that includes mechanistic reasoning.
+        """
+        print(f"WARNING: No exact path found. Using most similar context with confidence {confidence:.2f} for transfer learning.")
+
+        if query_type == "forward":
+            task_description = "predict the resulting material properties with mechanistic explanation"
+            input_data_label = "Target Synthesis Conditions"
+            output_format_label = "predicted_properties"
+            example_output = '{"carrier_type": "p-type", "band_gap_ev": 1.5}'
+        else: # inverse
+            task_description = "suggest synthesis conditions with mechanistic justification"
+            input_data_label = "Target Material Properties"
+            output_format_label = "suggested_synthesis_conditions"
+            example_output = '{"method": "Chemical Vapor Deposition", "temperature_c": 800}'
+        
+        property_embedding_diff = 1.0
+        if query_type == "inverse" and similar_node and query_string:
+            property_embedding_diff = self._calculate_embedding_difference(query_string, similar_node)
+
+        # Extract mechanisms for the analogous path
+        mechanisms = self._get_path_mechanisms(analogous_context)
+        formatted_mechanisms = "\n- ".join(mechanisms) if mechanisms else "No specific mechanisms provided"
+
+        prompt = f"""
+        You are an expert materials scientist AI. Your task is to reason from analogous data using mechanistic understanding.
+        Your knowledge graph does not contain an exact causal pathway for the user's query, but you have identified similar information.
+
+        **Task:**
+        Based on the provided analogous information and your chemical knowledge, {task_description} for the user's target.
+        You must provide detailed mechanistic reasoning and chain-of-thought analysis.
+
+        **{input_data_label} (User's Query):**
+        {json.dumps(original_prompt_data, indent=2)}
+
+        **Most Similar Known Causal Pathway:**
+        - {analogous_context}
+
+        **Known Mechanisms for Similar Pathway:**
+        - {formatted_mechanisms}
+
+        **Quantitative Analysis:**
+        The embedding distance between the user's query and the most similar known case is {property_embedding_diff:.4f} 
+        (where 0 is identical and 2 is opposite).
+
+        **Your Reasoning Process (Mandatory):**
+        1. **Mechanistic Comparison**: Compare the mechanisms in the known pathway with what would be expected for the user's case. What fundamental chemistry remains the same? What changes?
+        
+        2. **Adaptation Strategy**: Based on the embedding distance and mechanistic understanding, explain how to adapt the known pathway: - If distance < 0.4: Minor parameter adjustments with same mechanism
+           - If distance 0.4-0.7: Modified mechanism with similar principles  
+           - If distance > 0.7: Fundamentally different mechanism required
+
+        3. **Chain-of-Thought Prediction**: Provide step-by-step reasoning for your prediction, including:
+           - Electronic structure considerations
+           - Defect chemistry modifications
+           - Thermodynamic feasibility
+           - Kinetic pathway changes
+
+        4. **Uncertainty Quantification**: Explicitly state which aspects are well-supported by analogy and which require extrapolation.
+
+        **Output Format:**
+        Provide your answer in a structured JSON format within a ```json block.
+
+        Example JSON output:
+        {{
+          "{output_format_label}": {example_output},
+          "mechanistic_reasoning": {{
+            "similarity_analysis": "The known pathway involves p-doping via oxidation. The user seeks n-doping, requiring opposite charge carriers...",
+            "adapted_mechanism": "Instead of oxygen creating acceptor states, we need donor states. Rhenium substitution can provide extra electrons...",
+            "electronic_structure": "Re has one more valence electron than Mo, creating shallow donor states near the conduction band...",
+            "thermodynamic_analysis": "Re-Mo substitution is energetically favorable with formation energy ~1.2 eV..."
+          }},
+          "chain_of_thought": [
+            "Step 1: Identify that n-doping requires electron donors, not acceptors",
+            "Step 2: Select Re as it has 7 valence electrons vs Mo's 6",
+            "Step 3: Use CVD for controlled substitutional doping",
+            "Step 4: Re atoms substitute Mo sites, donating electrons",
+            "Step 5: Fermi level shifts toward conduction band, creating n-type behavior"
+          ],
+          "uncertainty_analysis": {{
+            "high_confidence": "Re as n-type dopant is well-established",
+            "medium_confidence": "Exact doping concentration achievable",
+            "low_confidence": "Precise temperature optimization without experimental data"
+          }},
+          "confidence": {confidence:.4f},
+          "property_embedding_distance": {property_embedding_diff:.4f},
+          "analogous_path_used": "{analogous_context}"
+        }}
+        """
+
         print("\n" + "="*80)
-        print("TRANSFER LEARNING PROMPT SENT TO GEMINI:")
+        print("TRANSFER LEARNING PROMPT WITH MECHANISTIC REASONING:")
         print("="*80)
         print(prompt)
         print("="*80 + "\n")
 
-        print("Querying Gemini with an interpretable transfer learning prompt...")
+        print("Querying Gemini with mechanistic transfer learning prompt...")
         response = self.model.generate_content(prompt)
         return extract_json_from_response(response.text)
 
     def forward_prediction(self, synthesis_inputs: dict):
+        """
+        Enhanced forward prediction with mechanistic explanations.
+        """
         print("\n--- Starting Forward Prediction ---")
         input_keywords = [str(v) for v in synthesis_inputs.values() if v is not None]
         query_string = " and ".join(input_keywords)
+        
         all_properties = [node for node in self.graph.nodes() if self.graph.out_degree(node) == 0]
+        
         causal_context_list = self._find_relevant_paths(input_keywords, all_properties)
+
         if causal_context_list:
-            formatted_context = "\n- ".join(causal_context_list)
-            prompt = f"""
-            You are an expert materials scientist AI. Based on the following synthesis conditions and known causal pathways from a scientific knowledge graph, predict the resulting material properties.
-
-            **Synthesis Conditions:**
-            {json.dumps(synthesis_inputs, indent=2)}
-
-            **Known Causal Pathways (from Knowledge Graph):**
-            - {formatted_context}
-
-            **Task:**
-            Predict the likely outcomes. Provide your answer in a structured JSON format within a ```json block, including a 'confidence' of '1.0' (exact match) and a 'reasoning' field.
-            """
-            print("Querying Gemini with high-confidence constrained prompt...")
-            response = self.model.generate_content(prompt)
-            return extract_json_from_response(response.text)
+            # NEW: Use enhanced direct path query instead of simple statement
+            return self._direct_path_query(synthesis_inputs, causal_context_list, "forward")
         else:
             all_synthesis_params = [node for node in self.graph.nodes() if self.graph.in_degree(node) == 0]
             similar_node, score = self._find_most_similar_node(query_string, all_synthesis_params)
+            
             if similar_node and score > 0.5:
                 analogous_paths = self._find_relevant_paths([similar_node], all_properties)
                 if analogous_paths:
@@ -273,96 +377,6 @@ class CausalReasoningEngine:
                         synthesis_inputs, analogous_paths[0], score, "forward",
                         similar_node=similar_node, query_string=query_string
                     )
-        return {"error": "No path found", "confidence": 0.0}
-
-
-    def inverse_design(self, desired_properties: dict):
-        print("\n--- Starting Inverse Design ---")
-        property_keywords = [str(v) for v in desired_properties.values() if v is not None]
-        query_string = " and ".join(property_keywords)
-        all_synthesis_params = [node for node in self.graph.nodes() if self.graph.in_degree(node) == 0]
-        causal_context_list = self._find_relevant_paths(all_synthesis_params, property_keywords, reverse=True)
-        if causal_context_list:
-            formatted_context = "\n- ".join(causal_context_list)
-            prompt = f"""
-            You are an expert materials scientist AI. Your task is to design a synthesis protocol to achieve specific material properties, guided by a knowledge graph.
-
-            **Desired Material Properties:**
-            {json.dumps(desired_properties, indent=2)}
-
-            **Known Causal Pathways (from Knowledge Graph):**
-            - {formatted_context}
-
-            **Task:**
-            Suggest a set of synthesis conditions. Provide your answer in a structured JSON format within a ```json block, including a 'confidence' of '1.0' (exact match) and a 'reasoning' field.
-            """
-            print("Querying Gemini with high-confidence constrained prompt...")
-            response = self.model.generate_content(prompt)
-            return extract_json_from_response(response.text)
-        else:
-            all_properties = [node for node in self.graph.nodes() if self.graph.out_degree(node) == 0]
-            similar_node, score = self._find_most_similar_node(query_string, all_properties)
-            if similar_node and score > 0.5:
-                analogous_paths = self._find_relevant_paths(all_synthesis_params, [similar_node], reverse=True)
-                if analogous_paths:
-                    return self._transfer_learning_query(
-                        desired_properties, analogous_paths[0], score, "inverse",
-                        similar_node=similar_node, query_string=query_string
-                    )
-        return {"error": "No path found", "confidence": 0.0}
-
-
-    def forward_prediction(self, synthesis_inputs: dict):
-        """
-        Predicts material properties based on synthesis conditions.
-        First attempts an exact match, then falls back to similarity-based transfer learning.
-        """
-        print("\n--- Starting Forward Prediction ---")
-        # --- FIX: Convert all values to strings and filter out None before joining ---
-        input_keywords = [str(v) for v in synthesis_inputs.values() if v is not None]
-        query_string = " and ".join(input_keywords)
-        
-        all_properties = [node for node in self.graph.nodes() if self.graph.out_degree(node) == 0]
-        
-        causal_context_list = self._find_relevant_paths(input_keywords, all_properties)
-
-        if causal_context_list:
-            print(f"Found {len(causal_context_list)} direct causal paths to constrain reasoning.")
-            formatted_context = "\n- ".join(causal_context_list)
-            prompt = f"""
-            You are an expert materials scientist AI. Based on the following synthesis conditions and known causal pathways from a scientific knowledge graph, predict the resulting material properties.
-
-            **Synthesis Conditions:**
-            {json.dumps(synthesis_inputs, indent=2)}
-
-            **Known Causal Pathways (from Knowledge Graph) :**
-            - {formatted_context}
-
-            **Task:**
-            Predict the likely outcomes. Provide your answer in a structured JSON format within a ```json block, including a 'confidence' of '1.0' (exact match).
-            
-            Example JSON output:
-            {{
-              "predicted_properties": {{
-                "carrier_type": "p-type",
-                "carrier_concentration": "Increased hole density"
-              }},
-              "reasoning": "The provided knowledge graph explicitly states a direct causal link from the input conditions to this outcome.",
-              "confidence": 1.0
-            }}
-            """
-            print("Querying Gemini with high-confidence constrained prompt...")
-            response = self.model.generate_content(prompt)
-            return extract_json_from_response(response.text)
-
-        else:
-            all_synthesis_params = [node for node in self.graph.nodes() if self.graph.in_degree(node) == 0]
-            similar_node, score = self._find_most_similar_node(query_string, all_synthesis_params)
-            
-            if similar_node and score > 0.5: # Confidence threshold
-                analogous_paths = self._find_relevant_paths([similar_node], all_properties)
-                if analogous_paths:
-                    return self._transfer_learning_query(synthesis_inputs, analogous_paths[0], score, "forward")
 
         print("No direct path or sufficiently similar node found. Using general knowledge fallback.")
         return {
@@ -371,14 +385,11 @@ class CausalReasoningEngine:
             "suggestion": "Consider expanding the knowledge graph or use a general-purpose query."
         }
 
-
     def inverse_design(self, desired_properties: dict):
         """
-        Suggests synthesis conditions to achieve desired material properties.
-        First attempts an exact match, then falls back to similarity-based transfer learning.
+        Enhanced inverse design with mechanistic explanations.
         """
         print("\n--- Starting Inverse Design ---")
-        # --- FIX: Convert all values to strings and filter out None before joining ---
         property_keywords = [str(v) for v in desired_properties.values() if v is not None]
         query_string = " and ".join(property_keywords)
 
@@ -387,43 +398,19 @@ class CausalReasoningEngine:
         causal_context_list = self._find_relevant_paths(all_synthesis_params, property_keywords, reverse=True)
         
         if causal_context_list:
-            print(f"Found {len(causal_context_list)} direct causal paths for inverse design.")
-            formatted_context = "\n- ".join(causal_context_list)
-            prompt = f"""
-            You are an expert materials scientist AI. Your task is to design a synthesis protocol to achieve specific material properties, guided by a knowledge graph.
-
-            **Desired Material Properties:**
-            {json.dumps(desired_properties, indent=2)}
-
-            **Known Causal Pathways (from Knowledge Graph):**
-            - {formatted_context}
-
-            **Task:**
-            Suggest a set of synthesis conditions. Provide your answer in a structured JSON format within a ```json block, including a 'confidence' of '1.0' (exact match).
-
-            Example JSON output:
-            {{
-              "suggested_synthesis_conditions": {{
-                "method": "Surface oxidation",
-                "temperature_c": 200
-              }},
-              "reasoning": "The knowledge graph contains a direct path from these synthesis conditions to the desired outcome.",
-              "confidence": 1.0
-            }}
-            """
-            print("Querying Gemini with high-confidence constrained prompt...")
-            response = self.model.generate_content(prompt)
-            return extract_json_from_response(response.text)
-        
+            # NEW: Use enhanced direct path query instead of simple statement
+            return self._direct_path_query(desired_properties, causal_context_list, "inverse")
         else:
             all_properties = [node for node in self.graph.nodes if self.graph.out_degree(node) == 0]
             similar_node, score = self._find_most_similar_node(query_string, all_properties)
 
-            if similar_node and score > 0.5: # Confidence threshold
+            if similar_node and score > 0.5:
                 analogous_paths = self._find_relevant_paths(all_synthesis_params, [similar_node], reverse=True)
                 if analogous_paths:
-                    return self._transfer_learning_query(desired_properties, analogous_paths[0], score, "inverse", 
-                                                       similar_node=similar_node, query_string=query_string)
+                    return self._transfer_learning_query(
+                        desired_properties, analogous_paths[0], score, "inverse",
+                        similar_node=similar_node, query_string=query_string
+                    )
 
         print("No direct path or sufficiently similar node found. Using general knowledge fallback.")
         return {
@@ -441,24 +428,22 @@ if __name__ == '__main__':
         engine = CausalReasoningEngine(json_file)
 
         # --- Example 1: Forward Prediction (Exact Match) ---
-        # This should find a direct path in the graph.
+        # This should find a direct path in the graph and provide mechanistic explanation
         synthesis_params_exact = {
             "temperature": "200°C",
             "method": "Oxidation"
         }
         predicted_props = engine.forward_prediction(synthesis_params_exact)
-        print("\nForward Prediction Result (Exact Match):")
+        print("\nForward Prediction Result (Exact Match with Mechanistic Explanation):")
         print(json.dumps(predicted_props, indent=2))
 
         # --- Example 2: Forward Prediction (Analogous/Transfer Learning) ---
-        # This query is semantically similar but not identical to the one above.
-        # It should trigger the transfer learning fallback.
         synthesis_params_analogous = {
             "temperature": "210°C",
             "method": "Annealing in an oxygen atmosphere"
         }
         predicted_props_analogous = engine.forward_prediction(synthesis_params_analogous)
-        print("\nForward Prediction Result (Analogous Match):")
+        print("\nForward Prediction Result (Analogous Match with Mechanistic Reasoning):")
         print(json.dumps(predicted_props_analogous, indent=2))
 
         # --- Example 3: Inverse Design (Exact Match) ---
@@ -466,18 +451,16 @@ if __name__ == '__main__':
             "doping": "Controllable p-type doping",
         }
         suggested_synthesis = engine.inverse_design(target_properties_exact)
-        print("\nInverse Design Result (Exact Match):")
+        print("\nInverse Design Result (Exact Match with Mechanistic Explanation):")
         print(json.dumps(suggested_synthesis, indent=2))
         
         # --- Example 4: Inverse Design (Analogous/Transfer Learning) ---
-        # This query is semantically similar to a property in the graph but uses different wording.
         target_properties_analogous = {
             "doping": "Achieve tunable hole-based conductivity",
         }
         suggested_synthesis_analogous = engine.inverse_design(target_properties_analogous)
-        print("\nInverse Design Result (Analogous Match):")
+        print("\nInverse Design Result (Analogous Match with Mechanistic Reasoning):")
         print(json.dumps(suggested_synthesis_analogous, indent=2))
-
 
     except (FileNotFoundError, RuntimeError) as e:
         print(f"Error initializing or running engine: {e}")
