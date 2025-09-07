@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "LLM4Chem-Explainable-synthesis"
+version = "0.0.0"
+description = "The CausalMat Design Studio is an AI-powered application designed to revolutionize materials science research by providing an intuitive interface for materials discovery and design."
+readme = "README.md"
+requires-python = ">=3.8, <3.13"
+dependencies = [
+    "streamlit==1.28.2",
+    "plotly==5.17.0",
+    "google-generativeai",
+    "PyMuPDF>=1.24.0",
+    "langchain",
+    "langchain-core",
+    "langchain-community",
+    "networkx==3.1",
+    "matplotlib==3.7.1", 
+    "pandas==2.0.3",
+    "sentence-transformers>=2.7.0",
+    "huggingface-hub>=0.23.0",
+    "numpy",
+    "scikit-learn==1.3.0"
+]
+
