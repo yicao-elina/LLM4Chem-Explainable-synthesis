@@ -146,7 +146,6 @@ conda env create -f environment.yml
 conda activate causalmat
 
 # Install additional requirements if needed
-pip install -r requirements.txt
 pip install -e .
 
 # Run the application
