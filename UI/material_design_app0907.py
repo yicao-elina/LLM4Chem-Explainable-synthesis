@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for Aerospace/Space Capsule theme
+# Custom CSS for Aerospace/Space Capsule theme (same as before)
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Tahoma:wght@400;700&display=swap');
@@ -112,6 +112,47 @@ st.markdown("""
         background: rgba(255, 107, 53, 0.2);
         border: 2px solid #ff6b35;
         box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+    }
+    
+    .search-container {
+        background: linear-gradient(135deg, #0f3460 0%, #0c2d5a 100%);
+        border: 2px solid #00d4ff;
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin: 1rem 0;
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    }
+    
+    .stTextInput > div > div > input {
+        background-color: #1a2980 !important;
+        color: #e0e6ed !important;
+        border: 2px solid #00d4ff !important;
+        border-radius: 10px !important;
+        font-family: 'Tahoma', sans-serif !important;
+        font-size: 1.1rem !important;
+        padding: 0.75rem !important;
+    }
+    
+    .stTextInput > div > div > input:focus {
+        border-color: #ff6b35 !important;
+        box-shadow: 0 0 15px rgba(255, 107, 53, 0.5) !important;
+    }
+    
+    .search-results-count {
+        color: #00ffff;
+        font-size: 0.9rem;
+        font-style: italic;
+        margin: 0.5rem 0;
+    }
+    
+    .no-results {
+        background: rgba(255, 68, 68, 0.1);
+        border: 1px solid #ff4444;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        color: #ff4444;
+        margin: 1rem 0;
     }
     
     h1 {
@@ -254,12 +295,6 @@ st.markdown("""
         border: 1px solid #00d4ff;
     }
     
-    .stTextInput > div > div > input {
-        background-color: #1a2980;
-        color: #e0e6ed;
-        border: 1px solid #00d4ff;
-    }
-    
     .emergency-activation {
         background: linear-gradient(45deg, #ff4444, #cc0000);
         color: white;
@@ -298,6 +333,9 @@ if 'engine' not in st.session_state:
     }
     st.session_state.aria_status = "STANDBY"
     st.session_state.emergency_mode = False
+    # Add search states
+    st.session_state.synthesis_search = ""
+    st.session_state.property_search = ""
 
 # Add this function to reset the order structure if needed
 def reset_current_order():
@@ -332,6 +370,75 @@ def extract_menu_items(engine):
     
     return synthesis_params, material_properties
 
+def filter_items_by_search(items, search_query):
+    """Filter items based on search query"""
+    if not search_query:
+        return items
+    
+    search_terms = search_query.lower().split()
+    filtered_items = []
+    
+    for item in items:
+        item_lower = item.lower()
+        # Check if all search terms are found in the item
+        if all(term in item_lower for term in search_terms):
+            filtered_items.append(item)
+    
+    return filtered_items
+
+def create_search_interface(search_key, placeholder_text):
+    """Create a search interface with ARIA styling"""
+    st.markdown('<div class="search-container">', unsafe_allow_html=True)
+    
+    col1, col2 = st.columns([4, 1])
+    
+    with col1:
+        search_query = st.text_input(
+            "",
+            value=st.session_state.get(search_key, ""),
+            placeholder=placeholder_text,
+            key=f"search_input_{search_key}",
+            label_visibility="collapsed"
+        )
+        
+        # Update session state
+        st.session_state[search_key] = search_query
+    
+    with col2:
+        if st.button("🔍 SCAN", key=f"search_btn_{search_key}"):
+            st.rerun()
+        
+        if st.button("🔄 CLEAR", key=f"clear_btn_{search_key}"):
+            st.session_state[search_key] = ""
+            st.rerun()
+    
+    st.markdown('</div>', unsafe_allow_html=True)
+    
+    return search_query
+
+def display_search_results_count(filtered_items, total_items, search_query):
+    """Display search results count"""
+    if search_query:
+        st.markdown(f'''
+        <div class="search-results-count">
+            🔍 SCAN RESULTS: {len(filtered_items)} of {total_items} modules found for "{search_query}"
+        </div>
+        ''', unsafe_allow_html=True)
+        
+        if len(filtered_items) == 0:
+            st.markdown('''
+            <div class="no-results">
+                ❌ NO MODULES MATCH YOUR SEARCH CRITERIA<br>
+                Try different keywords or clear the search filter
+            </div>
+            ''', unsafe_allow_html=True)
+    else:
+        st.markdown(f'''
+        <div class="search-results-count">
+            📡 DISPLAYING ALL {total_items} AVAILABLE MODULES
+        </div>
+        ''', unsafe_allow_html=True)
+
 def create_system_module(item, category, selected_items):
     """Create a space capsule-style system module for an item"""
     if category not in selected_items:
@@ -357,6 +464,23 @@ def create_system_module(item, category, selected_items):
     with col2:
         if is_selected:
             st.markdown('<span class="status-light status-online"></span>**ENGAGED**', unsafe_allow_html=True)
+
+def display_filtered_modules(filtered_items, category, selected_items, columns=3):
+    """Display filtered modules in a grid layout"""
+    if not filtered_items:
+        return
+    
+    # Calculate items per column
+    items_per_col = len(filtered_items) // columns + (1 if len(filtered_items) % columns > 0 else 0)
+    
+    # Create columns
+    cols = st.columns(columns)
+    
+    for i, item in enumerate(filtered_items):
+        col_idx = i // items_per_col
+        if col_idx < len(cols):  # Ensure we don't exceed available columns
+            with cols[col_idx]:
+                create_system_module(item, category, selected_items)
 
 def display_current_configuration(order):
     """Display the current system configuration"""
@@ -713,23 +837,25 @@ def main():
         st.markdown("## 🔮 FORWARD PREDICTION PROTOCOL")
         st.markdown("*Configure synthesis parameters to predict material properties*")
         
+        st.markdown("### 🔍 SYNTHESIS PARAMETER SCANNER:")
+        
+        # Search interface for synthesis parameters
+        synthesis_search = create_search_interface(
+            "synthesis_search", 
+            "🔍 Enter keywords to scan synthesis parameters (e.g., temperature, pressure, doping)..."
+        )
+        
+        # Filter synthesis parameters based on search
+        filtered_synthesis_params = filter_items_by_search(synthesis_params, synthesis_search)
+        
+        # Display search results count
+        display_search_results_count(filtered_synthesis_params, len(synthesis_params), synthesis_search)
+        
         st.markdown("### ⚙️ SYNTHESIS PARAMETER CONFIGURATION:")
         
-        # Display synthesis parameters in grid
-        col1, col2, col3 = st.columns(3)
-        params_per_col = len(synthesis_params) // 3 + 1
-        
-        for i, param in enumerate(synthesis_params):
-            col_idx = i // params_per_col
-            if col_idx == 0:
-                with col1:
-                    create_system_module(param, 'synthesis_conditions', st.session_state.current_order)
-            elif col_idx == 1:
-                with col2:
-                    create_system_module(param, 'synthesis_conditions', st.session_state.current_order)
-            else:
-                with col3:
-                    create_system_module(param, 'synthesis_conditions', st.session_state.current_order)
+        # Display filtered synthesis parameters
+        if filtered_synthesis_params:
+            display_filtered_modules(filtered_synthesis_params, 'synthesis_conditions', st.session_state.current_order, columns=3)
         
         # Current configuration display
         display_current_configuration(st.session_state.current_order)
@@ -760,7 +886,7 @@ def main():
                         mission_record = {
                             'timestamp': datetime.now().isoformat(),
                             'type': 'forward_prediction',
-                            'input': synthesis_inputs ,
+                            'input': synthesis_inputs,
                             'result': result
                         }
                         st.session_state.order_history.append(mission_record)
@@ -809,29 +935,24 @@ def main():
                             )
                             st.plotly_chart(fig, use_container_width=True)
                         
-                        # Display reasoning chain
+                        # Display all analysis results (same as before)
                         if 'chain_of_thought' in result:
                             display_reasoning_chain(result['chain_of_thought'])
                         
-                        # Display analysis modules
                         if 'mechanistic_reasoning' in result:
                             display_analysis_module(result['mechanistic_reasoning'])
                         elif 'mechanistic_explanation' in result:
                             display_analysis_module(result['mechanistic_explanation'])
                         
-                        # Display quantitative readouts
                         if 'quantitative_estimates' in result:
                             display_quantitative_readouts(result['quantitative_estimates'])
                         
-                        # Display system status
                         if 'uncertainty_analysis' in result:
                             display_system_status(result['uncertainty_analysis'])
                         
-                        # Display backup protocols
                         if 'alternative_mechanisms' in result:
                             display_alternative_protocols(result['alternative_mechanisms'])
                         
-                        # Visualize causal pathway
                         if 'analogous_path_used' in result:
                             st.markdown("### 🗺️ CAUSAL PATHWAY VISUALIZATION:")
                             fig = create_causal_pathway_viz(st.session_state.engine, result, "Forward Prediction")
@@ -840,7 +961,6 @@ def main():
                             if 'property_embedding_distance' in result:
                                 st.info(f"🔍 EMBEDDING DISTANCE: {result['property_embedding_distance']:.4f} (0=IDENTICAL, 2=OPPOSITE)")
                         
-                        # Additional reasoning
                         if 'reasoning' in result:
                             st.markdown("### 💭 ARIA'S REASONING:")
                             st.info(result['reasoning'])
@@ -860,25 +980,29 @@ def main():
                 'synthesis_conditions': {},
                 'material_properties': {}
             }
+            # Also clear search states
+            st.session_state.property_search = ""
             st.rerun()
+        
+        st.markdown("### 🔍 PROPERTY TARGET SCANNER:")
+        
+        # Search interface for material properties
+        property_search = create_search_interface(
+            "property_search", 
+            "🔍 Enter keywords to scan target properties (e.g., conductivity, bandgap, magnetic)..."
+        )
+        
+        # Filter material properties based on search
+        filtered_material_properties = filter_items_by_search(material_properties, property_search)
+        
+        # Display search results count
+        display_search_results_count(filtered_material_properties, len(material_properties), property_search)
         
         st.markdown("### 🎯 TARGET PROPERTY SPECIFICATION:")
         
-        # Display material properties in grid
-        col1, col2, col3 = st.columns(3)
-        props_per_col = len(material_properties) // 3 + 1
-        
-        for i, prop in enumerate(material_properties):
-            col_idx = i // props_per_col
-            if col_idx == 0:
-                with col1:
-                    create_system_module(prop, 'material_properties', st.session_state.current_order)
-            elif col_idx == 1:
-                with col2:
-                    create_system_module(prop, 'material_properties', st.session_state.current_order)
-            else:
-                with col3:
-                    create_system_module(prop, 'material_properties', st.session_state.current_order)
+        # Display filtered material properties
+        if filtered_material_properties:
+            display_filtered_modules(filtered_material_properties, 'material_properties', st.session_state.current_order, columns=3)
         
         # Current configuration display
         display_current_configuration(st.session_state.current_order)
@@ -914,7 +1038,7 @@ def main():
                         }
                         st.session_state.order_history.append(mission_record)
                         
-                        # Display results
+                        # Display results (same structure as forward prediction)
                         st.success("✅ SYNTHESIS PROTOCOL GENERATED")
                         
                         # Results display
