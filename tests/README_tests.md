@@ -16,15 +16,15 @@ This directory contains **test cases** and **scripts** for evaluating the LLM en
 
 1. Activate your Python environment from the project root:
    
-   conda activate causalmat   # or whichever environment you use
+   `conda activate causalmat`   # or whichever environment you use
 
 2. Run the evaluation script:
 
-   python tests/run_eval.py
+   `python tests/run_eval.py`
 
 3. Check the output in:
 
-   results/benchmark_results.csv
+   `results/benchmark_results.csv`
 
 📊 Example Output
 
