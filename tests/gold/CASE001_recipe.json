@@ -1,0 +1,11 @@
+{
+  "params": {
+    "temperature": [
+      190,
+      220
+    ],
+    "method": "oxidation",
+    "atmosphere": "air|O2"
+  },
+  "match_top_k": 3
+}

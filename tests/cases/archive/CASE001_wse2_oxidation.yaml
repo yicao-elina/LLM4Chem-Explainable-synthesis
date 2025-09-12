@@ -1,0 +1,19 @@
+id: CASE001
+paper:
+  title: Surface oxidation induced p-type doping in WSe2
+  doi: 10.xxxx/xxxxx
+  access: restricted
+  note: Derived facts only; no PDF redistribution.
+targets:
+  forward:
+    synthesis:
+      temperature: "200 \xB0C"
+      method: surface oxidation
+      atmosphere: air
+  inverse:
+    properties:
+      carrier_type: p-type
+      controllability: controllable
+gold:
+  paths_note: Gold labels are in tests/gold as JSON files.
+  tolerance_note: Set recipe tolerances in the recipe JSON.

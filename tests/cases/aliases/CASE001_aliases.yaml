@@ -1,0 +1,15 @@
+nodes:
+  "high temperature (200 °c) oxidation": "high temperature oxidation"
+  "acceptor-like oxygen states": "acceptor-like o states"
+  "p type": "p-type"
+  "p-type": "p-type doping"     # if engine uses shorter label
+
+param_keys:
+  "temperature (°c)": "temperature"
+  "temp": "temperature"
+
+param_values:
+  "surface oxidation": "oxidation"
+  "oxygen": "O2"
+  "o₂": "O2"
+  "air": "air"

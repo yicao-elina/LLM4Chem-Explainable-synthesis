@@ -1,0 +1,38 @@
+[
+  {
+    "source": "IFsLI (400 nm, 35 fs, 500 Hz) in ambient air",
+    "target": "Se vacancies in monolayer WSe2",
+    "mechanism": "intense ultrafast excitation induces lattice distortion and defect generation",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "TA/Raman discussion; defect increase" }]
+  },
+  {
+    "source": "Se vacancies + ambient O2",
+    "target": "oxygen incorporation (OSe / WOx clusters)",
+    "mechanism": "O fills/passivates VSe; WOx forms under IFsLI",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "XPS WOx peaks; DFT formation energy OSe" }]
+  },
+  {
+    "source": "oxygen-related defects (OSe / WO3)",
+    "target": "n-type doping in WSe2",
+    "mechanism": "electron transfer to adjacent WSe2 regions; WO3 becomes hole-dominant",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "PL/Raman n-type; TA overlap with WO3" }]
+  },
+  {
+    "source": "initial exciton density ≳ 6.82×10^12 cm^-2",
+    "target": "onset of IFsLI modification",
+    "mechanism": "critical threshold before full Mott regime",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "Fig.2 caption + text" }]
+  },
+  {
+    "source": "Mott density ~1×10^13 cm^-2",
+    "target": "strong modification (IFsLI case 2)",
+    "mechanism": "high carrier density drives pronounced spectral/electronic changes",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "Mott density criterion" }]
+  },
+  {
+    "source": "graphene cover",
+    "target": "suppressed oxygen-related transient species",
+    "mechanism": "graphene blocks O participation; raises barrier to surface oxidation",
+    "citations": [{ "doi": "10.1039/d2cp04495a", "section": "graphene-covered control TA" }]
+  }
+]

@@ -1,0 +1,24 @@
+[
+  {
+    "source": "High temperature (200 \u00b0C) oxidation",
+    "target": "acceptor-like O states",
+    "mechanism": "O incorporation creates acceptor states",
+    "citations": [
+      {
+        "doi": "10.xxxx/xxxxx",
+        "section": "Fig.3 XPS"
+      }
+    ]
+  },
+  {
+    "source": "acceptor-like O states",
+    "target": "p-type doping",
+    "mechanism": "Fermi level shift",
+    "citations": [
+      {
+        "doi": "10.xxxx/xxxxx",
+        "section": "XPS/transfer"
+      }
+    ]
+  }
+]

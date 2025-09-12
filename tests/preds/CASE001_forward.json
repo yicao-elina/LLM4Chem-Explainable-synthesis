@@ -1,0 +1,10 @@
+{
+  "predicted_properties": {
+    "carrier_type": "p-type",
+    "work_function": "Altered",
+    "fermi_level": "Shifted",
+    "interfacial_adhesion_energy": "Reduced"
+  },
+  "reasoning": "The synthesis conditions specify \"surface oxidation\" in \"air\" at 200 \u00b0C. The knowledge graph directly links surface oxidation to p-type doping due to electron transfer, thus affecting work function and Fermi level.  Exposure to air is linked to reduced interfacial adhesion energy due to adsorption of contaminants. While 200 \u00b0C is lower than the 300 \u00b0C mentioned in the knowledge graph regarding negative IAE impact, the general trend of reduced IAE due to air exposure is still applicable.",
+  "confidence": 0.8
+}

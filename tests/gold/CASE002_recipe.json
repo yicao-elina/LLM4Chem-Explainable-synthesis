@@ -1,0 +1,15 @@
+{
+  "params": {
+    "material": "monolayer WSe2|WSe₂|CVD-grown monolayer",
+    "method": "femtosecond laser irradiation|IFsLI|fs-laser oxygen doping",
+    "atmosphere": "air|O2",
+    "laser": {
+      "pump_wavelength_nm": [395, 405],
+      "fundamental_nm": [790, 810],
+      "pulse_duration_fs": [30, 40],
+      "repetition_rate_hz": [450, 550]
+    },
+    "initial_exciton_density_cm^-2": [6.8e12, 1.9e13]
+  },
+  "match_top_k": 3
+}
