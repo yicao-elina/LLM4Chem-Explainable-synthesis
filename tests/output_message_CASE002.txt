@@ -1,0 +1,97 @@
+Loading sentence transformer model ('all-MiniLM-L6-v2')...
+Pre-computing node embeddings...
+Embeddings computed.
+Causal Reasoning Engine initialized.
+Knowledge graph contains 778 nodes and 409 edges.
+
+--- Starting Forward Prediction ---
+WARNING: No exact path found. Using most similar context with confidence 0.63 for transfer learning.
+
+================================================================================
+TRANSFER LEARNING PROMPT SENT TO GEMINI:
+================================================================================
+
+        You are an expert materials scientist AI. Your task is to reason from analogous data using a structured, interpretable process.
+        Your knowledge graph does not contain an exact causal pathway for the user's query.
+        However, you have identified the most semantically similar information available.
+
+        **Task:**
+        Based on the provided analogous information, predict the resulting material properties for the user's target.
+        You must explicitly detail your reasoning process.
+
+        **Target Synthesis Conditions (User's Query):**
+        {
+  "material": "monolayer WSe2 (CVD-grown)",
+  "method": "intense femtosecond-laser irradiation (IFsLI) with oxygen doping",
+  "atmosphere": "air|O2",
+  "laser": {
+    "pump_wavelength_nm": 400,
+    "fundamental_nm": 800,
+    "pulse_duration_fs": 35,
+    "repetition_rate_hz": 500
+  },
+  "notes": "Use fresh spot per shot at high pump (sample on 3D stage) to avoid accumulation. Graphene cover suppresses oxygen-related species and O-doping signatures.\n",
+  "intensity_scale": {
+    "initial_exciton_density_cm^-2": {
+      "low_range": [
+        "9.20e11",
+        "3.68e12"
+      ],
+      "threshold_begin": "6.82e12",
+      "mott_density": "1.0e13",
+      "high_range": [
+        "6.82e12",
+        "1.89e13"
+      ]
+    }
+  }
+}
+
+        **Most Similar Known Causal Pathway (from Knowledge Graph):**
+        - Graphene overlayer on WS2 -> Sharper WS2 bands, shifts
+towards Fermi energy,
+replica VBM near Q
+(Electronic structure)
+
+        **Quantitative Analysis:**
+        The embedding distance between the user's desired properties and the most similar known property is 1.0000 (where 0 is identical and 2 is opposite).
+
+        **Your Reasoning Process (Mandatory):**
+        1.  **Analyze & Compare:** Briefly compare the User's Query with the Known Pathway. What are the key similarities and, more importantly, the key differences (e.g., opposite doping type, different materials, different conditions)?
+        2.  **Formulate Hypothesis:** Based on the differences and the quantitative embedding distance, state a hypothesis. For example: "The known pathway describes p-doping via oxidation. The user wants n-doping. The large embedding distance of ~1.0 confirms these concepts are dissimilar. Therefore, a reductive process or a dopant with more valence electrons is required, making the known pathway a poor analogy for direct parameter transfer."
+        3.  **Extrapolate or Diverge:** Decide if you can adjust the parameters from the known pathway (extrapolate) or if you must suggest a completely different approach (diverge). Justify this decision using the embedding distance. A small distance (< 0.4) suggests extrapolation is viable; a large distance (> 0.7) suggests divergence is necessary.
+        4.  **Synthesize Final Answer:** Based on your hypothesis, construct the final prediction/suggestion.
+
+        **Output Format:**
+        Provide your answer in a structured JSON format within a ```json block.
+        The JSON MUST include a detailed 'transfer_learning_analysis' object containing your step-by-step reasoning.
+
+        Example JSON output:
+        {
+          "predicted_properties": {"carrier_type": "p-type", "band_gap_ev": 1.5},
+          "reasoning": "The user desires n-type properties, but the most similar context is for p-type doping via oxidation. Acknowledging this contradiction (embedding distance > 1.0), I suggest CVD with a Re precursor, a known n-type doping strategy, rather than adapting the oxidation parameters.",
+          "confidence": 0.6293,
+          "analogous_path_used": "Graphene overlayer on WS2 -> Sharper WS2 bands, shifts
+towards Fermi energy,
+replica VBM near Q
+(Electronic structure)",
+          "property_embedding_distance": 1.0000,
+          "transfer_learning_analysis": {
+              "1_comparison": "The user's query is for electron-doping (n-type). The known pathway is for hole-doping (p-type) via oxidation. The core electronic goal is opposite.",
+              "2_hypothesis": "Because the desired electronic outcome is the inverse of the known pathway, confirmed by a large embedding distance, the synthesis method must also be fundamentally different. Simple parameter adjustments to the oxidation process are inappropriate.",
+              "3_decision": "Diverge. The provided context serves as a counterexample. I will ignore its specific parameters and instead access my general knowledge about n-type doping for 2D materials.",
+              "4_synthesis": "The final suggestion is based on general knowledge of using Group 7 elements like Rhenium (Re) to n-dope MoS2-like materials, typically via CVD."
+          },
+          "suggested_next_steps": "Perform DFT calculations to model Re doping. Experimentally, synthesize via CVD and characterize using Hall effect and XPS."
+        }
+        
+================================================================================
+
+Querying Gemini with an interpretable transfer learning prompt...
+
+--- Starting Inverse Design ---
+No direct path or sufficiently similar node found. Using general knowledge fallback.
+Wrote /Users/estherlty/PycharmProjects/LLM4Chem-Explainable-synthesis/results/benchmark_results.csv with 1 case(s).
+
+Top cases by Edge F1:
+CASE002: Edge F1=0.0, Path F1=0.0, inverse@3=False

@@ -1,0 +1,5 @@
+{
+  "error": "Failed to find a direct or analogous path in the knowledge graph.",
+  "confidence": 0.0,
+  "suggestion": "Consider expanding the knowledge graph or use a general-purpose query."
+}

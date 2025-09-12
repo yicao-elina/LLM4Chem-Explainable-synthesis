@@ -1,0 +1,10 @@
+{
+  "suggested_synthesis_conditions": {
+    "method": "Surface oxidation",
+    "temperature_c": 200,
+    "dopant": "Sr",
+    "target_material": "Bi-containing material"
+  },
+  "reasoning": "Combining surface oxidation at 200\u00b0C (achieves controllable p-type behavior) with Sr doping substituting Bi (achieves p-type carrier type) provides the most direct route to the desired properties according to the knowledge graph.",
+  "confidence": 1.0
+}

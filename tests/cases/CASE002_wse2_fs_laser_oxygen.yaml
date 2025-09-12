@@ -1,0 +1,33 @@
+id: CASE002
+paper:
+  title: Electronic state evolution of oxygen-doped monolayer WSe2 assisted by femtosecond laser irradiation
+  journal: Phys. Chem. Chem. Phys. (PCCP) 2023, 25, 2043–2049
+  doi: 10.1039/d2cp04495a
+targets:
+  forward:
+    synthesis:
+      material: "monolayer WSe2 (CVD-grown)"
+      method: "intense femtosecond-laser irradiation (IFsLI) with oxygen doping"
+      atmosphere: "air|O2"         # oxygen from ambient; graphene cover inhibits O participation
+      laser:
+        pump_wavelength_nm: 400    # frequency-doubled pump used for IFsLI/TA
+        fundamental_nm: 800
+        pulse_duration_fs: 35
+        repetition_rate_hz: 500
+      notes: >
+        Use fresh spot per shot at high pump (sample on 3D stage) to avoid accumulation.
+        Graphene cover suppresses oxygen-related species and O-doping signatures.
+      intensity_scale:
+        initial_exciton_density_cm^-2:
+          low_range: [9.20e11, 3.68e12]
+          threshold_begin: 6.82e12
+          mott_density: 1.0e13
+          high_range: [6.82e12, 1.89e13]
+  inverse:
+    properties:
+      doping_type: "n-type under IFsLI with oxygen"
+      signature: "broad positive TA 500–700 nm; A/B bleaching suppression at high density"
+      criterion: "IFsLI modification detectable near Mott density (~1e13 cm^-2)"
+gold:
+  paths_note: Gold edges/paths/recipe live in tests/gold as CASE002_*.json
+  tolerance_note: Tighten recipe ranges if you later extract exact spot size/fluence.
