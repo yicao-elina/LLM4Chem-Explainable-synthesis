@@ -1,6 +1,6 @@
 # Tests
 
-This directory contains **test cases** and **scripts** for evaluating the LLM engine against gold-standard results.
+This directory contains preliminary **test cases** and **scripts** for evaluating the LLM engine against gold-standard results. It aims to serve as demo for LLM Hackathon for Materials and Chemistry 2025, and how you may use the engine along with `run_eval.py` to evaluate against test cases of your choice.
 
 ---
 
@@ -14,7 +14,7 @@ This directory contains **test cases** and **scripts** for evaluating the LLM en
 
 ## ▶️ How to Run the Tests
 
-1. Activate your Python environment from the project root:
+1. Activate Python environment from the project root after cloning the repo:
    
    `conda activate causalmat`   # or whichever environment you use
 
@@ -28,7 +28,9 @@ This directory contains **test cases** and **scripts** for evaluating the LLM en
 
 📊 Example Output
 
-The CSV file includes metrics such as:
+1. The `preds/output_message_CASE002.txt` file demonstrate the output message of running `run_eval.py` against CASE002. 
+
+2. The CSV file includes metrics such as:
 
 Case	Edge F1	Path F1	Inverse@3
 CASE001	0.0	0.0	False
