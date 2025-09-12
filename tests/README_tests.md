@@ -1,6 +1,6 @@
 # Tests
 
-This directory contains preliminary **test cases** and **scripts** for evaluating the LLM engine against gold-standard results. It aims to serve as demo for LLM Hackathon for Materials and Chemistry 2025, and how you may use the engine along with `run_eval.py` to evaluate against test cases of your choice.
+This directory contains preliminary **test cases** and **scripts** for evaluating the LLM engine against gold-standard results. It aims to serve as demo for LLM Hackathon for Materials and Chemistry 2025, and how you may use the engine along with `run_eval.py` to evaluate the performance of the engine against known test cases of your choice.
 
 ---
 
@@ -12,7 +12,7 @@ This directory contains preliminary **test cases** and **scripts** for evaluatin
 
 ---
 
-## ▶️ How to Run the Tests
+## ▶️ How to run the tests
 
 1. Activate Python environment from the project root after cloning the repo:
    
@@ -26,7 +26,7 @@ This directory contains preliminary **test cases** and **scripts** for evaluatin
 
    `results/benchmark_results.csv`
 
-📊 Example Output
+📊 Example output
 
 1. The `preds/output_message_CASE002.txt` file demonstrate the output message of running `run_eval.py` against CASE002. 
 
@@ -37,15 +37,16 @@ CASE001	0.0	0.0	False
 
 (numbers above are placeholders — real values depend on the engine and gold standards used)
 
-🛠️ Adding New Tests
+🛠️ Adding new tests and modifying gold standards
 
-- Place new case definitions under tests/ as YAML files.
-- Update aliases.yaml if new shorthand mappings are required.
-- Run run_eval.py again to include them in evaluation.
+- Place new case definitions under `tests/cases` as YAML files.
+- Modify/ add new gold standards file (`CASE{number}_edges.json`, `CASE{number}_paths.json`, `CASE{number}_receipe.json`).
+- (optional) Update aliases.yaml if new shorthand mappings are required. We plan to update normalization method using LLM moving forward.
+- Run `run_eval.py` again to include them in evaluation.
 
 📝 Notes
 
-- Commit only YAML definitions and scripts, not large CSV result files.
+- Commit only YAML definitions and scripts, not large CSV result files for current version.
 - Ensure the engine and dependencies are installed before running tests.
 - The tests are designed to check:
   - Edge-level F1 (correctness of causal links)
