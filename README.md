@@ -1,5 +1,9 @@
 # ARIA: Autonomous Reasoning Intelligence for Atomics
-![ARIA: Autonomous Reasoning Intelligence for Atomics](img/ARIA-logo.png)
+
+<p align="center">
+  <img src="img/ARIA-logo.png" alt="ARIA: Autonomous Reasoning Intelligence for Atomics" width="400">
+</p>
+
 ## 🎯 Project Vision and Research Mission
 
 **ARIA (Autonomous Reasoning Intelligence for Atomics)** represents a groundbreaking advancement in AI-driven materials discovery, introducing the first comprehensive framework that integrates **causal reasoning with large language models (LLMs)** for materials science applications. This research addresses a critical gap in current AI approaches: the lack of mechanistic understanding and causal interpretability in materials prediction models.
