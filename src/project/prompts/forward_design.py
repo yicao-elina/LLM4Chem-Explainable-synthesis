@@ -83,6 +83,7 @@ Provide your answer in a structured JSON format within a ```json block.
 The JSON MUST include detailed mechanistic reasoning and chain-of-thought analysis.
 
 Example JSON output:
+```json
 {{
   "predicted_properties": {{"carrier_type": "p-type", "band_gap_ev": 1.5, "carrier_concentration": "increased"}},
   "mechanistic_explanation": {{
@@ -107,6 +108,7 @@ Example JSON output:
   "confidence": 1.0,
   "reasoning": "Direct causal pathway found in knowledge graph, enhanced with mechanistic understanding."
 }}
+```
 """
 )]
 )
@@ -141,6 +143,7 @@ Based on the provided analogous information and your chemical knowledge, predict
 Provide your answer in a structured JSON format within a ```json block.
 
 Example JSON output:
+```json
 {{
   "predicted_properties": {{"carrier_type": "p-type", "band_gap_ev": 1.5}},
   "mechanistic_reasoning": {{
@@ -160,6 +163,7 @@ Example JSON output:
   "confidence": {confidence},
   "analogous_path_used": "{analogous_context}"
 }}
+```
 """)]
 )
 
@@ -174,7 +178,7 @@ class ForwardDirectChain:
             base_url= "http://localhost:8000/v1",
             api_key = "EMPTY",
             temperature=0,
-            model="Qwen/Qwen3-8B",
+            model="Qwen/Qwen3-14B",
             max_tokens=None,
             verbose=True,
             top_p=0.98,
@@ -186,11 +190,13 @@ class ForwardDirectChain:
         calling_chain = self._forward_direct_prompt | self._llm | CausalReasoningJSONParser()
         if isinstance(datas, dict):
             inputs = [{"synthesis_conditions": datas["synthesis_conditions"], "causal_paths": datas["causal_paths"], "mechanisms": datas["mechanisms"]}]
+            length = 1
         else:
             inputs = [{"synthesis_conditions": data["synthesis_conditions"], "causal_paths": data["causal_paths"], "mechanisms": data["mechanisms"]} for data in datas]
+            length = len(datas)
         results = []
         for result in tqdm(calling_chain.batch(inputs=inputs,
-            config=self._runnable_config), total=len(datas), desc="Summarizing reasoning"):
+            config=self._runnable_config), total=length, desc="Summarizing reasoning"):
             results.append(result)
         return results 
 
@@ -204,7 +210,7 @@ class ForwardTransferChain:
             base_url= "http://localhost:8000/v1",
             api_key = "EMPTY",
             temperature=0,
-            model="Qwen/Qwen3-8B",
+            model="Qwen/Qwen3-14B",
             max_tokens=None,
             verbose=True,
             top_p=0.98,
@@ -216,8 +222,10 @@ class ForwardTransferChain:
         calling_chain = self._forward_transfer_prompt | self._llm | CausalReasoningJSONParser()
         if isinstance(datas, dict):
             inputs = [{"synthesis_conditions": datas["synthesis_conditions"], "analogous_context": datas["analogous_context"], "mechanisms": datas["mechanisms"], "confidence": datas["confidence"]}]
+            length = 1
         else:   
             inputs = [{"synthesis_conditions": data["synthesis_conditions"], "analogous_context": data["analogous_context"], "mechanisms": data["mechanisms"], "confidence": data["confidence"]} for data in datas]
+            length = len(datas)
         results = []
         for result in tqdm(calling_chain.batch(inputs=inputs,
             config=self._runnable_config), total=len(datas), desc="Summarizing reasoning"):

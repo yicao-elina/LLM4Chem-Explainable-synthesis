@@ -83,6 +83,7 @@ Provide your answer in a structured JSON format within a ```json block.
 The JSON MUST include detailed mechanistic reasoning and chain-of-thought analysis.
 
 Example JSON output:
+```json
 {{
   "suggested_synthesis_conditions": {{"method": "Surface oxidation", "temperature_c": 200, "duration_hours": 2}},
   "mechanistic_explanation": {{
@@ -107,6 +108,7 @@ Example JSON output:
   "confidence": 1.0,
   "reasoning": "Direct causal pathway found in knowledge graph, enhanced with mechanistic understanding."
 }}
+```
 """)]   
 )
 
@@ -153,6 +155,7 @@ The embedding distance between the user's query and the most similar known case 
 Provide your answer in a structured JSON format within a ```json block.
 
 Example JSON output:
+```json
 {{
   "suggested_synthesis_conditions": {{"method": "Chemical Vapor Deposition", "dopant_precursor": "ReO3"}},
   "mechanistic_reasoning": {{
@@ -173,6 +176,7 @@ Example JSON output:
   "property_embedding_distance": {property_embedding_distance},
   "analogous_path_used": "{analogous_context}"
 }}
+```
 """)]
 )
 
@@ -186,7 +190,7 @@ class InverseDirectChain:
             base_url= "http://localhost:8000/v1",
             api_key = "EMPTY",
             temperature=0,
-            model="Qwen/Qwen3-8B",
+            model="Qwen/Qwen3-14B",
             max_tokens=None,
             verbose=True,
             top_p=0.98,
@@ -198,11 +202,13 @@ class InverseDirectChain:
         calling_chain = self._inverse_direct_prompt | self._llm | CausalReasoningJSONParser()
         if isinstance(datas, dict):
             inputs = [{"desired_properties": datas["desired_properties"], "causal_paths": datas["causal_paths"], "mechanisms": datas["mechanisms"]}]
+            length = 1
         else:
             inputs = [{"desired_properties": data["desired_properties"], "causal_paths": data["causal_paths"], "mechanisms": data["mechanisms"]} for data in datas]
+            length = len(datas)
         results = []
         for result in tqdm(calling_chain.batch(inputs=inputs,
-            config=self._runnable_config), total=len(datas), desc="Summarizing reasoning"):
+            config=self._runnable_config), total=length, desc="Summarizing reasoning"):
             results.append(result)
         return results 
 
@@ -216,7 +222,7 @@ class InverseTransferChain:
             base_url= "http://localhost:8000/v1",
             api_key = "EMPTY",
             temperature=0,
-            model="Qwen/Qwen3-8B",
+            model="Qwen/Qwen3-14B",
             max_tokens=None,
             verbose=True,
             top_p=0.98,
@@ -225,12 +231,15 @@ class InverseTransferChain:
     def get_result(self, datas: List[str]) -> List[Dict[str, Any]]:
         """Get all reasoning texts and summarize them."""
         calling_chain = self._inverse_transfer_prompt | self._llm | CausalReasoningJSONParser()
+        
         if isinstance(datas, dict):
             inputs = [{"desired_properties": datas["desired_properties"], "analogous_context": datas["analogous_context"], "mechanisms": datas["mechanisms"], "confidence": datas["confidence"], "property_embedding_distance": datas["property_embedding_distance"]}]
+            length = 1  
         else:
             inputs = [{"desired_properties": data["desired_properties"], "analogous_context": data["analogous_context"], "mechanisms": data["mechanisms"], "confidence": data["confidence"], "property_embedding_distance": data["property_embedding_distance"]} for data in datas]
+            length = len(datas)
         results = []
         for result in tqdm(calling_chain.batch(inputs=inputs,
-            config=self._runnable_config), total=len(datas), desc="Summarizing reasoning"):
+            config=self._runnable_config), total=length, desc="Summarizing reasoning"):
             results.append(result)
         return results 
