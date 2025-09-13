@@ -1,71 +1,107 @@
-# CausalMat Design Studio Documentation
+# ARIA: Autonomous Reasoning Intelligence for Atomics
+![ARIA: Autonomous Reasoning Intelligence for Atomics](img/ARIA-logo.pdf)
+## 🎯 Project Vision and Research Mission
 
-## 🎯 Project Goals and Vision
+**ARIA (Autonomous Reasoning Intelligence for Atomics)** represents a groundbreaking advancement in AI-driven materials discovery, introducing the first comprehensive framework that integrates **causal reasoning with large language models (LLMs)** for materials science applications. This research addresses a critical gap in current AI approaches: the lack of mechanistic understanding and causal interpretability in materials prediction models.
 
-The **CausalMat Design Studio** is an AI-powered application designed to revolutionize materials science research by providing an intuitive, McDonald's-inspired interface for materials discovery and design. Our goal is to democratize materials science by making complex causal reasoning accessible through a user-friendly "ordering" system where researchers can "order" their perfect materials like a Happy Meal.
+> *"ARIA doesn't just compute—it reasons. Understanding not just what materials exist, but WHY they work."*
 
-### Core Objectives:
-- **Accelerate Materials Discovery**: Reduce time from concept to synthesis by providing AI-guided predictions
-- **Bridge Theory and Practice**: Connect synthesis conditions to material properties through causal reasoning
-- **Enable Knowledge Transfer**: Leverage existing research to guide new material designs
-- **Democratize Materials Science**: Make advanced materials design accessible to researchers at all levels
+### 🚀 Core Research Objectives:
+- **Accelerate Scientific Discovery**: Reduce time from concept to synthesis through AI-guided causal predictions
+- **Bridge Theory and Practice**: Connect synthesis conditions to material properties via mechanistic reasoning
+- **Enable Analogical Knowledge Transfer**: Leverage existing research to guide discovery of novel materials
+- **Democratize Advanced Materials Design**: Make causal AI reasoning accessible to researchers at all levels
 
-## 🚀 Key Features and Functions
+## 🧠 Core Innovation: Causal Reasoning for Materials Science
 
-### 1. **Forward Prediction Engine** 🍟
-Transform synthesis conditions into material property predictions.
+### **Paradigm Shift from Correlation to Causation**
 
-**Core Capabilities:**
-- **Input**: Synthesis parameters (temperature, pressure, dopants, precursors, etc.)
-- **Output**: Predicted material properties with confidence scores
-- **Features**:
-  - Real-time causal path visualization
-  - Mechanistic reasoning explanations
-  - Quantitative property estimates
-  - Uncertainty analysis with confidence scoring
-  - Chain-of-thought reasoning display
+Traditional AI approaches in materials science rely on pattern recognition and correlation-based predictions. ARIA introduces a fundamentally different approach:
 
-### 2. **Inverse Design Engine** 🍔
-Generate synthesis recipes from desired material properties.
+- **Causal Knowledge Graphs**: Structured representation of synthesis-property relationships as directed acyclic graphs (DAGs)
+- **Mechanistic LLM Integration**: Large language models generate mechanistic explanations grounded in causal pathways
+- **Analogical Reasoning Framework**: Transfer learning across different material systems through embedding-based similarity
+- **Uncertainty Quantification**: Confidence scoring based on causal pathway strength and knowledge graph coverage
 
-**Core Capabilities:**
-- **Input**: Target material properties (bandgap, conductivity, stability, etc.)
-- **Output**: Recommended synthesis conditions and protocols
-- **Features**:
-  - Transfer learning from analogous systems
-  - Alternative synthesis pathway suggestions
-  - Risk assessment and uncertainty quantification
-  - Step-by-step synthesis recommendations
+### **Dual-Mode Causal Inference**
 
-### 3. **Interactive Knowledge Graph** 🕸️
-Dynamic visualization and exploration of materials relationships.
+ARIA operates through two complementary reasoning modes:
 
-**Features:**
-- Node-edge network visualization
-- Real-time path highlighting during predictions
-- Embedding distance calculations
-- Confidence-weighted connections
+1. **🔮 Forward Prediction Protocol**: `Synthesis Conditions → Material Properties`
+   - Input: Temperature, pressure, dopants, precursors, atmosphere
+   - Output: Predicted properties with mechanistic explanations and confidence scores
 
-### 4. **Results Dashboard** 📊
-Comprehensive analytics and history tracking.
+2. **🎯 Inverse Design Protocol**: `Target Properties → Synthesis Recommendations`
+   - Input: Desired bandgap, conductivity, stability, magnetic behavior
+   - Output: Optimized synthesis protocols with mechanistic justification
 
-**Features:**
-- Order history with confidence tracking
-- Performance analytics over time
-- Success rate monitoring
-- Export capabilities for further analysis
+## 🔬 Technical Innovation and Methodological Advances
 
-### 5. **Causal Reasoning Engine** 🧠
-Advanced AI backend providing mechanistic understanding.
+### **Hybrid Symbolic-Neural Architecture**
 
-**Capabilities:**
-- Similarity-based analogical reasoning
-- Electronic structure analysis
-- Thermodynamic feasibility assessment
-- Kinetic pathway evaluation
-- Defect chemistry considerations
+ARIA combines the interpretability of symbolic reasoning with the flexibility of neural approaches:
 
-## 🔬 Using the App for Materials Design
+- **Knowledge Graph Foundation**: NetworkX-based causal relationship encoding
+- **Embedding-Based Similarity**: Sentence-BERT for analogical reasoning across material systems
+- **LLM Mechanistic Generation**: LLM model integration for scientific explanation synthesis
+- **Confidence-Aware Reasoning**: Quantified uncertainty through cosine similarity metrics
+
+### **Advanced Causal Reasoning Capabilities**
+
+#### **1. Hierarchical Path Discovery**
+- Multi-hop reasoning across complex synthesis-property relationships
+- Bidirectional graph traversal for both forward and inverse queries
+- Real-time causal pathway identification and visualization
+
+#### **2. Mechanistic Transfer Learning**
+- Novel knowledge transfer methodology using embedding similarity
+- Quantified analogical reasoning with confidence assessment
+- Cross-material system knowledge application
+
+#### **3. Scientific Explanation Generation**
+ARIA generates comprehensive mechanistic explanations including:
+- **Electronic Structure Analysis**: Band modifications and Fermi level shifts
+- **Defect Chemistry**: Point defects, dopant incorporation, charge compensation
+- **Thermodynamic Considerations**: Formation energies and phase stability
+- **Kinetic Factors**: Reaction pathways and activation barriers
+
+## 🎛️ ARIA Interface System: Advanced Scientific Interaction
+
+### **Intelligent Parameter Discovery**
+- **Advanced Search & Filtering**: Multi-keyword semantic search across parameter space
+- **Real-time Results**: Instant filtering with intelligent suggestions
+- **Embedding-Based Recommendations**: Similarity-guided parameter selection
+
+### **Mission Control Dashboard**
+- **Real-time Confidence Monitoring**: Live assessment during prediction processes
+- **Causal Pathway Visualization**: Dynamic graph highlighting with confidence weighting
+- **Historical Analytics**: Comprehensive mission tracking and performance analysis
+
+### **Scientific Workflow Integration**
+- **Chain-of-Thought Display**: Step-by-step reasoning visualization
+- **Uncertainty Analysis**: Structured confidence assessment with risk quantification
+- **Alternative Pathway Exploration**: Multiple synthesis route suggestions
+
+## 🔬 Research Applications and Scientific Impact
+
+### **Materials Science Domains**
+- **2D Materials & Heterostructures**: TMDCs, graphene, and layered systems
+- **Semiconductor Doping**: Precise electronic property control
+- **Energy Materials**: Batteries, solar cells, fuel cells, and supercapacitors
+- **Catalysis**: Active site design and reaction optimization
+- **Quantum Materials**: Novel electronic and magnetic systems
+
+### **Computational Chemistry Integration**
+- **DFT Calculation Guidance**: Informed computational parameter selection
+- **High-throughput Screening**: Intelligent candidate material filtering
+- **Experimental Design Optimization**: AI-guided synthesis protocol development
+
+### **Knowledge Discovery Applications**
+- **Literature Mining**: Automated causal relationship extraction
+- **Hypothesis Generation**: AI-driven research direction identification
+- **Cross-domain Transfer**: Knowledge application across material classes
+
+## 🚀 Getting Started with ARIA for Materials Design
 
 ### Forward Prediction Workflow
 
