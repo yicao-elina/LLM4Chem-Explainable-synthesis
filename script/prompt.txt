@@ -1,0 +1,118 @@
+You are an expert materials science researcher specializing in dopant engineering and site-selective doping in 2D layered materials. Your task is to meticulously read the provided scientific text and extract two types of information: (1) specific experimental conditions for dopant incorporation and (2) explicit causal relationships between synthesis parameters and doping site selectivity. Extract ALL doping experiments regardless of final dopant location (vdW gap, surface, substitutional, interstitial) as understanding what drives site selection is crucial.
+
+JSON Schema:
+{
+  "doping_experiments": [
+    {
+      "experiment_id": "exp_1",
+      "host_material": "The layered host material (e.g., 'Sb2Te3', 'Bi2Te3', 'MoS2', 'TaS2', 'graphene').",
+      "dopant": {
+        "element": "Chemical symbol (e.g., 'Cr', 'V', 'Cu', 'Ag', 'Fe', 'Co', 'Li', 'N', 'B').",
+        "concentration": "Dopant concentration in at%, mol%, or atoms/cm2. Use null if not reported.",
+        "precursor": "The chemical form of dopant used (e.g., 'CuCl2', 'metallic Cu', 'Cu vapor', 'NH3 gas')."
+      },
+      "synthesis_conditions": {
+        "method": "Doping method (e.g., 'electrochemical intercalation', 'vapor transport', 'ion implantation', 'solution processing', 'solid-state annealing', 'plasma treatment', 'molecular beam epitaxy').",
+        "temperature_c": "Process temperature in Celsius. For multi-step, report as array [T1, T2, ...].",
+        "time_hours": "Process duration in hours. Use null if not reported.",
+        "atmosphere": "Gas environment (e.g., 'Ar', 'vacuum 10^-6 Torr', 'H2/Ar 5%/95%', 'O2 100 ppm').",
+        "pressure_pa": "Pressure in Pascal. Use null if ambient or not reported.",
+        "electric_field": {
+          "strength_v_cm": "Applied electric field in V/cm. Use null if not applied.",
+          "direction": "Field direction relative to layers ('perpendicular', 'parallel', 'angled 45°')."
+        },
+        "cooling_rate_c_min": "Cooling rate in °C/min. Use null if not reported.",
+        "substrate_pretreatment": "Any substrate or sample pretreatment (e.g., 'cleaved in glovebox', 'O2 plasma 5 min', 'annealed at 200°C in vacuum').",
+        "additional_parameters": "Other important parameters (e.g., 'pH 3.5', 'ultrasonic bath 50W', 'magnetic field 1T', 'laser power 100 mW')."
+      },
+      "doping_outcome": {
+        "site_distribution": {
+          "vdw_gap": "Percentage in van der Waals gaps. Use null if not quantified.",
+          "surface_adsorption": "Percentage on surface. Use null if not quantified.",
+          "substitutional": "Percentage in substitutional sites (replacing host atoms). Use null if not quantified.",
+          "interstitial": "Percentage in interstitial sites within layers. Use null if not quantified.",
+          "primary_site": "The dominant doping site. Choose from: 'vdW gap', 'surface', 'substitutional', 'interstitial', 'mixed', 'unclear'.",
+          "site_specificity": "Additional details (e.g., 'prefers Te sites over Sb sites', 'only between 2nd-3rd QL', 'octahedral coordination in vdW gap')."
+        },
+        "structural_changes": {
+          "layer_spacing_change_angstrom": "Change in interlayer spacing. Positive for expansion. Use null if not measured.",
+          "lattice_parameter_change": "Changes in a, b, c parameters (e.g., {'c': +0.3, 'a': -0.05}). Use null if not measured.",
+          "phase_transition": "Any phase transitions observed (e.g., '2H to 1T', 'none', 'amorphization').",
+          "defect_formation": "New defects created (e.g., 'vacancies', 'grain boundaries', 'stacking faults')."
+        },
+        "distribution_characteristics": {
+          "uniformity": "Spatial distribution: 'highly uniform', 'moderately uniform', 'clustered', 'gradient', 'edge-concentrated', 'not reported'.",
+          "penetration_depth": "How deep dopants penetrate (e.g., 'surface only', '5 layers', 'throughout bulk', 'not reported').",
+          "lateral_distribution": "In-plane distribution pattern if reported."
+        }
+      },
+      "property_changes": {
+        "electronic": {
+          "carrier_concentration": {
+            "value": "Carrier concentration (specify units: cm^-3, cm^-2).",
+            "change_factor": "Change relative to undoped (e.g., '10x increase', '+2e13 cm^-2')."
+          },
+          "carrier_type": "Type of carriers: 'n-type', 'p-type', 'ambipolar', 'unchanged'.",
+          "mobility_cm2_v_s": "Carrier mobility in cm2/V·s. Use null if not measured.",
+          "conductivity_s_cm": "Electrical conductivity in S/cm. Use null if not measured.",
+          "band_gap_ev": "Band gap in eV. Report as {'before': X, 'after': Y} if both given.",
+          "fermi_level_shift_ev": "Fermi level shift in eV. Positive = toward CB.",
+          "other_electronic": "Other electronic properties (e.g., 'superconducting Tc = 3.2K', 'metallic transition')."
+        },
+        "thermal": {
+          "thermal_conductivity_w_m_k": "Thermal conductivity in W/m·K. Report as {'before': X, 'after': Y}.",
+          "seebeck_coefficient_uv_k": "Seebeck coefficient in μV/K.",
+          "thermal_stability": "Changes in thermal stability (e.g., 'decomposition temperature increased by 50°C')."
+        },
+        "mechanical": {
+          "youngs_modulus_gpa": "Young's modulus in GPa.",
+          "hardness": "Hardness values with method (e.g., 'Vickers hardness 250 HV').",
+          "strain_response": "Mechanical behavior changes (e.g., 'increased ductility', '20% softer')."
+        },
+        "optical": {
+          "optical_gap_ev": "Optical band gap if different from electronic.",
+          "absorption_changes": "Changes in optical absorption.",
+          "photoluminescence": "PL changes (e.g., 'new peak at 650 nm', 'quenched')."
+        }
+      },
+      "characterization_evidence": "List key characterization methods and findings (e.g., ['XRD: (003) peak shift confirms intercalation', 'STEM-HAADF: dopants visible in vdW gaps', 'XPS: Cu in +1 oxidation state', 'Hall measurement: n-type 5e19 cm^-3'])."
+    }
+  ],
+  "causal_relationships": [
+    {
+      "relationship_id": "rel_1",
+      "cause_parameter": "The synthesis parameter that drives the effect (e.g., 'temperature > 400°C', 'slow cooling < 1°C/min', 'electric field perpendicular to layers').",
+      "effect_on_doping": "The resulting effect on doping behavior (e.g., 'shifts from vdW intercalation to substitutional doping', 'promotes surface adsorption over bulk incorporation', 'enables selective gap intercalation').",
+      "affected_property": "Which property is impacted (e.g., 'increases n-type carrier concentration', 'reduces thermal conductivity by 50%', 'induces ferromagnetism').",
+      "mechanism_quote": "Direct quote explaining the mechanism (e.g., 'High temperature provides energy to overcome the substitutional site formation energy of 2.3 eV').",
+      "competing_processes": "Any mentioned competing processes (e.g., 'intercalation competes with surface oxidation above 300°C').",
+      "confidence_level": "Certainty of causal link: 'experimentally proven', 'strongly suggested', 'hypothesized', 'correlation only'."
+    }
+  ],
+  "site_selectivity_insights": {
+    "factors_favoring_vdw": "Conditions that promote vdW gap intercalation over other sites.",
+    "factors_favoring_substitutional": "Conditions that lead to substitutional doping.",
+    "factors_favoring_surface": "Conditions that result in surface adsorption.",
+    "factors_favoring_interstitial": "Conditions that cause interstitial doping within layers.",
+    "site_switching_conditions": "Critical parameters that cause transitions between different doping sites (e.g., 'Cu switches from vdW to substitutional above 350°C').",
+    "material_specific_preferences": "Any noted material-specific site preferences (e.g., 'Fe prefers substitutional in MoS2 but vdW in Sb2Te3')."
+  }
+}
+
+Populate the synthesis_conditions list with one JSON object for each distinct experiment you can identify.
+Populate the causal_relationships list with every sentence or phrase that explicitly states a cause-and-effect relationship.
+If a value is not reported for a specific field, use null. Do not make up data. Be precise and thorough. The quality of this extracted data is critical for downstream machine learning tasks.
+
+Additional Extraction Guidelines:
+1. Site Distribution Priority: Even if exact percentages aren't given, note qualitative descriptions (e.g., "primarily intercalated with minor substitutional doping").
+2. Property Changes: - Always note "before" and "after" values when both are provided - Include error bars/uncertainties if reported (e.g., "5.2 ± 0.3 × 10^19 cm^-3") - Note measurement conditions (e.g., "conductivity at 300K", "mobility at 2K")
+3. Causal Indicators: Look for comparative experiments where one parameter is varied while others are held constant. These provide the strongest causal evidence.
+4. Site Competition: Pay special attention to experiments that show transitions between different doping sites as conditions change - these are crucial for understanding selectivity.
+5. Multi-property Correlations: Note when changes in doping site affect multiple properties (e.g., "vdW intercalation preserves high mobility while substitutional doping reduces it").
+6. Negative Results: Include experiments where doping failed or led to undesired sites - these define the parameter space boundaries.
+7. Quantitative Thresholds: Whenever the text mentions critical values (e.g., "above 300°C", "below pH 4"), capture these as they define phase boundaries in your parameter space.
+8. Time-dependent Processes: If doping site evolution over time is mentioned (e.g., "initially surface, then migrates to vdW gaps"), capture this temporal aspect.
+
+Adhere strictly to the JSON schema. Extract every distinct doping experiment reported in the text.
+
+Scientific Text to Analyze:
