@@ -1,0 +1,129 @@
+task,experiment_id,host_material,dopant,engine_name,baseline_overall_score_score,DAG-Basic_overall_score_score,DAG-Basic_confidence,DAG-Basic_improvement,baseline_scientific_accuracy_score,baseline_functional_equivalence_score,baseline_reasoning_quality_score,baseline_completeness_score,DAG-Basic_scientific_accuracy_score,DAG-Basic_functional_equivalence_score,DAG-Basic_reasoning_quality_score,DAG-Basic_completeness_score,DAG+CoT_overall_score_score,DAG+CoT_confidence,DAG+CoT_improvement,DAG+CoT_scientific_accuracy_score,DAG+CoT_functional_equivalence_score,DAG+CoT_reasoning_quality_score,DAG+CoT_completeness_score, baseline_scientific_accuracy_score, baseline_functional_equivalence_score, baseline_reasoning_quality_score, baseline_completeness_score, baseline_overall_score_score
+forward_prediction,exp_1,Cu5V2O10(CsCl) (averievite),Zn,DAG-Basic,0.5,0.4,1.0,-0.09999999999999998,0.6,0.2,0.7,0.3,0.6,0.2,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,Cu5V2O10(CsCl) (averievite),Zn,DAG+CoT,0.5,,,,0.6,0.2,0.7,0.3,,,,,0.4,0.0,-0.09999999999999998,0.6,0.2,0.7,0.3,,,,,
+inverse_design,exp_1,Cu5V2O10(CsCl) (averievite),Zn,DAG-Basic,0.3,0.6,0.7632,0.3,,,,,0.7,0.4,0.8,0.6,,,,,,,,0.3,0.1,0.4,0.4,0.3
+inverse_design,exp_1,Cu5V2O10(CsCl) (averievite),Zn,DAG+CoT,0.3,,,,,,,,,,,,0.2,0.0,-0.09999999999999998,0.2,0.1,0.4,0.2,0.3,0.1,0.4,0.4,0.3
+forward_prediction,exp_1,RuCl3,Cr,DAG-Basic,0.6,0.5,1.0,-0.09999999999999998,0.8,0.2,0.8,0.5,0.6,0.2,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,RuCl3,Cr,DAG+CoT,0.6,,,,0.8,0.2,0.8,0.5,,,,,0.2,0.0,-0.39999999999999997,0.3,0.1,0.4,0.2,,,,,
+inverse_design,exp_1,RuCl3,Cr,DAG-Basic,0.2,0.6,0.5263,0.39999999999999997,,,,,0.7,0.3,0.8,0.5,,,,,,,,0.3,0.1,0.3,0.3,0.2
+inverse_design,exp_1,RuCl3,Cr,DAG+CoT,0.2,,,,,,,,,,,,0.3,0.0,0.09999999999999998,0.2,0.1,0.6,0.2,0.3,0.1,0.3,0.3,0.2
+forward_prediction,exp_1,LaFeAsO,Sr,DAG-Basic,0.8,0.4,0.49,-0.4,0.9,0.7,0.8,0.6,0.4,0.2,0.5,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,LaFeAsO,Sr,DAG+CoT,0.8,,,,0.9,0.7,0.8,0.6,,,,,0.5,0.0,-0.30000000000000004,0.7,0.2,0.7,0.3,,,,,
+inverse_design,exp_1,LaFeAsO,Sr,DAG-Basic,0.7,0.6,0.75,-0.09999999999999998,,,,,0.6,0.4,0.7,0.6,,,,,,,,0.7,0.6,0.8,0.7,0.7
+inverse_design,exp_1,LaFeAsO,Sr,DAG+CoT,0.7,,,,,,,,,,,,0.5,0.0,-0.19999999999999996,0.5,0.3,0.7,0.6,0.7,0.6,0.8,0.7,0.7
+forward_prediction,exp_1,La2O2Bi3AgS6,In,DAG-Basic,0.3,0.0,0.0,-0.3,0.3,0.1,0.6,0.2,0.0,0.0,0.0,0.0,,,,,,,,,,,,
+forward_prediction,exp_1,La2O2Bi3AgS6,In,DAG+CoT,0.3,,,,0.3,0.1,0.6,0.2,,,,,0.0,0.0,-0.3,0.0,0.0,0.0,0.0,,,,,
+inverse_design,exp_1,La2O2Bi3AgS6,In,DAG-Basic,0.6,0.6,0.5545,0.0,,,,,0.7,0.6,0.7,0.6,,,,,,,,0.6,0.5,0.7,0.5,0.6
+inverse_design,exp_1,La2O2Bi3AgS6,In,DAG+CoT,0.6,,,,,,,,,,,,0.5,0.0,-0.09999999999999998,0.6,0.5,0.6,0.4,0.6,0.5,0.7,0.5,0.6
+forward_prediction,exp_1,LiCoO2,Li,DAG-Basic,0.6,0.0,0.0,-0.6,0.7,0.4,0.8,0.5,0.0,0.0,0.0,0.0,,,,,,,,,,,,
+forward_prediction,exp_1,LiCoO2,Li,DAG+CoT,0.6,,,,0.7,0.4,0.8,0.5,,,,,0.0,0.0,-0.6,0.0,0.0,0.0,0.0,,,,,
+inverse_design,exp_1,LiCoO2,Li,DAG-Basic,0.6,0.7,0.5304,0.09999999999999998,,,,,0.7,0.6,0.8,0.6,,,,,,,,0.7,0.3,0.7,0.6,0.6
+inverse_design,exp_1,LiCoO2,Li,DAG+CoT,0.6,,,,,,,,,,,,0.5,0.0,-0.09999999999999998,0.6,0.4,0.7,0.4,0.7,0.3,0.7,0.6,0.6
+forward_prediction,exp_1,ZrSe2,Cu,DAG-Basic,0.5,0.0,0.0,-0.5,0.5,0.3,0.7,0.4,0.0,0.0,0.0,0.0,,,,,,,,,,,,
+forward_prediction,exp_1,ZrSe2,Cu,DAG+CoT,0.5,,,,0.5,0.3,0.7,0.4,,,,,0.0,0.0,-0.5,0.0,0.0,0.0,0.0,,,,,
+inverse_design,exp_1,ZrSe2,Cu,DAG-Basic,0.8,0.7,0.75,-0.10000000000000009,,,,,0.8,0.6,0.8,0.7,,,,,,,,0.9,0.7,0.9,0.8,0.8
+inverse_design,exp_1,ZrSe2,Cu,DAG+CoT,0.8,,,,,,,,,,,,0.6,0.0,-0.20000000000000007,0.7,0.4,0.8,0.6,0.9,0.7,0.9,0.8,0.8
+forward_prediction,exp_2,MgB2,C,DAG-Basic,0.6,0.3,1.0,-0.3,0.7,0.4,0.8,0.4,0.4,0.1,0.5,0.3,,,,,,,,,,,,
+forward_prediction,exp_2,MgB2,C,DAG+CoT,0.6,,,,0.7,0.4,0.8,0.4,,,,,0.5,0.0,-0.09999999999999998,0.7,0.3,0.7,0.4,,,,,
+inverse_design,exp_2,MgB2,C,DAG-Basic,0.8,0.6,0.7708,-0.20000000000000007,,,,,0.6,0.4,0.7,0.5,,,,,,,,0.8,0.7,0.8,0.7,0.8
+inverse_design,exp_2,MgB2,C,DAG+CoT,0.8,,,,,,,,,,,,0.4,0.0,-0.4,0.4,0.2,0.5,0.3,0.8,0.7,0.8,0.7,0.8
+forward_prediction,exp_3,MgB2,C,DAG-Basic,0.5,0.5,1.0,0.0,0.6,0.3,0.7,0.3,0.6,0.3,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_3,MgB2,C,DAG+CoT,0.5,,,,0.6,0.3,0.7,0.3,,,,,0.0,0.0,-0.5,0.0,0.0,0.1,0.0,,,,,
+inverse_design,exp_3,MgB2,C,DAG-Basic,0.8,0.6,0.5328,-0.20000000000000007,,,,,0.6,0.4,0.7,0.6,,,,,,,,0.8,0.6,0.9,0.7,0.8
+inverse_design,exp_3,MgB2,C,DAG+CoT,0.8,,,,,,,,,,,,0.5,0.0,-0.30000000000000004,0.6,0.3,0.7,0.5,0.8,0.6,0.9,0.7,0.8
+forward_prediction,exp_1,MoS2,Re,DAG-Basic,0.5,0.3,1.0,-0.2,0.6,0.3,0.7,0.4,0.4,0.1,0.6,0.2,,,,,,,,,,,,
+forward_prediction,exp_1,MoS2,Re,DAG+CoT,0.5,,,,0.6,0.3,0.7,0.4,,,,,0.1,0.0,-0.4,0.1,0.0,0.2,0.1,,,,,
+inverse_design,exp_1,MoS2,Re,DAG-Basic,0.8,0.7,0.8024,-0.10000000000000009,,,,,0.7,0.5,0.8,0.6,,,,,,,,0.8,0.7,0.9,0.7,0.8
+inverse_design,exp_1,MoS2,Re,DAG+CoT,0.8,,,,,,,,,,,,0.0,0.0,-0.8,0.0,0.0,0.0,0.0,0.8,0.7,0.9,0.7,0.8
+forward_prediction,exp_2,MoS2,Re,DAG-Basic,0.1,0.2,1.0,0.1,0.1,0.1,0.3,0.1,0.2,0.1,0.3,0.2,,,,,,,,,,,,
+forward_prediction,exp_2,MoS2,Re,DAG+CoT,0.1,,,,0.1,0.1,0.3,0.1,,,,,0.0,0.0,-0.1,0.0,0.0,0.1,0.0,,,,,
+inverse_design,exp_2,MoS2,Re,DAG-Basic,0.7,0.8,0.65,0.10000000000000009,,,,,0.8,0.6,0.9,0.7,,,,,,,,0.7,0.5,0.8,0.6,0.7
+inverse_design,exp_2,MoS2,Re,DAG+CoT,0.7,,,,,,,,,,,,0.5,0.0,-0.19999999999999996,0.5,0.3,0.7,0.4,0.7,0.5,0.8,0.6,0.7
+forward_prediction,exp_1,Bi2Se3,Eu,DAG-Basic,0.5,0.5,1.0,0.0,0.6,0.3,0.7,0.4,0.6,0.2,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,Bi2Se3,Eu,DAG+CoT,0.5,,,,0.6,0.3,0.7,0.4,,,,,0.2,0.0,-0.3,0.1,0.1,0.4,0.1,,,,,
+inverse_design,exp_1,Bi2Se3,Eu,DAG-Basic,0.6,0.7,0.7431,0.09999999999999998,,,,,0.7,0.5,0.8,0.6,,,,,,,,0.8,0.3,0.8,0.6,0.6
+inverse_design,exp_1,Bi2Se3,Eu,DAG+CoT,0.6,,,,,,,,,,,,0.4,0.0,-0.19999999999999996,0.3,0.2,0.5,0.4,0.8,0.3,0.8,0.6,0.6
+forward_prediction,exp_2,Bi2Se3,Eu,DAG-Basic,0.5,0.2,1.0,-0.3,0.7,0.2,0.7,0.3,0.2,0.1,0.3,0.2,,,,,,,,,,,,
+forward_prediction,exp_2,Bi2Se3,Eu,DAG+CoT,0.5,,,,0.7,0.2,0.7,0.3,,,,,0.3,0.0,-0.2,0.2,0.1,0.6,0.4,,,,,
+inverse_design,exp_2,Bi2Se3,Eu,DAG-Basic,0.6,0.6,0.5431,0.0,,,,,0.7,0.4,0.8,0.5,,,,,,,,0.7,0.3,0.8,0.6,0.6
+inverse_design,exp_2,Bi2Se3,Eu,DAG+CoT,0.6,,,,,,,,,,,,0.5,0.0,-0.09999999999999998,0.6,0.3,0.7,0.5,0.7,0.3,0.8,0.6,0.6
+forward_prediction,exp_3,Bi2Se3,Eu,DAG-Basic,0.5,0.3,1.0,-0.2,0.7,0.3,0.7,0.4,0.3,0.1,0.4,0.2,,,,,,,,,,,,
+forward_prediction,exp_3,Bi2Se3,Eu,DAG+CoT,0.5,,,,0.7,0.3,0.7,0.4,,,,,0.1,0.0,-0.4,0.1,0.0,0.2,0.1,,,,,
+inverse_design,exp_3,Bi2Se3,Eu,DAG-Basic,0.7,0.7,0.72,0.0,,,,,0.8,0.5,0.8,0.7,,,,,,,,0.8,0.4,0.8,0.6,0.7
+inverse_design,exp_3,Bi2Se3,Eu,DAG+CoT,0.7,,,,,,,,,,,,0.0,0.0,-0.7,0.0,0.0,0.0,0.0,0.8,0.4,0.8,0.6,0.7
+forward_prediction,exp_4,Bi2Se3,Eu,DAG-Basic,0.4,0.4,1.0,0.0,0.6,0.2,0.7,0.3,0.4,0.2,0.5,0.3,,,,,,,,,,,,
+forward_prediction,exp_4,Bi2Se3,Eu,DAG+CoT,0.4,,,,0.6,0.2,0.7,0.3,,,,,0.2,0.0,-0.2,0.2,0.1,0.3,0.2,,,,,
+inverse_design,exp_4,Bi2Se3,Eu,DAG-Basic,0.0,0.7,0.5367,0.7,,,,,0.8,0.4,0.8,0.6,,,,,,,,0.0,0.0,0.0,0.0,0.0
+inverse_design,exp_4,Bi2Se3,Eu,DAG+CoT,0.0,,,,,,,,,,,,0.6,0.0,0.6,0.7,0.5,0.7,0.6,0.0,0.0,0.0,0.0,0.0
+forward_prediction,exp_2,graphite,Ca,DAG-Basic,0.5,0.5,1.0,0.0,0.6,0.3,0.7,0.4,0.6,0.3,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_2,graphite,Ca,DAG+CoT,0.5,,,,0.6,0.3,0.7,0.4,,,,,0.5,0.0,0.0,0.6,0.2,0.7,0.4,,,,,
+inverse_design,exp_2,graphite,Ca,DAG-Basic,0.5,0.7,0.7135,0.19999999999999996,,,,,0.7,0.6,0.7,0.6,,,,,,,,0.6,0.4,0.6,0.5,0.5
+inverse_design,exp_2,graphite,Ca,DAG+CoT,0.5,,,,,,,,,,,,0.2,0.0,-0.3,0.3,0.1,0.3,0.3,0.6,0.4,0.6,0.5,0.5
+forward_prediction,exp_1,MoS2,Au,DAG-Basic,0.5,0.3,0.618,-0.2,0.7,0.2,0.8,0.3,0.3,0.1,0.4,0.2,,,,,,,,,,,,
+forward_prediction,exp_1,MoS2,Au,DAG+CoT,0.5,,,,0.7,0.2,0.8,0.3,,,,,0.2,0.0,-0.3,0.2,0.1,0.4,0.2,,,,,
+inverse_design,exp_1,MoS2,Au,DAG-Basic,0.7,0.8,0.65,0.10000000000000009,,,,,0.8,0.4,0.9,0.7,,,,,,,,0.8,0.6,0.8,0.6,0.7
+inverse_design,exp_1,MoS2,Au,DAG+CoT,0.7,,,,,,,,,,,,0.0,0.0,-0.7,0.0,0.0,0.0,0.0,0.8,0.6,0.8,0.6,0.7
+forward_prediction,exp_2,MoS2,Au,DAG-Basic,0.5,0.4,0.4188,-0.09999999999999998,0.7,0.3,0.7,0.4,0.5,0.2,0.7,0.4,,,,,,,,,,,,
+forward_prediction,exp_2,MoS2,Au,DAG+CoT,0.5,,,,0.7,0.3,0.7,0.4,,,,,0.5,0.0,0.0,0.6,0.3,0.7,0.4,,,,,
+inverse_design,exp_2,MoS2,Au,DAG-Basic,0.7,0.6,0.5224,-0.09999999999999998,,,,,0.7,0.3,0.7,0.5,,,,,,,,0.7,0.5,0.8,0.6,0.7
+inverse_design,exp_2,MoS2,Au,DAG+CoT,0.7,,,,,,,,,,,,0.5,0.0,-0.19999999999999996,0.6,0.3,0.7,0.5,0.7,0.5,0.8,0.6,0.7
+forward_prediction,exp_1,graphene,Si,DAG-Basic,0.6,0.6,1.0,0.0,0.7,0.3,0.8,0.5,0.7,0.5,0.7,0.4,,,,,,,,,,,,
+forward_prediction,exp_1,graphene,Si,DAG+CoT,0.6,,,,0.7,0.3,0.8,0.5,,,,,0.4,0.0,-0.19999999999999996,0.6,0.4,0.5,0.3,,,,,
+inverse_design,exp_1,graphene,Si,DAG-Basic,0.7,0.7,0.76,0.0,,,,,0.8,0.6,0.8,0.6,,,,,,,,0.7,0.6,0.7,0.6,0.7
+inverse_design,exp_1,graphene,Si,DAG+CoT,0.7,,,,,,,,,,,,0.3,0.0,-0.39999999999999997,0.3,0.1,0.5,0.2,0.7,0.6,0.7,0.6,0.7
+forward_prediction,exp_1,Bi2Te2Se,Cu,DAG-Basic,0.6,0.5,0.4123,-0.09999999999999998,0.7,0.3,0.8,0.4,0.6,0.2,0.8,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,Bi2Te2Se,Cu,DAG+CoT,0.6,,,,0.7,0.3,0.8,0.4,,,,,0.3,0.0,-0.3,0.2,0.1,0.4,0.3,,,,,
+inverse_design,exp_1,Bi2Te2Se,Cu,DAG-Basic,0.6,0.6,0.7631,0.0,,,,,0.7,0.3,0.8,0.6,,,,,,,,0.7,0.3,0.8,0.6,0.6
+inverse_design,exp_1,Bi2Te2Se,Cu,DAG+CoT,0.6,,,,,,,,,,,,0.4,0.0,-0.19999999999999996,0.3,0.2,0.6,0.4,0.7,0.3,0.8,0.6,0.6
+forward_prediction,exp_1,FeSe,H,DAG-Basic,0.6,0.2,1.0,-0.39999999999999997,0.7,0.4,0.8,0.5,0.2,0.0,0.3,0.1,,,,,,,,,,,,
+forward_prediction,exp_1,FeSe,H,DAG+CoT,0.6,,,,0.7,0.4,0.8,0.5,,,,,0.1,0.0,-0.5,0.1,0.0,0.2,0.1,,,,,
+inverse_design,exp_1,FeSe,H,DAG-Basic,0.7,0.7,0.5792,0.0,,,,,0.8,0.7,0.8,0.6,,,,,,,,0.8,0.4,0.8,0.7,0.7
+inverse_design,exp_1,FeSe,H,DAG+CoT,0.7,,,,,,,,,,,,0.7,0.0,0.0,0.7,0.6,0.8,0.6,0.8,0.4,0.8,0.7,0.7
+forward_prediction,exp_1,graphene (zerolayer and monolayer),H,DAG-Basic,0.6,0.5,0.6123,-0.09999999999999998,0.7,0.5,0.7,0.4,0.7,0.3,0.8,0.4,,,,,,,,,,,,
+forward_prediction,exp_1,graphene (zerolayer and monolayer),H,DAG+CoT,0.6,,,,0.7,0.5,0.7,0.4,,,,,0.5,0.0,-0.09999999999999998,0.6,0.3,0.7,0.4,,,,,
+inverse_design,exp_1,graphene (zerolayer and monolayer),H,DAG-Basic,0.7,0.8,0.72,0.10000000000000009,,,,,0.8,0.6,0.9,0.7,,,,,,,,0.7,0.6,0.8,0.7,0.7
+inverse_design,exp_1,graphene (zerolayer and monolayer),H,DAG+CoT,0.7,,,,,,,,,,,,0.6,0.0,-0.09999999999999998,0.7,0.5,0.7,0.6,0.7,0.6,0.8,0.7,0.7
+forward_prediction,exp_1,WS2,H2O,DAG-Basic,0.7,0.3,1.0,-0.39999999999999997,0.8,0.6,0.9,0.5,0.3,0.1,0.5,0.2,,,,,,,,,,,,
+forward_prediction,exp_1,WS2,H2O,DAG+CoT,0.7,,,,0.8,0.6,0.9,0.5,,,,,0.2,0.0,-0.49999999999999994,0.2,0.1,0.3,0.1,,,,,
+inverse_design,exp_1,WS2,H2O,DAG-Basic,0.7,0.8,0.598,0.10000000000000009,,,,,0.8,0.7,0.8,0.7,,,,,,,,0.8,0.6,0.8,0.7,0.7
+inverse_design,exp_1,WS2,H2O,DAG+CoT,0.7,,,,,,,,,,,,0.7,0.0,0.0,0.7,0.5,0.8,0.6,0.8,0.6,0.8,0.7,0.7
+forward_prediction,exp_1,Cr1.2Te2,H,DAG-Basic,0.5,0.3,1.0,-0.2,0.6,0.4,0.7,0.5,0.3,0.2,0.4,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,Cr1.2Te2,H,DAG+CoT,0.5,,,,0.6,0.4,0.7,0.5,,,,,0.5,0.0,0.0,0.5,0.3,0.6,0.4,,,,,
+inverse_design,exp_1,Cr1.2Te2,H,DAG-Basic,0.7,0.7,0.78,0.0,,,,,0.8,0.6,0.8,0.7,,,,,,,,0.8,0.6,0.8,0.7,0.7
+inverse_design,exp_1,Cr1.2Te2,H,DAG+CoT,0.7,,,,,,,,,,,,0.0,0.0,-0.7,0.0,0.0,0.0,0.0,0.8,0.6,0.8,0.7,0.7
+forward_prediction,exp_1,graphene,Si,DAG-Basic,0.7,0.7,1.0,0.0,0.8,0.6,0.9,0.6,0.7,0.5,0.8,0.6,,,,,,,,,,,,
+forward_prediction,exp_1,graphene,Si,DAG+CoT,0.7,,,,0.8,0.6,0.9,0.6,,,,,0.5,0.0,-0.19999999999999996,0.6,0.3,0.7,0.4,,,,,
+inverse_design,exp_1,graphene,Si,DAG-Basic,0.7,0.8,0.782,0.10000000000000009,,,,,0.8,0.7,0.8,0.7,,,,,,,,0.8,0.6,0.8,0.7,0.7
+inverse_design,exp_1,graphene,Si,DAG+CoT,0.7,,,,,,,,,,,,0.6,0.0,-0.09999999999999998,0.7,0.5,0.6,0.5,0.8,0.6,0.8,0.7,0.7
+forward_prediction,exp_1,2H-NbSe2,Nb,DAG-Basic,0.8,0.5,1.0,-0.30000000000000004,0.9,0.7,0.9,0.7,0.7,0.2,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_1,2H-NbSe2,Nb,DAG+CoT,0.8,,,,0.9,0.7,0.9,0.7,,,,,0.3,0.0,-0.5,0.4,0.2,0.5,0.3,,,,,
+inverse_design,exp_1,2H-NbSe2,Nb,DAG-Basic,0.6,0.6,0.7746,0.0,,,,,0.7,0.3,0.8,0.6,,,,,,,,0.7,0.4,0.8,0.6,0.6
+inverse_design,exp_1,2H-NbSe2,Nb,DAG+CoT,0.6,,,,,,,,,,,,0.3,0.0,-0.3,0.3,0.1,0.4,0.2,0.7,0.4,0.8,0.6,0.6
+forward_prediction,exp_2,2H-NbSe2,Nb,DAG-Basic,0.6,0.5,1.0,-0.09999999999999998,0.8,0.3,0.8,0.5,0.6,0.2,0.7,0.3,,,,,,,,,,,,
+forward_prediction,exp_2,2H-NbSe2,Nb,DAG+CoT,0.6,,,,0.8,0.3,0.8,0.5,,,,,0.2,0.0,-0.39999999999999997,0.2,0.1,0.3,0.1,,,,,
+inverse_design,exp_2,2H-NbSe2,Nb,DAG-Basic,0.5,0.5,0.5131,0.0,,,,,0.5,0.2,0.7,0.5,,,,,,,,0.6,0.3,0.7,0.5,0.5
+inverse_design,exp_2,2H-NbSe2,Nb,DAG+CoT,0.5,,,,,,,,,,,,0.2,0.0,-0.3,0.3,0.1,0.4,0.2,0.6,0.3,0.7,0.5,0.5
+forward_prediction,exp_1,graphene,B,DAG-Basic,0.3,0.6,1.0,0.3,0.2,0.3,0.5,0.3,0.7,0.6,0.7,0.4,,,,,,,,,,,,
+forward_prediction,exp_1,graphene,B,DAG+CoT,0.3,,,,0.2,0.3,0.5,0.3,,,,,0.4,0.0,0.10000000000000003,0.6,0.4,0.5,0.3,,,,,
+inverse_design,exp_1,graphene,B,DAG-Basic,0.8,0.8,0.7802,0.0,,,,,0.8,0.6,0.8,0.7,,,,,,,,0.8,0.7,0.9,0.7,0.8
+inverse_design,exp_1,graphene,B,DAG+CoT,0.8,,,,,,,,,,,,0.6,0.0,-0.20000000000000007,0.7,0.4,0.7,0.5,0.8,0.7,0.9,0.7,0.8
+forward_prediction,exp_2,"HOPG, graphene, hBN, MoS2",C,DAG-Basic,0.7,0.4,1.0,-0.29999999999999993,0.8,0.2,0.9,0.6,0.6,0.1,0.7,0.2,,,,,,,,,,,,
+forward_prediction,exp_2,"HOPG, graphene, hBN, MoS2",C,DAG+CoT,0.7,,,,0.8,0.2,0.9,0.6,,,,,0.2,0.0,-0.49999999999999994,0.2,0.1,0.3,0.1,,,,,
+inverse_design,exp_2,"HOPG, graphene, hBN, MoS2",C,DAG-Basic,0.8,0.0,0.7618,-0.8,,,,,0.0,0.0,0.0,0.0,,,,,,,,1.0,0.1,1.0,1.0,0.8
+inverse_design,exp_2,"HOPG, graphene, hBN, MoS2",C,DAG+CoT,0.8,,,,,,,,,,,,0.5,0.0,-0.30000000000000004,0.6,0.2,0.7,0.5,1.0,0.1,1.0,1.0,0.8
+forward_prediction,exp_1,NbSe2,Sn,DAG-Basic,0.5,0.3,1.0,-0.2,0.6,0.3,0.7,0.4,0.3,0.1,0.4,0.2,,,,,,,,,,,,
+forward_prediction,exp_1,NbSe2,Sn,DAG+CoT,0.5,,,,0.6,0.3,0.7,0.4,,,,,0.2,0.0,-0.3,0.1,0.1,0.7,0.1,,,,,
+inverse_design,exp_1,NbSe2,Sn,DAG-Basic,0.8,0.7,0.8149,-0.10000000000000009,,,,,0.8,0.3,0.9,0.7,,,,,,,,0.8,0.6,0.9,0.7,0.8
+inverse_design,exp_1,NbSe2,Sn,DAG+CoT,0.8,,,,,,,,,,,,0.4,0.0,-0.4,0.6,0.2,0.7,0.3,0.8,0.6,0.9,0.7,0.8
+forward_prediction,exp_1,FePS3,Li,DAG-Basic,0.6,0.8,1.0,0.20000000000000007,0.7,0.3,0.8,0.6,0.8,0.7,0.9,0.7,,,,,,,,,,,,
+forward_prediction,exp_1,FePS3,Li,DAG+CoT,0.6,,,,0.7,0.3,0.8,0.6,,,,,0.2,0.0,-0.39999999999999997,0.2,0.1,0.3,0.2,,,,,
+inverse_design,exp_1,FePS3,Li,DAG-Basic,0.8,0.8,0.5222,0.0,,,,,0.8,0.7,0.9,0.7,,,,,,,,0.8,0.7,0.8,0.7,0.8
+inverse_design,exp_1,FePS3,Li,DAG+CoT,0.8,,,,,,,,,,,,0.5,0.0,-0.30000000000000004,0.6,0.4,0.6,0.5,0.8,0.7,0.8,0.7,0.8
+forward_prediction,exp_1,Epitaxial Graphene (EG) on SiC,In,DAG-Basic,0.7,0.5,1.0,-0.19999999999999996,0.8,0.3,0.9,0.7,0.6,0.3,0.7,0.4,,,,,,,,,,,,
+forward_prediction,exp_1,Epitaxial Graphene (EG) on SiC,In,DAG+CoT,0.7,,,,0.8,0.3,0.9,0.7,,,,,0.1,0.0,-0.6,0.1,0.1,0.3,0.1,,,,,
+inverse_design,exp_1,Epitaxial Graphene (EG) on SiC,In,DAG-Basic,0.6,0.6,0.7619,0.0,,,,,0.7,0.3,0.8,0.7,,,,,,,,0.7,0.3,0.8,0.7,0.6
+inverse_design,exp_1,Epitaxial Graphene (EG) on SiC,In,DAG+CoT,0.6,,,,,,,,,,,,0.5,0.0,-0.09999999999999998,0.6,0.2,0.7,0.3,0.7,0.3,0.8,0.7,0.6
+forward_prediction,exp_2,In-intercalated EG on SiC,O,DAG-Basic,0.4,0.5,1.0,0.09999999999999998,0.4,0.2,0.7,0.3,0.5,0.3,0.6,0.4,,,,,,,,,,,,
+forward_prediction,exp_2,In-intercalated EG on SiC,O,DAG+CoT,0.4,,,,0.4,0.2,0.7,0.3,,,,,0.1,0.0,-0.30000000000000004,0.1,0.1,0.2,0.1,,,,,
+inverse_design,exp_2,In-intercalated EG on SiC,O,DAG-Basic,0.7,0.7,0.758,0.0,,,,,0.7,0.5,0.8,0.7,,,,,,,,0.7,0.5,0.8,0.7,0.7
+inverse_design,exp_2,In-intercalated EG on SiC,O,DAG+CoT,0.7,,,,,,,,,,,,0.3,0.0,-0.39999999999999997,0.3,0.2,0.4,0.3,0.7,0.5,0.8,0.7,0.7

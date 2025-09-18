@@ -1,0 +1,1197 @@
++--------------------------------------------------------------------------------------+
+|              [31mHome[0m Usage for user [31mycao73[0m as of [31mWed Sep 17 11:00:10 2025[0m               |
++----------------------+----------------------+-------------------+--------------------+
+|         Used         |        Quota         |      Percent      |       Files        |
++----------------------+----------------------+-------------------+--------------------+
+|       48.99 GB       |       50.00 GB       |       97.97%      |      613,607       |
++----------------------+----------------------+-------------------+--------------------+
+
++------------------------------------------------------------------------------------------+
+|              [31mGPFS[0m Usage for Group [31mpclancy3:[0m as of [31mWed Sep 17 11:30:15 2025[0m               |
++------------+-----------+-----------+---------+------------+---------------+--------------+
+|     FS     |    Used   |   Quota   |  Used % |   Files    |  Files Quota  |   Files %    |
++------------+-----------+-----------+---------+------------+---------------+--------------+
+|    data    |  9.06 TB  |  10.00 TB |  90.00% |  491,450   |   4,096,000   |    11.00%    |
+|  scratch4  |  9.43 TB  |  10.00 TB |  94.00% | 1,486,598  |   5,242,880   |    28.00%    |
+| scratch16  |  18.53 TB |  20.00 TB |  92.00% | 1,502,606  |   20,480,000  |    7.00%     |
++------------+-----------+-----------+---------+------------+---------------+--------------+
+
+Consider completing our user survey to provide feedback to help improve the cluster: https://jh.qualtrics.com/jfe/form/SV_bQOKO9M7xQFmwAu
+
+Lmod is automatically replacing "openmpi/3.1.6" with "intel-mpi/2021.7".
+
+
+Lmod is automatically replacing "gcc/9.3.0" with "intel/2022.2".
+
+
+The following have been reloaded with a version change:
+  1) git/2.28.0 => git/2.38.1
+
+
+Currently Loaded Modules:
+  1) slurm/19.05.7   4) helpers/0.1.1            7) intel-mkl/2021.7 (k,E)
+  2) lmod/8.7.24     5) standard/2020.10         8) git/2.38.1
+  3) lua/5.4.4       6) intel-mpi/2021.7 (k,E)   9) intel/2022.2     (k,E)
+
+  Where:
+   E:  Experimental
+   k:  Spack, a package manager for supercomputers
+Wed Sep 17 11:53:04 EDT 2025
+This is using gemini-chem to extract doping experiments from scientific text.
+Running causal engine to analyze the extracted data...
+2025-09-17 11:53:24.028956: I tensorflow/core/util/port.cc:113] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2025-09-17 11:53:24.349968: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:9261] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-09-17 11:53:24.350140: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:607] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-09-17 11:53:24.401556: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1515] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-17 11:53:24.503343: I tensorflow/core/platform/cpu_feature_guard.cc:182] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-09-17 11:53:25.927187: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Knowledge Graph Enrichment Engine initialized.
+🚀 Starting Knowledge Graph Enrichment Process
+============================================================
+
+📊 Analyzing missing data patterns...
+   - Total experiments: 32
+   - Total relationships: 292
+   - Material systems: 22
+   - Top missing fields: ['property_changes.electronic.mobility_cm2_v_s', 'property_changes.electronic.conductivity_s_cm', 'synthesis_conditions.electric_field.strength_v_cm', 'synthesis_conditions.electric_field.direction', 'property_changes.electronic.carrier_concentration.value']
+
+🧪 Enriching 32 experiments...
+
+--- Experiment 1/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: Cu5V2O10(CsCl) (averievite)
+   Dopant: Zn
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 2/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: RuCl3
+   Dopant: Cr
+   🔍 Searching for synthesis conditions: ['atmosphere', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 56 column 61 (char 2582)
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'distribution_characteristics.lateral_distribution']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 53 column 49 (char 2150)
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 3/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: LaFeAsO
+   Dopant: Sr
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 4/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: La2O2Bi3AgS6
+   Dopant: In
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 5/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: LiCoO2
+   Dopant: Li
+   🔍 Searching for synthesis conditions: ['temperature_c', 'time_hours', 'atmosphere', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 47 column 39 (char 1298)
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 6/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: ZrSe2
+   Dopant: Cu
+   🔍 Searching for synthesis conditions: ['temperature_c', 'time_hours', 'atmosphere', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev.after']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 7/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: MgB2
+   Dopant: C
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 14 column 17 (char 318)
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 48 column 39 (char 1274)
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 8/32 ---
+
+🔬 Enriching experiment: exp_3
+   Material: MgB2
+   Dopant: C
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 14 column 17 (char 473)
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 9/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: MoS2
+   Dopant: Re
+   🔍 Searching for synthesis conditions: ['time_hours', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 6 column 57 (char 387)
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes']
+
+--- Experiment 10/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: MoS2
+   Dopant: Re
+   🔍 Searching for synthesis conditions: ['time_hours', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes']
+
+--- Experiment 11/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: Bi2Se3
+   Dopant: Eu
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'site_distribution.site_specificity', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 59 column 26 (char 1919)
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 12/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: Bi2Se3
+   Dopant: Eu
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'site_distribution.site_specificity', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 55 column 26 (char 1846)
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 13/32 ---
+
+🔬 Enriching experiment: exp_3
+   Material: Bi2Se3
+   Dopant: Eu
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev.before', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'site_distribution.site_specificity', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 14/32 ---
+
+🔬 Enriching experiment: exp_4
+   Material: Bi2Se3
+   Dopant: Eu
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev.before', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'site_distribution.site_specificity', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 15/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: graphite
+   Dopant: Ca
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 47 column 39 (char 1677)
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 16/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: MoS2
+   Dopant: Au
+   🔍 Searching for synthesis conditions: ['temperature_c', 'time_hours', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 19 column 55 (char 1140)
+
+--- Experiment 17/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: MoS2
+   Dopant: Au
+   🔍 Searching for synthesis conditions: ['temperature_c', 'time_hours', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes']
+
+--- Experiment 18/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: graphene
+   Dopant: Si
+   🔍 Searching for synthesis conditions: ['time_hours', 'atmosphere', 'cooling_rate_c_min']
+   🔍 Searching for electronic properties: ['mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 76 column 49 (char 1769)
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 19/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: Bi2Te2Se
+   Dopant: Cu
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 20/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: FeSe
+   Dopant: H
+   🔍 Searching for synthesis conditions: ['time_hours', 'atmosphere', 'pressure_pa', 'cooling_rate_c_min']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 21/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: graphene (zerolayer and monolayer)
+   Dopant: H
+   🔍 Searching for synthesis conditions: ['time_hours', 'cooling_rate_c_min', 'additional_parameters']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 14 column 24 (char 412)
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 41 column 9 (char 1641)
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 22/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: WS2
+   Dopant: H2O
+   🔍 Searching for synthesis conditions: ['cooling_rate_c_min', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes']
+
+--- Experiment 23/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: Cr1.2Te2
+   Dopant: H
+   🔍 Searching for synthesis conditions: ['time_hours', 'atmosphere', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   ⚠️ JSON decode error: Expecting ',' delimiter: line 16 column 31 (char 558)
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 24/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: graphene
+   Dopant: Si
+   🔍 Searching for synthesis conditions: ['time_hours', 'pressure_pa', 'cooling_rate_c_min', 'additional_parameters']
+   🔍 Searching for electronic properties: ['carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 25/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: 2H-NbSe2
+   Dopant: Nb
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 26/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: 2H-NbSe2
+   Dopant: Nb
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.defect_formation', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 27/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: graphene
+   Dopant: B
+   🔍 Searching for synthesis conditions: ['time_hours', 'pressure_pa', 'cooling_rate_c_min']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 28/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: HOPG, graphene, hBN, MoS2
+   Dopant: C
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'structural_changes.defect_formation']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 29/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: NbSe2
+   Dopant: Sn
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 30/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: FePS3
+   Dopant: Li
+   🔍 Searching for synthesis conditions: ['time_hours', 'pressure_pa', 'cooling_rate_c_min', 'substrate_pretreatment']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'site_distribution.site_specificity', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.phase_transition', 'distribution_characteristics.lateral_distribution']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'photoluminescence']
+
+--- Experiment 31/32 ---
+
+🔬 Enriching experiment: exp_1
+   Material: Epitaxial Graphene (EG) on SiC
+   Dopant: In
+   🔍 Searching for synthesis conditions: ['cooling_rate_c_min']
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition', 'structural_changes.defect_formation']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 65 column 28 (char 2535)
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev', 'absorption_changes', 'photoluminescence']
+
+--- Experiment 32/32 ---
+
+🔬 Enriching experiment: exp_2
+   Material: In-intercalated EG on SiC
+   Dopant: O
+   🔍 Searching for synthesis conditions: ['pressure_pa', 'cooling_rate_c_min', 'additional_parameters']
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 40 column 32 (char 1399)
+   🔍 Searching for electronic properties: ['carrier_concentration.value', 'carrier_concentration.change_factor', 'carrier_type', 'mobility_cm2_v_s', 'conductivity_s_cm', 'band_gap_ev.before', 'fermi_level_shift_ev', 'other_electronic']
+   🔍 Searching for doping outcomes: ['site_distribution.vdw_gap', 'site_distribution.surface_adsorption', 'site_distribution.substitutional', 'site_distribution.interstitial', 'structural_changes.layer_spacing_change_angstrom', 'structural_changes.lattice_parameter_change', 'structural_changes.phase_transition']
+   🔍 Searching for thermal properties: ['thermal_conductivity_w_m_k', 'seebeck_coefficient_uv_k', 'thermal_stability']
+   🔍 Searching for mechanical properties: ['youngs_modulus_gpa', 'hardness', 'strain_response']
+   🔍 Searching for optical properties: ['optical_gap_ev']
+
+🔗 Enriching 292 causal relationships...
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: substituting the PEDOT:PSS layer with CVD graphene (G-CVD) → exploit the more favourable work function of G-CVD for charge extraction in this architecture, and therefore enhance neuronal photo-modulation
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: more hyperpolarized neuron → more pronounced depolarization triggered by illumination
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: more depolarized neuron → more hyperpolarization under illumination
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: retinal degeneration → inner retina rewiring and decreased ON/OFF RGC ratio
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_8
+
+🔗 Enriching relationship: rel_9
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Se substitution for both in-plane and out-of-plane Ch sites → Increases both lattice constants a and c
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Se substitution for S → Se occupies both Ch1 and Ch2 sites
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Increasing Se content (x) → Increases in-plane chemical pressure
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Te-rich conditions → Lower formation energy for Mo dopants
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Host material (Sb2Te3 vs. Bi2Te3) → Easier incorporation of magnetic dopants in Sb2Te3 than Bi2Te3
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 26 column 37 (char 2101)
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Mo doping → Suppressed short-range configurations (clustering)
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Substitution at minority spin sites (4f1 and 4f2) → enhances net magnetic moment
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 11 column 212 (char 1526)
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Substitution at majority spin sites (12k, 2a, and 2b) → reduces net magnetic moment
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: (Zn, Sn) pair substitution at the (4f1, 4f2) sites → reduction of magnetic coercivity
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Zn substitution → reduction in the values of σs and anisotropy
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Sn substitution → reduction in the values of σs and anisotropy
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Atomic species of V, Cr, Mn, Fe, Co, Mo and Ru → Strong adsorption energy and large migration barrier energy
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Ru, Ti, Ni, Pd, Pt, Si and Ge atomic species → Suitable as material for coating of SWNT
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Noble metal atomic species → Can flow inside of SWNT
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 27 column 37 (char 2426)
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Nitrogen and Oxygen atomic species → Large diffusion barrier energy on SWNT
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Strong binding energy for Mo → Mo atoms sit inside CNT by breaking the wall
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_8
+
+🔗 Enriching relationship: rel_9
+
+🔗 Enriching relationship: rel_10
+
+🔗 Enriching relationship: rel_11
+
+🔗 Enriching relationship: rel_12
+
+🔗 Enriching relationship: rel_13
+
+🔗 Enriching relationship: rel_14
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Increasing Sr doping → Increases Tc
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: F doping or oxygen deficiency → Decreases lattice constants (a and c axes)
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: F doping or oxygen deficiency → Increases Tc
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Increasing energy gap to thermal energy (Eg/kT ≈7, Eg/kT ≈14, Eg/kT ≈28) → Tend to steady tunable electrical control and optical confinement on the length scale over screening one.
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Doping (modulation doping with InAs and GaSb) → Makes electrical conductance more steady and less sensitive to temperature compared to undoped graphene/GaAs/graphene structures.
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Presence of metallic (graphene) mono-layers → Enhances thermionic current density behavior.
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Using a more realistic intrinsic electrostatic potential (equation 19) → Enhances thermionic current density behavior.
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Graphene loading fractions above the percolation threshold → strong enhancement of both the electromagnetic interference shielding and heat conduction properties
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: increasing the graphene filler loading fraction → shielding by absorption mechanism increases strongly
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 26 column 37 (char 2627)
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Increasing graphene loading fraction → SEA increases monotonically
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: Incorporation of SLG to the matrix → stronger decrease of its electron mobility and electrical conductivity
+
+🔗 Enriching relationship: rel_9
+   🔍 Searching for mechanism: increasing loading of GF-A graphene fillers → thermal conductivity increases
+
+🔗 Enriching relationship: rel_10
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Excessive growth rates → inclusions and morphological instabilities resulting in strain and high density of defects
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: HPHT process with molten Fe-Ni catalysts → Carbon is completely dissolved... and purified during its transport to a growth site and following re-crystallization
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Carbon dissolution stage → suitable for chemical doping
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Using few-layer (5-6 layers) MoS2 → 
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Deposition of PbSe QDs on top of MoS2 → 
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: A large number of photo-generated carriers at higher light intensities → 
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Reducing photocurrent leakage from the QD layer to the contacts with oxide layer → 
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Annealing at 150 °C for 3 hours under inert atmosphere → 
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Re concentration ⪆ 2 at% → Significant clustering of Re in MoS2
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Transition from isolated Re atoms to Re clusters → Increases the ionization energy of Re dopants, reducing Re-doping efficacy
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Re dopant clustering → Creates defect states that trap photogenerated excitons
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Re concentration > 0.5 at% → Reduces n-type doping, increases strain
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Slower growth front → Accumulates more Re dopants
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Small Re-Re separations → Increased Re dopant ionization energy
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Presence of monovacancy → Most stable position for N dopant is the pyridinelike configuration
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Presence of other point defects (SW defect and divacancies) → N prefers a site in the pentagonal ring
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Presence of native point defects → N doping becomes exothermic
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: N doping → Increases probability of point defect generation
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Presence of native point defect → May induce N dopant aggregation
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Fe adsorption → Formation energy of four N dopants at 5-8-5 DV becomes lower than that of three N dopants at MV
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: N doping at MV in carbon nanotube → introduces a large electron donor state
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Eu doping → induces antiferromagnetic ordering
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: M=3 or 4 CuO2 layers, appropriate negative pair tunneling, doping imbalance between inner and outer layers → maximum Tc
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: other spacing elements (Y, Ba, Sr) → lower Tc for multilayer materials compared to single layer
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: small enough (in magnitude) negative pair hopping (To < 0), smaller to → maximum Tc for M=3
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Vo,out = Vo,in and higher To → maximum Tc for M=2
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: To > 0 → does not reproduce dome-type Tc dependence with maximum at M=3
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Y, Ba, Sr intercalants → much smaller Tk than Ca-intercalated cuprates
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 27 column 37 (char 2374)
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Y, Ba, Sr intercalants for M>1 → weaker in-plane pairing potential
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Na:C molar mixing ratio ≥ 1.0 → Complete reaction of C and Na to form NaCx
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Na:CaC6 molar mixing ratio (y) = 1.5-2.0 → Optimal CaC6 formation at 250 °C for 2 h
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Increased defect density (from 2.0×1010 cm-2 to 1.8×1011 cm-2) → 
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Isotope engineering (varying 13C concentration) → 
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: 2D nature of phonon density of states in graphene → 
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Rotation of sp2-carbon planes → 
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 27 column 37 (char 2210)
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Graphene bending, interaction with substrate, and defects → 
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Small loading fractions of graphene fillers → 
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: High loading of graphene with thermal percolation → 
+
+🔗 Enriching relationship: rel_9
+   🔍 Searching for mechanism: Orientation of FLG fillers → 
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Si deposition → Reduction of initial p-type doping and increase of compressive strain in graphene
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: RTA at 500°C → Dehydrogenation of a-Si:H layer
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: RTA at 700°C → Transformation of amorphous Si to polycrystalline Si
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Increasing protonation time (carrier concentration) → Successive emergence of discrete superconducting phases (Tc1 ≈ 10 K, Tc2 ≈ 25 K, Tc3 ≈ 34 K, Tc4 ≈ 44 K)
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Increasing carrier concentration → Suppression of nematic phase
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Increasing carrier concentration → Evolution from non-Fermi-liquid to Fermi-liquid transport behavior
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: H+ intercalation → Suppression of effective hole concentration, dominant carriers change to electrons
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Lifshitz transition → Abrupt appearance of the Tc2 SC phase and change of resistivity exponent α
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Geometrically low regions of the moiré superlattice → Energetically favored sites for boron substitution
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Boron substitution in geometrically low regions → Induces local bending of graphene towards Ir(111)
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Local bending of graphene → Increased charge transfer from Ir to graphene
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Incorporation of boron during graphene growth → Enhanced BC segregation at elevated temperatures
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Deposition of metal films onto graphene → Induces structural defects, doping and strain
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Top-contacts → Induce strain in the graphene layer along two opposing leads, leading to a complex strain pattern across the device channel.
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Edge-contacts → Do not induce strain patterns
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Thermal annealing (2 hours in forming gas (H2/Ar, 10%/90%) at 200 ◦C) → Reduces overall doping and increases overall strain
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Increased clamping from top contacts → Smaller change in strain
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: Annealing top-contacts with poor mechanical clamping → Open electrical contacts
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: Thermal annealing → Slightly improves charge carrier mobility
+
+🔗 Enriching relationship: rel_9
+   🔍 Searching for mechanism: Increasing twist angle from θ = 0◦ → Reduces Moiré wavelength (λ) and shifts satellite Dirac points away from the main Dirac point
+
+🔗 Enriching relationship: rel_10
+   🔍 Searching for mechanism: Thermal annealing → Heterostructure self-reorients and twist angle converges to the same value for both top and edge contact regions
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: PBE functional → systematically overestimates the lattice constants and the magnitude of the ferroelectric distortion
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: PBEsol functional → leads to good agreement with available experimental data
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 27 column 37 (char 2574)
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Fe3+ cation occupying the outer site → creates significantly more distorted coordination octahedra compared to the Ti4+ cation
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: larger unit cell volume within PBE → overestimation of the Γ−5 mode amplitude within PBE
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Larger UFe → increases the spin splitting of the Fe d states and pushes the unoccupied local minority spin Fe d states to higher energies
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Increase of Hubbard U applied on Fe site from UFe = 3 eV to UFe = 5 eV → leads to differences in lattice constants and volume of less than 0.1%
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: UFe = 5.0 eV compared to UFe = 3eV → reduces average J by ~30%
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: increasing film thickness (or the number of layers N) → 
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: N is large → 
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: incorporation of the SiO2 superstrate → 
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: additional layers stacked on the bottommost sheet in the N-layer stack → 
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: additional layers stacked on the bottommost sheet in the N-layer stack → 
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: N increases → 
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: ω < cT q → 
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: ω > cT q → 
+
+🔗 Enriching relationship: rel_9
+   🔍 Searching for mechanism: N is large → 
+
+🔗 Enriching relationship: rel_10
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Increasing Li content (longer electrochemical intercalation time) → Reduces both Tmax and TN
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 28 column 39 (char 2992)
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Li intercalation → Elongates out-of-plane lattice parameter c
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Li intercalation → Induces low-temperature susceptibility upturns and ZFC/FC irreversibility
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Li intercalation → Development of magnetic hysteresis loop in out-of-plane magnetization at 2K
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Polarized (or ionized) molecules trapped in the nanobubble during fabrication. → Induces doping and electric field to the layers above, modifying the electronic structure.
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Strain at the edge of the nanobubble → Enhances the band bending induced by the interface between the doped and undoped region.
+
+🔗 Enriching relationship: rel_3
+   🔍 Searching for mechanism: Strain in the nanobubble → Shifts the absorption of both constituent layers to the red, allowing for greater absorption of the excitation photons.
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Alignment of the interlayer exciton transition dipole with the polarization of the nano-optical field at the nanobubble edge → Allows for significantly greater in- and out-coupling for optical fields.
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Strain-induced energy gradients → Funneling of excitons towards lower energy states.
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Sharp lateral junctions in doping → Creates localized states in 2D TMD semiconductors.
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+
+🔗 Enriching relationship: rel_7
+
+🔗 Enriching relationship: rel_1
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: O-rich growth conditions (e.g., increased O2 partial pressure) → Sn vacancy (VSn) becomes the dominant defect
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+
+🔗 Enriching relationship: rel_5
+   🔍 Searching for mechanism: Nitrogen doping (degenerate limit) → Induces a direct-gap-like configuration at the Γ point
+
+🔗 Enriching relationship: rel_1
+   🔍 Searching for mechanism: Defects in hBN → High leakage current
+
+🔗 Enriching relationship: rel_2
+   🔍 Searching for mechanism: Using H2O as an oxygen precursor in ALD on 2D materials → Non-uniform and island-like growth on defects or step edges
+
+🔗 Enriching relationship: rel_3
+
+🔗 Enriching relationship: rel_4
+   🔍 Searching for mechanism: Ozone pretreatment in ALD → damage of the 2D material or unintentional doping
+
+🔗 Enriching relationship: rel_5
+
+🔗 Enriching relationship: rel_6
+   🔍 Searching for mechanism: Direct ALD growth of alumina on WS2 → Significant PL quenching
+
+🔗 Enriching relationship: rel_7
+   🔍 Searching for mechanism: O-terminated Al2O3 interaction with WS2 → Introduction of mid-gap states
+   ⚠️ JSON decode error: Expecting property name enclosed in double quotes: line 26 column 37 (char 2402)
+
+🔗 Enriching relationship: rel_8
+   🔍 Searching for mechanism: Hydrogen passivation of O-terminated Al2O3 → Weak interaction with WS2
+
+✅ Enrichment Complete!
+   - Fields enriched: 681
+   - Sources added: 627
+   - Success rate: 74.51%
+   - Output saved to: ../outputs/enriched_test_knowledge_graph.json
+
+============================================================
+ENRICHMENT SUMMARY
+============================================================
+Original experiments: 32
+Experiments enriched: 32
+Total fields enriched: 681
+Total sources added: 627
+Success rate: 74.51%
+Wed Sep 17 13:09:04 EDT 2025
