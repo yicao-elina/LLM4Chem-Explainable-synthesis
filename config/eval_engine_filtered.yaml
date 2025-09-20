@@ -1,0 +1,15 @@
+data_path: 
+  "train": "outputs/filtered_combined_doping_data.json"
+  "test": "outputs/filtered_test_doping_data.json"
+
+model_id: "gemini-1.5-pro-latest"
+
+engine_path:
+  "baseline": "src/project/engine/causal_engine_0913.py"
+  "cot": "src/project/engine/causal_engine_CoT.py"
+  "online": "src/project/engine/causal_engine_online.py"
+
+result_path: 
+  "baseline": "outputs/filtered_evaluation_results_baseline.csv"
+  "cot": "outputs/filtered_evaluation_results_cot.csv"
+  "online": "outputs/filtered_evaluation_results_online.csv"
