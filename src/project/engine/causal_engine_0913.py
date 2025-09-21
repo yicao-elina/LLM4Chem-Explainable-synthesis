@@ -3,58 +3,31 @@ import networkx as nx
 import os
 import dashscope
 from dashscope import Generation
+import google.generativeai as genai
+from openai import OpenAI
 from pathlib import Path
 import textwrap
 import numpy as np
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 
-# --- Helper function to extract JSON from model response ---
-def extract_json_from_response(text: str):
-    """
-    Extracts a JSON object from a string that contains a JSON markdown block.
-    This version is more robust against malformed JSON from the LLM.
-    """
-    import re
-    # Match the JSON block
-    match = re.search(r"```json\s*([\s\S]*?)\s*```", text, re.DOTALL)
-    
-    if not match:
-        # If no JSON block is found at all, return a warning and the raw response.
-        return {"warning": "No JSON object found in the response.", "raw_response": text}
-    
-    json_string = match.group(1)
-    
-    try:
-        # Attempt to parse the extracted string as JSON
-        return json.loads(json_string)
-    except json.JSONDecodeError as e:
-        # If parsing fails, return a detailed error message including the problematic text.
-        print("\n--- JSON DECODE ERROR ---")
-        print(f"Failed to parse JSON from the model's response. Error: {e}")
-        print("Problematic text received from model:")
-        print(json_string)
-        print("-------------------------\n")
-        return {
-            "error": "Failed to decode JSON from model response.",
-            "details": str(e),
-            "malformed_json_string": json_string
-        }
+from project.utils.parser import extract_json_from_response
 
 
 class CausalReasoningEngine:
     """
     Enhanced Causal Reasoning Engine with robust similarity-based fallback mechanisms.
     Uses hierarchical strategy to guarantee performance equal to or better than baseline.
+    Supports multiple LLM APIs: Qwen (DashScope), Gemini (Google), and OpenAI.
     """
-    def __init__(self, json_file_path: str, model_id: str = "qwen-plus", 
+    def __init__(self, json_file_path: str, model_id: str = "qwen-plus", api_type: str = "qwen",
                 embedding_model: str = 'all-MiniLM-L6-v2'):
         """
         Initialize with enhanced similarity-based reasoning using hierarchical strategy
         
         Args:
             json_file_path: Path to the JSON file containing causal relationships
-            model_id: Model identifier for the LLM (default: "qwen-plus")
+            model_id: Model identifier for the LLM. Supported models:
             embedding_model: Sentence transformer model for embeddings (default: 'all-MiniLM-L6-v2')
         """
         # Hardcoded hierarchical strategy parameters
@@ -63,30 +36,69 @@ class CausalReasoningEngine:
         self.confidence_threshold = 0.6
         
         self.graph = self._build_graph(json_file_path)
-        self._configure_api(model_id)
+        self._configure_api(model_id, api_type)
         print(f"Loading sentence transformer model ('{embedding_model}')...")
         self.embedding_model = SentenceTransformer(embedding_model)
         self._precompute_node_embeddings()
         print(f"Enhanced Causal Reasoning Engine initialized with hierarchical strategy.")
         print(f"Similarity threshold: {self.similarity_threshold}, Confidence threshold: {self.confidence_threshold}")
         print(f"Knowledge graph contains {self.graph.number_of_nodes()} nodes and {self.graph.number_of_edges()} edges.")
+        self.forward_output_format = """```json
+        {{
+            "reasoning": "...",
+            "predicted_properties": {{
+            "doping_outcome": "...",
+            "structure_changes": "...",
+            "phase_transition": "...",
+            "defect_formation": "...",
+            "distribution_characteristics": "...",
+            "property_changes": "...",
+            "thermal": "...",
+            "mechanical": "...",
+            "optical": "...",
+            "...": "..."
+            }},
+            "confidence": a float between 0 and 1
+        }}
+        ```"""
+        self.inverse_output_format = """```json
+        {{
+            "reasoning": "...",
+            "suggested_synthesis_conditions": {{
+            "host_material": "...",
+            "dopant":{{
+            "element": "...",
+            "concentration": "...",
+            "precursor": "..."}},
+            "method": "...",
+            "temperature_c": ...,
+            "pressure_pa": ...,
+            "time_hours": ...,
+            "atmosphere": ...,
+            "electric_field": ...,
+            "cooling_rate_c_min": ...,
+            "substrate_pretreatment": ...,
+            "additional_parameters": ...,
+            "...": "..."
+            }},
+            "confidence": a float between 0 and 1
+        }}
+        ```"""
 
     def _baseline_fallback_query(self, original_prompt_data: dict, query_type: str, reason: str = "No suitable DAG knowledge found"):
         """
-        Pure baseline query that matches the baseline model performance exactly.
-        This ensures we never underperform the baseline.
+        Pure baseline query that matches the baseline model performance exactly. This ensures we never underperform the baseline.
         """
         print(f"🔄 Using baseline fallback: {reason}")
         
         if query_type == "forward":
             task_desc = "predict the resulting material properties"
             output_label = "predicted_properties"
-            example_output = '{"carrier_type": "p-type", "band_gap_ev": 1.5, "conductivity": "enhanced"}'
+            output_format = self.forward_output_format
         else:
             task_desc = "suggest synthesis conditions to achieve the desired properties"
             output_label = "suggested_synthesis_conditions"
-            example_output = '{"method": "Chemical Vapor Deposition", "temperature_c": 800, "pressure_torr": 100}'
-        
+            output_format = self.inverse_output_format
         baseline_prompt = f"""
         You are an expert materials scientist. Based on the following {'synthesis conditions' if query_type == 'forward' else 'desired properties'}, 
         {task_desc}.
@@ -94,16 +106,10 @@ class CausalReasoningEngine:
         {'Synthesis Conditions' if query_type == 'forward' else 'Desired Properties'}:
         {json.dumps(original_prompt_data, indent=2)}
         
-        Provide your answer in a structured JSON format within a ```json block with '{output_label}' and 'reasoning' fields.
+        Provide your answer in a structured JSON format within a ```json block.
         
         Example format:
-        ```json
-        {{
-            "{output_label}": {example_output},
-            "reasoning": "Detailed explanation of the prediction based on materials science principles.",
-            "confidence": 0.7
-        }}
-        ```
+        {output_format}
         """
         
         response_text = self._generate_content(baseline_prompt)
@@ -120,6 +126,7 @@ class CausalReasoningEngine:
             }
         
         # Add metadata to indicate this is baseline performance
+        result["raw_response"] = response_text
         result["method"] = "baseline_fallback"
         result["dag_enhancement"] = False
         return result
@@ -202,13 +209,13 @@ class CausalReasoningEngine:
         
         if query_type == "forward":
             task_desc = "predict material properties from synthesis conditions"
-            output_label = "predicted_properties"
             input_label = "Synthesis Conditions"
+            output_format = self.forward_output_format
         else:
             task_desc = "suggest synthesis conditions for desired properties"
-            output_label = "suggested_synthesis_conditions"
             input_label = "Desired Properties"
-        
+            output_format = self.inverse_output_format
+                    
         # Format DAG knowledge
         formatted_paths = "\n- ".join(causal_paths)
         all_mechanisms = []
@@ -251,39 +258,13 @@ class CausalReasoningEngine:
         4. **Confidence Assessment**: Provide honest confidence levels for each aspect
         
         **Output Requirements:**
-        - Your answer must be scientifically rigorous and practically useful
+        - Reason step by step until you reach the final answer, put the final answer in the json format
+        - Your answer must be logical, scientifically rigorous and practically useful
         - Include mechanistic explanations combining both knowledge sources
         - Provide confidence levels and uncertainty analysis
-        - Flag any conflicts between baseline and DAG knowledge
         
         **JSON Output Format:**
-        ```json
-        {{
-            "{output_label}": {{"your_enhanced_prediction": "value"}},
-            "baseline_analysis": {{
-                "prediction": "baseline prediction",
-                "confidence": 0.x,
-                "reasoning": "fundamental principles applied"
-            }},
-            "dag_enhancement": {{
-                "contribution": "how DAG knowledge enhanced the prediction",
-                "validation": "how DAG validated or modified baseline",
-                "mechanisms": "additional mechanistic insights from literature"
-            }},
-            "final_reasoning": "integrated explanation combining baseline + DAG",
-            "confidence": 0.x,
-            "quality_metrics": {{
-                "dag_knowledge_quality": {quality_assessment['quality_score']:.3f},
-                "integration_success": "successful/partial/minimal",
-                "improvement_over_baseline": "description of improvements"
-            }},
-            "uncertainty_analysis": {{
-                "high_confidence_aspects": ["list"],
-                "uncertain_aspects": ["list"],
-                "recommendations": ["suggestions for validation"]
-            }}
-        }}
-        ```
+        {output_format}
         """
         
         response_text = self._generate_content(enhanced_prompt)
@@ -296,6 +277,7 @@ class CausalReasoningEngine:
                                                "DAG integration failed")
         
         # Add metadata
+        result["raw_response"] = response_text
         result["method"] = "dag_enhanced"
         result["dag_quality"] = quality_assessment
         result["dag_enhancement"] = True
@@ -345,7 +327,75 @@ class CausalReasoningEngine:
             return analogous_paths, "similarity_based", avg_similarity
         
         return [], "no_match", 0.0
+    def _transfer_learning_query(self, original_prompt_data: dict, analogous_context: str, confidence: float, query_type: str, 
+                                 similar_node: str = None, query_string: str = None):
+        """
+        Enhanced transfer learning query with improved search and validation.
+        """
+        print(f"WARNING: No exact path found. Using enhanced transfer learning with confidence {confidence:.2f}")
 
+        if query_type == "forward":
+            task_description = "predict the resulting material properties with mechanistic explanation"
+            input_data_label = "Target Synthesis Conditions"
+            output_format = self.forward_output_format
+        else: # inverse
+            task_description = "suggest synthesis conditions with mechanistic justification"
+            input_data_label = "Target Material Properties"
+            output_format = self.inverse_output_format
+        
+        property_embedding_diff = 1.0
+        if query_type == "inverse" and similar_node and query_string:
+            property_embedding_diff = self._calculate_embedding_difference(query_string, similar_node)
+
+        # Extract mechanisms for the analogous path
+        mechanisms = self._get_path_mechanisms(analogous_context)
+        formatted_mechanisms = "\n- ".join(mechanisms) if mechanisms else "No specific mechanisms provided"
+
+        prompt = f"""
+        You are an expert materials scientist AI conducting transfer learning analysis. Your knowledge graph lacks exact pathways, but you've identified analogous information that requires careful validation and adaptation.
+
+        **Task:**
+        Based on analogous information and comprehensive literature search, {task_description} for the user's target.
+
+        **{input_data_label} (User's Query):**
+        {json.dumps(original_prompt_data, indent=2)}
+
+        **Most Similar Known Causal Pathway:**
+        - {analogous_context}
+
+        **Known Mechanisms for Similar Pathway:**
+        - {formatted_mechanisms}
+
+        **Similarity Analysis:**
+        - Embedding distance: {property_embedding_diff:.4f} (0=identical, 2=opposite)
+        - Most similar known case: {similar_node}
+
+        **Your Instructions:**
+        1. **Baseline Analysis**: First, provide your fundamental materials science analysis
+        2. **DAG Enhancement**: Use the research knowledge to enhance or validate your baseline reasoning
+        3. **Quality Control**: Ensure the final prediction is scientifically sound and improves upon baseline
+        4. **Confidence Assessment**: Provide honest confidence levels for each aspect
+        
+        **Output Requirements:**
+        - First, analysis the provided causal paths and mechanisms (if provided), then reason step by step until you reach the final answer, put the final answer in the json format
+        - Your answer must be logical, scientifically rigorous and practically useful
+        - Include mechanistic explanations combining both knowledge sources
+        - Provide confidence levels and uncertainty analysis
+
+        **JSON Output Format:**
+        {output_format}
+        """
+
+        print("Conducting enhanced transfer learning analysis...")
+        response = self._generate_content(prompt)
+        response_text = response.text
+        result = extract_json_from_response(response_text)
+
+        result["raw_response"] = response_text
+        result["method"] = "dag_enhanced"
+        result["dag_enhancement"] = False
+        return result
+    
     def forward_prediction(self, synthesis_inputs: dict):
         """
         Enhanced forward prediction with robust similarity-based fallback
@@ -454,32 +504,78 @@ class CausalReasoningEngine:
             return self._baseline_fallback_query(desired_properties, "inverse", 
                                                f"DAG processing error: {str(e)}")
 
-    # Helper methods unchanged
-    def _configure_api(self, model_id: str):
-        """Configure DashScope API for Qwen models"""
-        api_key = os.getenv("DASHSCOPE_API_KEY") or "sk-05e23c85c27448a0a8d2e0e0f0302779"
-        dashscope.api_key = api_key
-        dashscope.base_http_api_url = 'https://dashscope-intl.aliyuncs.com/api/v1'
+    def _configure_api(self, model_id: str, api_type: str):
+        """Configure API based on model_id to support Qwen, Gemini, and OpenAI models"""
         self.model_id = model_id
-        print(f"Configured Qwen model: {model_id}")
+        self.api_type = api_type
+        
+        # Qwen models (DashScope API)
+        if api_type == "qwen":
+            api_key = os.getenv("DASHSCOPE_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing DASHSCOPE_API_KEY for Qwen models")
+            dashscope.api_key = api_key
+            dashscope.base_http_api_url = 'https://dashscope-intl.aliyuncs.com/api/v1'
+            
+        # Gemini models (Google Generative AI)
+        elif api_type == "gemini":
+            api_key = os.getenv("GOOGLE_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing GOOGLE_API_KEY for Gemini models")
+            genai.configure(api_key=api_key)
+            self.model = genai.GenerativeModel(model_id)
+            
+        # OpenAI models
+        elif api_type == "openai":
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing OPENAI_API_KEY for OpenAI models")
+            self.openai_client = OpenAI(api_key=api_key)
+            
+        else:
+            raise ValueError(f"Unsupported api_type: {api_type} for model: {model_id}")
+        
+        print(f"Configured {self.api_type} API for model: {model_id}")
 
     def _generate_content(self, prompt: str):
-        """Generate content using Qwen model via DashScope API"""
+        """Generate content using the configured API (Qwen, Gemini, or OpenAI)"""
         try:
-            response = Generation.call(
-                model=self.model_id,
-                prompt=prompt,
-                temperature=0.7
-            )
-            
-            if response.status_code == 200:
-                return response.output.text
+            if self.api_type == "qwen":
+                # Qwen API via DashScope
+                response = Generation.call(
+                    model=self.model_id,
+                    prompt=prompt,
+                    temperature=0.7
+                )
+                
+                if response.status_code == 200:
+                    return response.output.text
+                else:
+                    print(f"Qwen API Error: {response.code} - {response.message}")
+                    return f"Error: {response.code} - {response.message}"
+                    
+            elif self.api_type == "gemini":
+                # Gemini API via Google Generative AI
+                response = self.model.generate_content(prompt)
+                return response.text
+                
+            elif self.api_type == "openai":
+                # OpenAI API
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_id,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.7,
+                    max_tokens=4000
+                )
+                return response.choices[0].message.content
+                
             else:
-                print(f"Qwen API Error: {response.code} - {response.message}")
-                return f"Error: {response.code} - {response.message}"
+                raise ValueError(f"Unknown API type: {self.api_type}")
                 
         except Exception as e:
-            print(f"Exception calling Qwen API: {str(e)}")
+            print(f"Exception calling {self.api_type} API: {str(e)}")
             return f"Exception: {str(e)}"
 
     def _build_graph(self, json_file_path: str):
@@ -548,7 +644,7 @@ class CausalReasoningEngine:
 
 
 if __name__ == '__main__':
-    json_file = '../outputs/combined_doping_data.json'
+    json_file = 'outputs/combined_doping_data.json'
     
     try:
         print("="*80)
@@ -556,7 +652,7 @@ if __name__ == '__main__':
         print("="*80)
         
         # Initialize engine with same arguments as original
-        engine = CausalReasoningEngine(json_file, model_id="qwen-plus")
+        engine = CausalReasoningEngine(json_file, model_id="qwen-plus", api_type="qwen")
         
         # Test cases that should trigger different pathways
         test_cases = [
