@@ -6,6 +6,8 @@ import networkx as nx
 import os
 import dashscope
 from dashscope import Generation
+from openai import OpenAI
+import google.generativeai as genai
 from pathlib import Path
 import textwrap
 import numpy as np
@@ -17,6 +19,7 @@ from dataclasses import dataclass, field
 from enum import Enum
 import re
 from datetime import datetime
+from project.utils.parser import extract_json_from_response
 
 # ===== ENHANCEMENT 1: Knowledge Source Tracking =====
 @dataclass
@@ -628,20 +631,8 @@ class ChainOfThoughtReasoner:
         return self.llm_generator(prompt)
 
 # ===== ENHANCEMENT 6: Main Enhanced Causal Reasoning Engine =====
-class EnhancedCausalReasoningEngine:
-    """
-    🚀 ENHANCED: Transparent Chain-of-Thought RAG System
-    
-    Key Improvements:
-    1. Complete source attribution and citation
-    2. Transparent reasoning chain with intermediate steps
-    3. Sophisticated LLM+KG integration that enhances rather than restricts
-    4. Multi-hop reasoning through knowledge graph
-    5. Confidence assessment at each reasoning step
-    6. Scientific validation and quality control
-    """
-    
-    def __init__(self, json_file_path: str, model_id: str = "qwen-plus", 
+class CausalReasoningEngine:
+    def __init__(self, json_file_path: str, model_id: str = "qwen-plus", api_type: str = "qwen",    
                  embedding_model: str = 'all-MiniLM-L6-v2'):
         """Initialize enhanced RAG system"""
         print("🚀 Initializing Enhanced Chain-of-Thought RAG System")
@@ -650,7 +641,7 @@ class EnhancedCausalReasoningEngine:
         self.graph = self._build_enhanced_graph(json_file_path)
         
         # Configure LLM
-        self._configure_api(model_id)
+        self._configure_api(model_id, api_type)
         
         # Initialize embedding model
         print(f"Loading sentence transformer model ('{embedding_model}')...")
@@ -660,11 +651,8 @@ class EnhancedCausalReasoningEngine:
         self.kg_retriever = AdvancedKGRetriever(self.graph, self.embedding_model)
         self.cot_reasoner = ChainOfThoughtReasoner(self.kg_retriever, self._generate_content)
         
-        print(f"✅ Enhanced RAG System Ready!")
-        print(f"   📊 Knowledge Graph: {self.graph.number_of_nodes()} nodes, {self.graph.number_of_edges()} edges")
-        print(f"   🧠 Chain-of-Thought Reasoning: Enabled")
-        print(f"   📚 Source Attribution: Enabled")
-        print(f"   🔗 Multi-hop Reasoning: Enabled")
+        print(f"Enhanced Causal Reasoning Engine initialized.")
+        print(f"Knowledge graph contains {self.graph.number_of_nodes()} nodes and {self.graph.number_of_edges()} edges.")
 
     def _build_enhanced_graph(self, json_file_path: str):
         """Build enhanced knowledge graph (same as before but with better metadata)"""
@@ -713,39 +701,84 @@ class EnhancedCausalReasoningEngine:
         print(f"Built enhanced knowledge graph: {G.number_of_nodes()} nodes, {G.number_of_edges()} edges")
         return G
 
-    def _configure_api(self, model_id: str):
-        """Configure API (same as before)"""
-        api_key = os.getenv("DASHSCOPE_API_KEY") or "sk-05e23c85c27448a0a8d2e0e0f0302779"
-        dashscope.api_key = api_key
-        dashscope.base_http_api_url = 'https://dashscope-intl.aliyuncs.com/api/v1'
+    def _configure_api(self, model_id: str, api_type: str):
+        """Configure API based on model_id to support Qwen, Gemini, and OpenAI models"""
         self.model_id = model_id
+        self.api_type = api_type
+        
+        # Qwen models (DashScope API)
+        if api_type == "qwen":
+            api_key = os.getenv("DASHSCOPE_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing DASHSCOPE_API_KEY for Qwen models")
+            dashscope.api_key = api_key
+            dashscope.base_http_api_url = 'https://dashscope-intl.aliyuncs.com/api/v1'
+            
+        # Gemini models (Google Generative AI)
+        elif api_type == "gemini":
+            api_key = os.getenv("GOOGLE_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing GOOGLE_API_KEY for Gemini models")
+            genai.configure(api_key=api_key)
+            self.model = genai.GenerativeModel(model_id)
+            
+        # OpenAI models
+        elif api_type == "openai":
+            api_key = os.getenv("OPENAI_API_KEY")
+            if not api_key:
+                raise RuntimeError("Missing OPENAI_API_KEY for OpenAI models")
+            self.openai_client = OpenAI(api_key=api_key)
+            
+        else:
+            raise ValueError(f"Unsupported api_type: {api_type} for model: {model_id}")
+        
+        print(f"Configured {self.api_type} API for model: {model_id}")
 
     def _generate_content(self, prompt: str):
-        """Generate content using LLM (same as before)"""
+        """Generate content using the configured API (Qwen, Gemini, or OpenAI)"""
         try:
-            response = Generation.call(
-                model=self.model_id,
-                prompt=prompt,
-                temperature=0.7
-            )
-            
-            if response.status_code == 200:
-                return response.output.text
+            if self.api_type == "qwen":
+                # Qwen API via DashScope
+                response = Generation.call(
+                    model=self.model_id,
+                    prompt=prompt,
+                    temperature=0.7
+                )
+                
+                if response.status_code == 200:
+                    return response.output.text
+                else:
+                    print(f"Qwen API Error: {response.code} - {response.message}")
+                    return f"Error: {response.code} - {response.message}"
+                    
+            elif self.api_type == "gemini":
+                # Gemini API via Google Generative AI
+                response = self.model.generate_content(prompt)
+                return response.text
+                
+            elif self.api_type == "openai":
+                # OpenAI API
+                response = self.openai_client.chat.completions.create(
+                    model=self.model_id,
+                    messages=[
+                        {"role": "user", "content": prompt}
+                    ],
+                    temperature=0.7,
+                    max_tokens=4000
+                )
+                return response.choices[0].message.content
+                
             else:
-                return f"Error: {response.code} - {response.message}"
+                raise ValueError(f"Unknown API type: {self.api_type}")
                 
         except Exception as e:
+            print(f"Exception calling {self.api_type} API: {str(e)}")
             return f"Exception: {str(e)}"
 
     # ===== ENHANCEMENT 7: New Main Methods with Chain-of-Thought =====
 
-    def forward_prediction_with_cot(self, synthesis_inputs: dict, save_result: bool = True) -> Dict:
-        """ 🚀 ENHANCED: Forward prediction with complete chain-of-thought reasoning"""
-        print(f"\n{'='*60}")
-        print("🔮 ENHANCED FORWARD PREDICTION WITH CHAIN-OF-THOUGHT")
-        print(f"{'='*60}")
-        
-        # Execute chain-of-thought reasoning
+    def forward_prediction(self, synthesis_inputs: dict, save_result: bool = True) -> Dict:
+       
         chain_of_thought = self.cot_reasoner.reason_with_sources(synthesis_inputs, "forward")
         
         # Extract final answer from synthesis step
@@ -834,12 +867,8 @@ class EnhancedCausalReasoningEngine:
         
         return enhanced_response
 
-    def inverse_design_with_cot(self, desired_properties: dict, save_result: bool = True) -> Dict:
-        """🚀 ENHANCED: Inverse design with complete chain-of-thought reasoning"""
-        print(f"\n{'='*60}")
-        print("🔄 ENHANCED INVERSE DESIGN WITH CHAIN-OF-THOUGHT") 
-        print(f"{'='*60}")
-        
+    def inverse_design(self, desired_properties: dict, save_result: bool = True) -> Dict:
+       
         # Execute chain-of-thought reasoning
         chain_of_thought = self.cot_reasoner.reason_with_sources(desired_properties, "inverse")
         
@@ -920,18 +949,6 @@ class EnhancedCausalReasoningEngine:
         
         return enhanced_response
 
-    # def _print_cot_summary(self, response: Dict):
-    #     """Print a summary of the chain-of-thought reasoning"""
-    #     print(f"\n📊 CHAIN-OF-THOUGHT SUMMARY:")
-    #     print(f"   🔗 Reasoning Steps: {response['chain_of_thought']['total_steps']}")
-    #     print(f"   📚 KG Sources: {response['source_attribution']['knowledge_graph_sources']}")
-    #     print(f"   🧠 LLM Sources: {response['source_attribution']['llm_reasoning_sources']}")
-    #     print(f"   🎯 Overall Confidence: {response['confidence_analysis']['overall_confidence']:.3f}")
-    #     print(f"   🔧 Integration Quality: {response['knowledge_synthesis']['integration_quality']}")
-        
-    #     print(f"\n🔍 REASONING CHAIN:")
-    #     for step in response['chain_of_thought']['reasoning_steps']:
-    #         print(f"   {step['step'].upper()}: {step['description']} (conf: {step['confidence']:.2f})")
 
     def _print_cot_summary(self, response: Dict):
         """Print a comprehensive summary including the actual answer"""
@@ -1033,104 +1050,56 @@ class EnhancedCausalReasoningEngine:
         return self.save_results_to_file(session_data, filename)
 
 
-# ===== Keep the helper function =====
-def extract_json_from_response(text: str):
-    """Extract JSON from model response (same as before)"""
-    import re
-    match = re.search(r"```json\s*([\s\S]*?)\s*```", text, re.DOTALL)
-    
-    if not match:
-        return {"warning": "No JSON object found in the response.", "raw_response": text}
-    
-    json_string = match.group(1)
-    
-    try:
-        return json.loads(json_string)
-    except json.JSONDecodeError as e:
-        print(f"\n--- JSON DECODE ERROR ---")
-        print(f"Failed to parse JSON: {e}")
-        print(f"Problematic text: {json_string}")
-        print("-------------------------\n")
-        return {
-            "error": "Failed to decode JSON from model response.",
-            "details": str(e),
-            "malformed_json_string": json_string
-        }
-
 # ===== ENHANCEMENT 8: Demonstration Script =====
 if __name__ == '__main__':
-    json_file = '../outputs/filtered_combined_doping_data.json'
+    json_file = 'datas/filtered_combined_doping_data.json'
+        
+    # Initialize enhanced engine
+    engine = CausalReasoningEngine(json_file, model_id="gemini-1.5-pro-latest", api_type="gemini")
     
-    try:
-        print("="*80)
-        print("🚀 TESTING ENHANCED CHAIN-OF-THOUGHT RAG SYSTEM")
-        print("="*80)
+    # Store all results for session saving
+    all_results = []
+    
+    # Test cases showcasing enhanced capabilities
+    test_cases = [
+        {
+            "name": "Complete Data with CoT Analysis",
+            "synthesis": {"temperature": "600°C", "method": "CVD", "atmosphere": "Ar/H2"},
+            "properties": {"doping": "p-type semiconductor", "conductivity": "enhanced"}
+        },
+        {
+            "name": "Partial Data with Source Attribution", 
+            "synthesis": {"temperature": "500°C", "method": ""},
+            "properties": {"carrier_type": "n-type"}
+        }
+    ]
+    
+    for i, test_case in enumerate(test_cases):
         
-        # Initialize enhanced engine
-        engine = EnhancedCausalReasoningEngine(json_file, model_id="qwen-plus")
+        # Forward prediction with chain-of-thought
+        print("🔮 FORWARD PREDICTION:")
+        forward_result = engine.forward_prediction(test_case['synthesis'], save_result=True)
+        all_results.append({
+            "test_case": test_case['name'],
+            "query_type": "forward_prediction",
+            "result": forward_result
+        })
         
-        # Store all results for session saving
-        all_results = []
+        print(f"\n🔄 INVERSE DESIGN:")
+        inverse_result = engine.inverse_design(test_case['properties'], save_result=True)
+        all_results.append({
+            "test_case": test_case['name'],
+            "query_type": "inverse_design", 
+            "result": inverse_result
+        })
         
-        # Test cases showcasing enhanced capabilities
-        test_cases = [
-            {
-                "name": "Complete Data with CoT Analysis",
-                "synthesis": {"temperature": "600°C", "method": "CVD", "atmosphere": "Ar/H2"},
-                "properties": {"doping": "p-type semiconductor", "conductivity": "enhanced"}
-            },
-            {
-                "name": "Partial Data with Source Attribution", 
-                "synthesis": {"temperature": "500°C", "method": ""},
-                "properties": {"carrier_type": "n-type"}
-            }
-        ]
-        
-        for i, test_case in enumerate(test_cases, 1):
-            print(f"\n🧪 TEST CASE {i}: {test_case['name']}")
-            print("="*60)
-            
-            # Forward prediction with chain-of-thought
-            print("🔮 FORWARD PREDICTION:")
-            forward_result = engine.forward_prediction_with_cot(test_case['synthesis'], save_result=True)
-            all_results.append({
-                "test_case": test_case['name'],
-                "query_type": "forward_prediction",
-                "result": forward_result
-            })
-            
-            print(f"\n🔄 INVERSE DESIGN:")
-            inverse_result = engine.inverse_design_with_cot(test_case['properties'], save_result=True)
-            all_results.append({
-                "test_case": test_case['name'],
-                "query_type": "inverse_design", 
-                "result": inverse_result
-            })
-            
-            # Show key improvements
-            print(f"\n✨ KEY ENHANCEMENTS DEMONSTRATED:")
-            print(f"   📊 Transparent reasoning chain with {forward_result['chain_of_thought']['total_steps']} steps")
-            print(f"   📚 Source attribution: {forward_result['source_attribution']['knowledge_graph_sources']} KG + {forward_result['source_attribution']['llm_reasoning_sources']} LLM sources")
-            print(f"   🎯 Confidence analysis with step-by-step breakdown")
-            print(f"   🔗 Multi-hop reasoning through knowledge graph")
-            print(f"   🧠 LLM+KG integration that enhances rather than restricts")
-        
-        # ===== NEW: Save complete session results =====
-        session_file = engine.save_session_results(all_results, "enhanced_rag_demo_session")
-        
-        print(f"\n{'='*80}")
-        print("✅ ENHANCED CHAIN-OF-THOUGHT RAG SYSTEM DEMONSTRATION COMPLETE!")
-        print("🚀 Key Improvements:")
-        print("   • Complete source attribution and citation")
-        print("   • Transparent step-by-step reasoning chain") 
-        print("   • Sophisticated LLM+KG integration")
-        print("   • Multi-hop reasoning capabilities")
-        print("   • Comprehensive confidence assessment")
-        print("   • Scientific validation at each step")
-        print(f"📁 Session results saved to: {session_file}")
-        print(f"{'='*80}")
-        
-    except Exception as e:
-        print(f"❌ Error: {e}")
-        import traceback
-        traceback.print_exc()
+        # Show key improvements
+        print(f"\n✨ KEY ENHANCEMENTS DEMONSTRATED:")
+        print(f"   📊 Transparent reasoning chain with {forward_result['chain_of_thought']['total_steps']} steps")
+        print(f"   📚 Source attribution: {forward_result['source_attribution']['knowledge_graph_sources']} KG + {forward_result['source_attribution']['llm_reasoning_sources']} LLM sources")
+        print(f"   🎯 Confidence analysis with step-by-step breakdown")
+        print(f"   🔗 Multi-hop reasoning through knowledge graph")
+        print(f"   🧠 LLM+KG integration that enhances rather than restricts")
+    
+    # ===== NEW: Save complete session results =====
+    session_file = engine.save_session_results(all_results, "enhanced_rag_demo_session")

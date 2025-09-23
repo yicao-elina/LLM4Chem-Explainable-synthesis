@@ -1,0 +1,27 @@
+data_path: 
+  "train": "datas/enriched_combined_doping_data.json"
+  "test": "datas/enriched_test_doping_data.json"
+
+api_type: "gemini"
+model_id: "gemini-1.5-pro-latest"
+
+engine_path:
+  "baseline": "src/project/engine/causal_engine_0913.py"
+  "cot": "src/project/engine/causal_engine_CoT.py"
+  "online": "src/project/engine/causal_engine_online.py"
+
+# Base output directory for organized results
+output_base_dir: "outputs/results"
+
+query_result_path: 
+  "baseline": "${output_base_dir}/${model_id}/enriched/query_results_baseline.csv"
+  "cot": "${output_base_dir}/${model_id}/enriched/query_results_cot.csv"
+  "online": "${output_base_dir}/${model_id}/enriched/query_results_online.csv"
+
+evaluate_result_path: 
+  "baseline": "${output_base_dir}/${model_id}/enriched/evaluate_results_baseline.csv"
+  "cot": "${output_base_dir}/${model_id}/enriched/evaluate_results_cot.csv"
+  "online": "${output_base_dir}/${model_id}/enriched/evaluate_results_online.csv"
+
+visualize_result_path:
+  
