@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "total_papers": 5,
+    "source": "Manual test data",
+    "note": "Sample abstracts for pipeline testing"
+  },
+  "papers": [
+    {
+      "openalex_id": "test_1",
+      "title": "Site-selective doping in MoS2 monolayers by chemical vapor deposition",
+      "abstract": "We demonstrate site-selective doping of MoS2 monolayers using Nb substitution via chemical vapor deposition at 750\u00b0C.\nScanning transmission electron microscopy (STEM) and X-ray photoelectron spectroscopy (XPS) confirm that Nb atoms preferentially substitute Mo atoms at a concentration of 2 at%, forming substitutional defects.\nThe increased temperature from 650\u00b0C to 750\u00b0C enhances the substitutional fraction by promoting Mo vacancy formation.\nHall measurements reveal n-type conductivity with carrier concentration increasing from 1\u00d710^18 to 5\u00d710^18 cm^-3.\nThis controlled substitutional doping enables precise tuning of carrier mobility, which increased from 15 to 45 cm2/V\u00b7s.",
+      "keywords": [
+        "MoS2",
+        "CVD",
+        "site-selective doping",
+        "Nb substitution"
+      ],
+      "publication_year": 2024
+    },
+    {
+      "openalex_id": "test_2",
+      "title": "DFT study of phosphorus doping in graphene: substitutional vs pyridinic sites",
+      "abstract": "First-principles density functional theory (DFT) calculations were performed to investigate phosphorus doping in graphene.\nWe find that P atoms preferentially occupy substitutional carbon sites at low doping concentrations (<1 at%).\nThe formation energy for substitutional doping is 1.2 eV lower than pyridinic configurations.\nBand structure calculations show that substitutional P doping induces n-type behavior by shifting the Fermi level by 0.4 eV.\nThe calculated carrier concentration increases with P concentration, reaching 3\u00d710^13 cm^-2 at 2 at% doping.",
+      "keywords": [
+        "graphene",
+        "DFT",
+        "phosphorus doping",
+        "substitutional"
+      ],
+      "publication_year": 2024
+    },
+    {
+      "openalex_id": "test_3",
+      "title": "Electrochemical intercalation of lithium in WS2: Site selectivity and structural changes",
+      "abstract": "Galvanostatic electrochemical intercalation of Li+ ions into WS2 was performed at room temperature.\nX-ray diffraction shows c-axis expansion from 12.3 \u00c5 to 15.8 \u00c5, confirming Li intercalation in the van der Waals gap.\nThe intercalation occurs exclusively in the vdW gap, with no evidence of substitutional or surface adsorption.\nTime-of-flight secondary ion mass spectrometry (ToF-SIMS) depth profiles confirm uniform Li distribution throughout the layers.\nElectrical conductivity increased from 10^-3 to 10^2 S/cm due to increased carrier concentration.",
+      "keywords": [
+        "WS2",
+        "lithium intercalation",
+        "electrochemical",
+        "van der Waals gap"
+      ],
+      "publication_year": 2024
+    },
+    {
+      "openalex_id": "test_4",
+      "title": "Nitrogen doping in hBN by ion implantation and thermal annealing",
+      "abstract": "Hexagonal boron nitride (hBN) monolayers were doped with nitrogen using ion implantation followed by thermal annealing at 900\u00b0C.\nAtomic resolution STEM imaging reveals N atoms substitute at both B and N sites, with preference for B-site substitution (60%).\nAnnealing at higher temperatures (900\u00b0C vs 600\u00b0C) increases the fraction of substitutional defects by promoting defect healing and reducing interstitial incorporation.\nPhotoluminescence spectroscopy shows the optical band gap decreases from 6.0 eV to 5.2 eV with 5% N doping.",
+      "keywords": [
+        "hBN",
+        "nitrogen doping",
+        "ion implantation",
+        "band gap"
+      ],
+      "publication_year": 2024
+    },
+    {
+      "openalex_id": "test_5",
+      "title": "Molecular dynamics simulation of copper intercalation in Bi2Te3",
+      "abstract": "Molecular dynamics (MD) simulations at 500K were employed to study Cu intercalation in Bi2Te3 quintuple layers.\nThe simulations predict that Cu atoms preferentially occupy the van der Waals gap between quintuple layers at concentrations below 5 at%.\nThe interlayer spacing increases linearly with Cu concentration, from 2.4 \u00c5 to 3.2 \u00c5 at 5 at% doping.\nMD trajectories show surface adsorption is energetically unfavorable (\u0394E = +0.8 eV) compared to vdW gap intercalation.\nElectronic structure calculations indicate p-type conductivity with hole concentration of 2\u00d710^19 cm^-3.",
+      "keywords": [
+        "Bi2Te3",
+        "copper intercalation",
+        "MD simulation",
+        "quintuple layer"
+      ],
+      "publication_year": 2024
+    }
+  ]
+}

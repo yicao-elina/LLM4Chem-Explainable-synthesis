@@ -1,0 +1,241 @@
+{
+  "kg_file": "/Users/alina/Library/CloudStorage/OneDrive-JohnsHopkins/Research/26ARIA/26KDD/KG/outputs/combined_doping_data.json",
+  "timestamp": "2026-02-01",
+  "structure": {
+    "num_nodes": 777,
+    "num_edges": 409,
+    "density": 0.0006783292865767093,
+    "avg_in_degree": 0.5263835263835264,
+    "avg_out_degree": 0.5263835263835264,
+    "avg_degree": 1.0527670527670527,
+    "max_in_degree": 2,
+    "max_out_degree": 4,
+    "num_root_nodes": 371,
+    "num_leaf_nodes": 405,
+    "num_intermediate_nodes": 1,
+    "is_dag": true,
+    "weakly_connected_components": 368,
+    "strongly_connected_components": 777,
+    "longest_path_length": 3,
+    "root_nodes": [
+      "VEC < 0.8V vs Li+/Li",
+      "Li intercalation (high electron doping)",
+      "VEC < 0.4 V vs Li+/Li",
+      "hole density (p) two times the electron density (n)",
+      "Mo layer charge neutral (n=0)",
+      "Mo layer electron-doped",
+      "interlayer bound states such as trions form",
+      "p = 2n",
+      "increase of the hole density (through injection of e-h pairs) in the shaded region",
+      "p = 2n at low temperatures"
+    ],
+    "leaf_nodes": [
+      "Phase transition from Td to Td'",
+      "CDW formation (Td' phase)",
+      "Amorphization of WTe2",
+      "emergence of a degenerate trion liquid in Coulomb-coupled MoSe2/WSe2 double layers",
+      "four-terminal resistance R probes the electrical transport properties of monolayer WSe2",
+      "R becomes sensitive to interlayer Coulomb interactions",
+      "R exhibits characteristics of an insulating state with a charge gap at low temperatures",
+      "emergence of a new interlayer bound state",
+      "insulating behavior of the W layer",
+      "all the holes in the W layer are bound to the electrons in the Mo layer in a 2:1 ratio"
+    ]
+  },
+  "content": {
+    "mechanism_coverage": 0.5330073349633252,
+    "edges_with_mechanism": 218,
+    "edges_without_mechanism": 191,
+    "avg_mechanism_length": 174.58256880733944,
+    "property_coverage": 0.9535452322738386,
+    "edges_with_property": 390,
+    "avg_confidence": 1.0,
+    "num_unique_properties": 262,
+    "unique_properties": [
+      "lower formation energy",
+      "correlated insulating state",
+      "Electronic transport",
+      "interlayer distance",
+      "Total Magnetic Moment",
+      "higher formation energy",
+      "electronic and magnetic properties",
+      "Raman shift of A1g mode (Fano effect)",
+      "Rashba spin-splitting",
+      "graphene layer structure, graphene-substrate interaction",
+      "Electronic properties (band gap, doping)",
+      "Co spin state and binding energy",
+      "Formation of localized optical emitters.",
+      "Fermi level shift",
+      "Appearance of sharp peaks at negative energies in dI/dV spectra",
+      "Reduces drain current and mobility by ~30%",
+      "structural changes and band gap opening",
+      "ferromagnetic transition temperature (Tc)",
+      "Electronic Structure",
+      "magnetic ground state"
+    ]
+  },
+  "coverage": {
+    "total_queries": 5,
+    "queries_with_match": 3,
+    "queries_without_match": 2,
+    "avg_paths_per_query": 2.0,
+    "query_details": [
+      {
+        "type": "forward",
+        "keywords": [
+          "temperature",
+          "CVD"
+        ],
+        "target": [
+          "mobility",
+          "conductivity"
+        ],
+        "num_paths": 0,
+        "has_match": false
+      },
+      {
+        "type": "forward",
+        "keywords": [
+          "pressure",
+          "doping"
+        ],
+        "target": [
+          "carrier",
+          "concentration"
+        ],
+        "num_paths": 4,
+        "has_match": true
+      },
+      {
+        "type": "forward",
+        "keywords": [
+          "annealing",
+          "oxygen"
+        ],
+        "target": [
+          "defect",
+          "property"
+        ],
+        "num_paths": 1,
+        "has_match": true
+      },
+      {
+        "type": "inverse",
+        "keywords": [
+          "n-type",
+          "high mobility"
+        ],
+        "target": [
+          "temperature",
+          "method"
+        ],
+        "num_paths": 0,
+        "has_match": false
+      },
+      {
+        "type": "inverse",
+        "keywords": [
+          "p-type",
+          "doping"
+        ],
+        "target": [
+          "dopant",
+          "concentration"
+        ],
+        "num_paths": 5,
+        "has_match": true
+      }
+    ],
+    "coverage_rate": 0.6
+  },
+  "diversity": {
+    "diversity_score": 0.8550984263420105,
+    "avg_similarity": 0.1449015736579895,
+    "most_similar_pairs": [
+      [
+        "Ni doping (\u03b4 up to 20%)",
+        "Ni doping (\u03b4 > 20%)",
+        0.9929208159446716
+      ],
+      [
+        "Ni doping (\u03b4 up to 20%)",
+        "Ni doping (up to \u03b4 = 20%)",
+        0.9915271997451782
+      ],
+      [
+        "Ni doping (up to \u03b4 = 20%)",
+        "Ni doping (\u03b4 > 20%)",
+        0.9912312030792236
+      ],
+      [
+        "VDS > 0V (and VGS > 0V)",
+        "VDS > 0 (and VGS > 0V)",
+        0.9856885075569153
+      ],
+      [
+        "Increasing Ni doping (\u03b4)",
+        "Ni doping (increasing \u03b4)",
+        0.9847634434700012
+      ]
+    ],
+    "least_similar_pairs": [
+      [
+        "ms-range FLA",
+        "Causes excess electrons",
+        -0.18109630048274994
+      ],
+      [
+        "increase conductivity up to hundreds of times vs random distribution",
+        "in-plane two-fold rotation operation (Cb2||)",
+        -0.1854322999715805
+      ],
+      [
+        "restores thermal conductivity to pristine levels",
+        "Twist angle (\u03b8)",
+        -0.18581010401248932
+      ],
+      [
+        "Better preserves conduction band edge conductance spectra compared to B-doping",
+        "Twist angle (\u03b8)",
+        -0.18698613345623016
+      ],
+      [
+        "reduction of magnetic coercivity in SrFe11(ZnSn)0.5O19",
+        "UV exposure (with humidity)",
+        -0.1922486126422882
+      ]
+    ]
+  },
+  "gaps": {
+    "current_coverage": 0.6,
+    "coverage_estimates": {
+      "50%_coverage": {
+        "target_edges": 340,
+        "additional_edges_needed": 0
+      },
+      "70%_coverage": {
+        "target_edges": 477,
+        "additional_edges_needed": 68
+      },
+      "90%_coverage": {
+        "target_edges": 613,
+        "additional_edges_needed": 204
+      }
+    },
+    "papers_needed_estimates": {
+      "50%_coverage": {
+        "min_papers": 0,
+        "max_papers": 0
+      },
+      "70%_coverage": {
+        "min_papers": 13,
+        "max_papers": 34
+      },
+      "90%_coverage": {
+        "min_papers": 40,
+        "max_papers": 102
+      }
+    },
+    "recommendation": "EXCELLENT: High coverage. Proceed with testing confidently."
+  }
+}

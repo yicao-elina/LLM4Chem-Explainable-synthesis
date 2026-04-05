@@ -1,0 +1,9 @@
+TITLE: Nitrogen doping in hBN by ion implantation and thermal annealing
+
+KEYWORDS: hBN, nitrogen doping, ion implantation, band gap
+
+ABSTRACT:
+Hexagonal boron nitride (hBN) monolayers were doped with nitrogen using ion implantation followed by thermal annealing at 900°C.
+Atomic resolution STEM imaging reveals N atoms substitute at both B and N sites, with preference for B-site substitution (60%).
+Annealing at higher temperatures (900°C vs 600°C) increases the fraction of substitutional defects by promoting defect healing and reducing interstitial incorporation.
+Photoluminescence spectroscopy shows the optical band gap decreases from 6.0 eV to 5.2 eV with 5% N doping.

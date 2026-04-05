@@ -1,0 +1,61 @@
+\section{Method}
+
+In this section, we formalize the problem of \textit{Contextual Tunneling} and introduce \texttt{ARIA}.
+
+\subsection{Contextual Tunneling}
+\label{sec:contextual tunneling}
+Standard RAG pipelines maximize $p(\mathbf{y}|\mathbf{q},\mathcal{C}_{\text{retrieved}})$. We identify a failure mode where retrieved context $\mathcal{C}_{\text{narrow}}$ degrades performance. We define \textit{Contextual Tunneling} formally as the increase in KL divergence between the optimal reasoning path $P_{opt}$ and the model's reasoning path $P_{model}$ when conditioned on retrieved context:
+
+\begin{equation}
+ D_{KL}(P_{opt} || P_{model}(\cdot | \mathcal{C}_{\text{narrow}})) > D_{KL}(P_{opt} || P_{model}(\cdot | \emptyset))
+\end{equation}
+
+Qualitatively, this manifests as the model attending disproportionately to high-similarity but functionally irrelevant tokens in $\mathcal{C}_{\text{narrow}}$, suppressing the activation of correct parametric knowledge.
+
+\subsection{Causal Knowledge Graph Construction}
+\label{sec:causal graph}
+Our Causal Knowledge Graph (CKG) is constructed to encode \textit{mechanistic} causality common in scientific domains (e.g., Materials Science, Drug Discovery). Unlike statistical causal graphs derived from data correlations, our CKG nodes represent physical entities (e.g., "Sintering Temperature"), and directed edges represent established physical mechanisms (e.g., "Increases Grain Size").
+
+The construction pipeline ensures \textbf{acyclicity} by enforcing domain ontology constraints (Process $\to$ Structure $\to$ Property), preventing logical loops.
+
+\subsection{\texttt{ARIA}: Hierarchical Reasoning}
+\label{sec:aria}
+\texttt{ARIA} employs a three-tier cascade to select the most reliable evidence source.
+
+\paragraph{Tier 1: Graph-Constrained Reasoning.}
+Uses explicit paths found in the CKG. Evidence is treated as high-confidence constraints.
+
+\paragraph{Tier 2: Analogy-Based Transfer.}
+When no direct path exists, we retrieve analogous nodes $\mathcal{V}_{\text{analogous}}$ using an enhanced similarity metric. We define the metric to enforce domain validity:
+
+\begin{equation}
+ \text{Sim}_{\text{enhanced}}(\mathbf{q},v) = w_1 \cos(\mathbf{h_q}, \mathbf{h}_v) + w_2 \text{FC}(\mathbf{q}, v) + w_3 \text{NC}(\mathbf{q}, v) 
+\end{equation}
+
+Where:
+\begin{itemize}
+    \item \textbf{Factual Consistency (FC)}: A binary indicator $\mathbb{1}_{cat}(q, v)$ that returns 0 if the analogy violates categorical domain rules (e.g., mapping a p-type to an n-type semiconductor).
+    \item \textbf{Numerical Compatibility (NC)}: Measures overlap of operating ranges. For query value $x_q$ and candidate range $[L_v, U_v]$, $NC = \max(0, 1 - \frac{|x_q - \text{mid}(L_v, U_v)|}{\text{range}})$. \todo{Refine this formula based on the specific metric used in code/rebuttal}.
+\end{itemize}
+
+\paragraph{Tier 3: Parametric Fallback.}
+If $\max(\text{Sim}_{\text{enhanced}}) < \tau$, \texttt{ARIA} explicitly discards retrieved context and relies on $f_\text{parametric}(q)$. This "circuit breaker" is the primary defense against Contextual Tunneling.
+
+\subsection{Tier Selection Logic}
+The final output is generated via:
+\begin{equation}
+ \text{ARIA}(q) = \begin{cases} 
+ f_\text{direct}(q,\mathcal{P}_{\text{direct}}) & \text{if } \mathcal{P}_{\text{direct}} \neq \emptyset \\
+ f_\text{transfer}(q,\mathcal{P}_{\text{analogue}} ) & \text{if } \mathcal{P}_{\text{direct}}=\emptyset \land \text{Sim} \geq \tau  \\
+f_\text{parametric}(q) & \text{Otherwise}
+\end{cases}
+\end{equation}
+
+\subsection{Complexity Analysis}
+\label{sec:complexity}
+\texttt{ARIA} is designed for scalability.
+\begin{itemize}
+    \item \textbf{Graph Lookup (Tier 1):} $O(1)$ or $O(\log N)$ depending on indexing.
+    \item \textbf{Vector Search (Tier 2):} Efficient approximate nearest neighbor search (e.g., HNSW) scales to billions of items.
+    \item \textbf{Online Enrichment:} Only triggered dynamically, reducing computational cost compared to fully agentic web-search approaches.
+\end{itemize}

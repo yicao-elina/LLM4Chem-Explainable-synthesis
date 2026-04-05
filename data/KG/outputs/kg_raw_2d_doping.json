@@ -1,0 +1,140 @@
+{
+  "metadata": {
+    "extraction_date": "2026-02-01T14:23:38.734284",
+    "model_used": "qwen2:7b",
+    "total_experiments": 5,
+    "total_relationships": 8,
+    "source_files": 5,
+    "statistics": {
+      "total": 5,
+      "processed": 5,
+      "success": 5,
+      "empty": 0,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "doping_experiments": [
+    {
+      "host_material": "MoS2",
+      "dopant.element": "Nb",
+      "dopant.concentration": "2 at%",
+      "synthesis_conditions.method": "CVD",
+      "synthesis_conditions.temperature_c": null,
+      "doping_outcome.site_distribution.primary_site": "substitutional",
+      "property_changes.electronic.carrier_type": "n-type",
+      "characterization_evidence": [
+        "STEM",
+        "XPS",
+        "Hall measurement"
+      ],
+      "source_file": "001_Site-selective doping in MoS2 monolayers by chemical vapor deposition.txt"
+    },
+    {
+      "host_material": "graphene",
+      "dopant.element": "P",
+      "doping_outcome.site_distribution.primary_site": "substitutional",
+      "property_changes.electronic.carrier_type": "n-type",
+      "source_file": "002_DFT study of phosphorus doping in graphene_ substitutional vs pyridinic sites.txt"
+    },
+    {
+      "host_material": "WS2",
+      "dopant.element": null,
+      "dopant.concentration": null,
+      "synthesis_conditions.method": null,
+      "synthesis_conditions.temperature_c": null,
+      "doping_outcome.site_distribution.primary_site": "vdw_gap",
+      "property_changes.electronic.carrier_type": null,
+      "characterization_evidence": [
+        "X-ray diffraction",
+        "Time-of-flight secondary ion mass spectrometry (ToF-SIMS)"
+      ],
+      "source_file": "003_Electrochemical intercalation of lithium in WS2_ Site selectivity and structural.txt"
+    },
+    {
+      "host_material": "hexagonal boron nitride",
+      "dopant.element": "N",
+      "dopant.concentration": null,
+      "synthesis_conditions.method": "ion implantation followed by thermal annealing",
+      "synthesis_conditions.temperature_c": 900,
+      "doping_outcome.site_distribution.primary_site": "substitutional",
+      "property_changes.electronic.carrier_type": "n-type",
+      "characterization_evidence": [
+        "atomic resolution STEM imaging",
+        "photoluminescence spectroscopy"
+      ],
+      "source_file": "004_Nitrogen doping in hBN by ion implantation and thermal annealing.txt"
+    },
+    {
+      "host_material": "Bi2Te3",
+      "dopant.element": "Cu",
+      "dopant.concentration": "5 at%",
+      "synthesis_conditions.method": null,
+      "synthesis_conditions.temperature_c": null,
+      "doping_outcome.site_distribution.primary_site": "vdw_gap",
+      "property_changes.electronic.carrier_type": "p-type",
+      "characterization_evidence": [
+        "MD simulations"
+      ],
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    }
+  ],
+  "causal_relationships": [
+    {
+      "cause_parameter": "CVD temperature",
+      "effect_on_doping": "increased substitutional fraction",
+      "affected_property": "carrier mobility",
+      "mechanism_quote": "Hall measurements reveal n-type conductivity with carrier concentration increasing from 1×10^18 to 5×10^18 cm^-3. This controlled substitutional doping enables precise tuning of carrier mobility, which increased from 15 to 45 cm2/V·s.",
+      "source_file": "001_Site-selective doping in MoS2 monolayers by chemical vapor deposition.txt"
+    },
+    {
+      "cause_parameter": "phosphorus concentration",
+      "effect_on_doping": "increased substitutional fraction",
+      "affected_property": "carrier concentration",
+      "mechanism_quote": "P atoms preferentially occupy substitutional carbon sites at low doping concentrations (<1 at%).",
+      "source_file": "002_DFT study of phosphorus doping in graphene_ substitutional vs pyridinic sites.txt"
+    },
+    {
+      "cause_parameter": "doping concentration",
+      "effect_on_doping": "higher carrier concentration",
+      "affected_property": "n-type behavior",
+      "mechanism_quote": "Band structure calculations show that substitutional P doping induces n-type behavior by shifting the Fermi level by 0.4 eV.",
+      "source_file": "002_DFT study of phosphorus doping in graphene_ substitutional vs pyridinic sites.txt"
+    },
+    {
+      "cause_parameter": "Galvanostatic electrochemical intercalation of Li+ ions",
+      "effect_on_doping": "Li intercalation occurred exclusively in the van der Waals gap, with no substitutional or surface adsorption.",
+      "affected_property": null,
+      "mechanism_quote": "X-ray diffraction shows c-axis expansion from 12.3 Å to 15.8 Å, confirming Li intercalation in the van der Waals gap.",
+      "source_file": "003_Electrochemical intercalation of lithium in WS2_ Site selectivity and structural.txt"
+    },
+    {
+      "cause_parameter": "annealing temperature (900°C vs 600°C)",
+      "effect_on_doping": "increased fraction of substitutional defects",
+      "affected_property": "carrier mobility/conductivity",
+      "mechanism_quote": "promotes defect healing and reduces interstitial incorporation",
+      "source_file": "004_Nitrogen doping in hBN by ion implantation and thermal annealing.txt"
+    },
+    {
+      "cause_parameter": "Cu concentration",
+      "effect_on_doping": "preferential Cu occupation",
+      "affected_property": "interlayer spacing",
+      "mechanism_quote": "Cu atoms preferentially occupy the van der Waals gap between quintuple layers.",
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    },
+    {
+      "cause_parameter": "doping process",
+      "effect_on_doping": "linear increase in interlayer spacing",
+      "affected_property": "electronic structure",
+      "mechanism_quote": "MD simulations predict that Cu atoms occupy the van der Waals gap, which affects the electronic structure.",
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    },
+    {
+      "cause_parameter": null,
+      "effect_on_doping": null,
+      "affected_property": "p-type conductivity",
+      "mechanism_quote": "Electronic structure calculations indicate p-type conductivity with hole concentration of 2×10^19 cm^-3.",
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    }
+  ]
+}

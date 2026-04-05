@@ -1,0 +1,10 @@
+TITLE: DFT study of phosphorus doping in graphene: substitutional vs pyridinic sites
+
+KEYWORDS: graphene, DFT, phosphorus doping, substitutional
+
+ABSTRACT:
+First-principles density functional theory (DFT) calculations were performed to investigate phosphorus doping in graphene.
+We find that P atoms preferentially occupy substitutional carbon sites at low doping concentrations (<1 at%).
+The formation energy for substitutional doping is 1.2 eV lower than pyridinic configurations.
+Band structure calculations show that substitutional P doping induces n-type behavior by shifting the Fermi level by 0.4 eV.
+The calculated carrier concentration increases with P concentration, reaching 3×10^13 cm^-2 at 2 at% doping.

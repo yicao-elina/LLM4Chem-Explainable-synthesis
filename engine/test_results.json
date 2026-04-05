@@ -1,0 +1,880 @@
+{
+  "timestamp": "2026-02-01",
+  "kg_file": "/Users/alina/Library/CloudStorage/OneDrive-JohnsHopkins/Research/26ARIA/26KDD/KG/outputs/combined_doping_data.json",
+  "results": [
+    {
+      "variant": "BASELINE",
+      "test_id": "forward_1",
+      "test_name": "CVD MoS2 Nb doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": "low to moderate",
+          "mobility": "low to moderately high depending on defect density and doping concentration",
+          "conductivity": "low to moderately high, potentially improved with optimized doping and growth conditions",
+          "band_gap": "~1.4 eV for MoS2, may change slightly due to doping",
+          "doping_outcome": "introduction of dopant atoms modifies conductivity type and carrier concentration",
+          "structure_changes": "MoS2 lattice remains stable but interstitials or substitutional sites are occupied by Nb ions",
+          "phase_transition": "no significant phase transition expected under 750\u00b0C CVD conditions",
+          "defect_formation": "introduction of defects related to dopant incorporation and interface formation",
+          "distribution_characteristics": "doping distribution may be non-uniform depending on growth process",
+          "thermal": "moderately stable thermal properties, slight changes in heat capacity due to doping",
+          "mechanical": "modest mechanical property improvements potentially including enhanced hardness or toughness",
+          "optical": "potential shift in absorption edge towards lower energies due to n-type conductivity"
+        },
+        "reasoning": "The use of CVD at 750\u00b0C on MoS2 with Nb doping introduces a semiconducting material that is likely to become n-type due to the high electronegativity and size difference between Nb (V+5) and MoS2 layers. The dopant concentration determines carrier density, affecting conductivity significantly. The bandgap of MoS2 (~1.4 eV) might slightly decrease with doping, leading to improved optical properties such as a shift towards lower energies in the absorption spectrum. Thermal and mechanical stability are expected, but slight variations may occur due to the introduction of dopants.",
+        "confidence": 0.9,
+        "reasoning_type": "baseline_llm",
+        "model": "qwen2:7b"
+      },
+      "latency": 28.516080856323242
+    },
+    {
+      "variant": "KG_ONLY",
+      "test_id": "forward_1",
+      "test_name": "CVD MoS2 Nb doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "electronic and magnetic properties": "Affected (see mechanisms)",
+          "Doping level, strain, surface potential homogeneity": "Affected (see mechanisms)",
+          "Filling of flat bands": "Affected (see mechanisms)",
+          "Carrier type, I\u221260V/I+60V ratio": "Affected (see mechanisms)",
+          "Raman intensity recovery, PL recovery, FET properties recovery": "Affected (see mechanisms)"
+        },
+        "mechanistic_explanation": "Pathway 1: combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings \u2192 induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect\n  \u2022 combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings \u2192 induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect: None\nPathway 2: Re doping (0.1 at%)\nPathway 3: Electron doping exceeding 5e21 cm-3\nPathway 4: Doping dependence of A1g mode resembles single layer MoS2\nPathway 5: Doping dependence of A1g mode resembles bilayer MoS2\nPathway 6: Re doping (\u2264 1 atom%)\nPathway 7: La doping in Ce2Fe14B\nPathway 8: Co doping on Fe sites in Ce2Fe14B\nPathway 9: Large local strain and lattice rotations along the 1D boundary \u2192 Doping along the 1D boundary differs from that of the two adjacent regions\n  \u2022 Large local strain and lattice rotations along the 1D boundary \u2192 Doping along the 1D boundary differs from that of the two adjacent regions: Because of large local strain and lattice rotations, the doping along the 1D boundary differs quite from that of the two adjacent regions, which enables us to realize partially-filled flat bands only in the moir\u00e9 sites along the 1D boundary.\nPathway 10: Doping along the 1D boundary differs from that of the two adjacent regions\nPathway 11: Changes electronic properties of the 1D boundary dramatically\nPathway 12: Mixing PMMA with ALP (at a 1:4 ratio) \u2192 Reduces transfer-induced doping and strain in graphene compared to using PMMA alone.\n  \u2022 Mixing PMMA with ALP (at a 1:4 ratio) \u2192 Reduces transfer-induced doping and strain in graphene compared to using PMMA alone.: such reduction is related to the decreased affinity of mixture of polymethyl methacrylate and angelica lactone polymer for graphene\nPathway 13: Zn doping (2-10%)\nPathway 14: Laser irradiation (633nm or 514nm) \u2192 Reduction/removal of surface oxygen (n-doping)\n  \u2022 Laser irradiation (633nm or 514nm) \u2192 Reduction/removal of surface oxygen (n-doping): Laser annealing removes the covalently bonded oxygen.\nPathway 15: Increases Eg1 and Eg2 (band splitting) and increases doping of C layers\nPathway 16: Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics\n  \u2022 Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics: None",
+        "confidence": 1.0,
+        "paths_found": 16,
+        "reasoning_type": "kg_only_template",
+        "all_mechanisms": [
+          {
+            "from": "combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings",
+            "to": "induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect",
+            "mechanism": null,
+            "affected_property": "electronic and magnetic properties",
+            "source_file": "Charge_transfer_spin-polarons_and_ferromagnetism_in_weakly_doped\n__AB-stacked_TMD_heterobilayers.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Large local strain and lattice rotations along the 1D boundary",
+            "to": "Doping along the 1D boundary differs from that of the two adjacent regions",
+            "mechanism": "Because of large local strain and lattice rotations, the doping along the 1D boundary differs quite from that of the two adjacent regions, which enables us to realize partially-filled flat bands only in the moir\u00e9 sites along the 1D boundary.",
+            "affected_property": "Filling of flat bands",
+            "source_file": "One-dimensional_moire_chains_with_partially-filled_flat_bands_in\n__two-dimensional_twisted_bilayer_W.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Mixing PMMA with ALP (at a 1:4 ratio)",
+            "to": "Reduces transfer-induced doping and strain in graphene compared to using PMMA alone.",
+            "mechanism": "such reduction is related to the decreased affinity of mixture of polymethyl methacrylate and angelica lactone polymer for graphene",
+            "affected_property": "Doping level, strain, surface potential homogeneity",
+            "source_file": "Optimized_nanodevice_fabrication_using_clean_transfer_of_graphene_by\n__polymer_mixture_Experiments_a.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Laser irradiation (633nm or 514nm)",
+            "to": "Reduction/removal of surface oxygen (n-doping)",
+            "mechanism": "Laser annealing removes the covalently bonded oxygen.",
+            "affected_property": "Raman intensity recovery, PL recovery, FET properties recovery",
+            "source_file": "Redox_Photochemistry_on_Van_Der_Waals_Surfaces_for_Reversible_Doping_in_2D_Mater.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 100\u00b0C",
+            "to": "Ineffective p-doping, maintains ambipolar characteristics",
+            "mechanism": null,
+            "affected_property": "Carrier type, I\u221260V/I+60V ratio",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "latency": 0.055085182189941406
+    },
+    {
+      "variant": "NAIVE_KG",
+      "test_id": "forward_1",
+      "test_name": "CVD MoS2 Nb doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": "1e19 cm^-3",
+          "mobility": "200-350 cm^2/(V\u00b7s)",
+          "conductivity": "1.5-4 S/cm",
+          "band_gap": "1.8 eV",
+          "other_properties": {}
+        },
+        "mechanistic_explanation": "In this case, using chemical vapor deposition (CVD) at a high temperature of 750\u00b0C facilitates the growth of MoS2 crystals from a gas phase. The introduction of Nb as a dopant typically leads to n-type conductivity due to the addition of electrons or holes depending on the specific mechanism involved in the doping process. Dopants like Nb tend to donate electron carriers when they are added, leading to an increase in the carrier concentration and conductivity. The band gap for MoS2 is around 1.8 eV under normal conditions, which is preserved with this synthesis condition.",
+        "confidence": 0.9,
+        "kg_paths_used": 0,
+        "reasoning_type": "naive_kg",
+        "kg_context": "No relevant causal pathways found in the knowledge graph."
+      },
+      "latency": 11.19251799583435
+    },
+    {
+      "variant": "ARIA_CORE",
+      "test_id": "forward_1",
+      "test_name": "CVD MoS2 Nb doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": null,
+          "mobility": null,
+          "conductivity": null,
+          "band_gap": "19.5 meV",
+          "other_properties": {}
+        },
+        "mechanistic_explanation": {
+          "primary_mechanism": "Changes electronic properties of the 1D boundary dramatically and increases the energy preference for Fe2+ to occupy M1 over M2 sites",
+          "chain_of_thought": [
+            "Fe doping with a higher concentration (x ~0.21) is introduced into MoS2.",
+            "This alters the local environment around Fe atoms, favoring their occupation of the M1 site over M2.",
+            "The change in electronic structure leads to an increase in the bandgap width and modification of the energy levels within the bandgap."
+          ],
+          "quantitative_estimates": {},
+          "alternative_mechanisms": null
+        },
+        "confidence": 0.9,
+        "tier": 1,
+        "reasoning_type": "direct_path",
+        "kg_paths_used": 91
+      },
+      "latency": 20.650135040283203
+    },
+    {
+      "variant": "BASELINE",
+      "test_id": "forward_2",
+      "test_name": "High temperature oxidation",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "p-type",
+          "carrier_concentration": null,
+          "mobility": null,
+          "conductivity": null,
+          "band_gap": "1.1 eV - 4 eV",
+          "doping_outcome": "Oxidation leads to p-type doping due to the formation of acceptor levels, typically related to oxygen vacancies.",
+          "structure_changes": null,
+          "phase_transition": null,
+          "defect_formation": "Formation of substitutional oxygen atoms and/or oxygen vacancies may lead to defect states in the bandgap.",
+          "distribution_characteristics": null,
+          "thermal": null,
+          "mechanical": null,
+          "optical": null
+        },
+        "reasoning": "Step-by-step explanation: \n1. Oxidation at high temperatures (800\u00b0C) with oxygen leads to p-type doping in most materials because the added oxygen atoms form a network of O2 molecules around each atom, acting as acceptors by donating holes into the valence band.\n2. The resulting material properties depend on the specific material being oxidized and its initial structure. However, common trends predict that the semiconductor will likely show decreased conductivity due to the formation of defect states in the bandgap caused by oxygen vacancies or substitutional oxygen atoms.",
+        "confidence": 0.9,
+        "reasoning_type": "baseline_llm",
+        "model": "qwen2:7b"
+      },
+      "latency": 13.402361869812012
+    },
+    {
+      "variant": "KG_ONLY",
+      "test_id": "forward_2",
+      "test_name": "High temperature oxidation",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "Work function, Fermi level": "Affected (see mechanisms)",
+          "Carrier type, carrier concentration, threshold voltage": "Affected (see mechanisms)",
+          "Carrier type, off-state current": "Affected (see mechanisms)",
+          "Carrier type, I\u221260V/I+60V ratio": "Affected (see mechanisms)"
+        },
+        "mechanistic_explanation": "Pathway 1: Covalent surface oxidation (p-doping)\nPathway 2: Reduction/removal of surface oxygen (n-doping)\nPathway 3: Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics\n  \u2022 Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics: None\nPathway 4: Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type\n  \u2022 Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type: None\nPathway 5: Oxidation temperature of 300\u00b0C \u2192 Uncontrolled doping, loss of switching capability, degenerate doping\n  \u2022 Oxidation temperature of 300\u00b0C \u2192 Uncontrolled doping, loss of switching capability, degenerate doping: when exposed to air at 300 \u00b0C, the WSe2 layer underwent drastic oxidation, resulting in degenerate doping, which led to a rapid increase in the off-state current, concomitant with the disappearance of the ability to modulate carrier concentration via a gate.\nPathway 6: Surface oxidation \u2192 p-type doping due to electron transfer from WSe2 to WSexOy\n  \u2022 Surface oxidation \u2192 p-type doping due to electron transfer from WSe2 to WSexOy: A blue shift in the W 4f peak suggests that there is electron transfer from WSe2 to WSexOy because of the high work function of oxide",
+        "confidence": 1.0,
+        "paths_found": 6,
+        "reasoning_type": "kg_only_template",
+        "all_mechanisms": [
+          {
+            "from": "Oxidation temperature of 100\u00b0C",
+            "to": "Ineffective p-doping, maintains ambipolar characteristics",
+            "mechanism": null,
+            "affected_property": "Carrier type, I\u221260V/I+60V ratio",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 200\u00b0C",
+            "to": "Controllable p-type doping, shifts from ambipolar to unipolar p-type",
+            "mechanism": null,
+            "affected_property": "Carrier type, carrier concentration, threshold voltage",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 300\u00b0C",
+            "to": "Uncontrolled doping, loss of switching capability, degenerate doping",
+            "mechanism": "when exposed to air at 300 \u00b0C, the WSe2 layer underwent drastic oxidation, resulting in degenerate doping, which led to a rapid increase in the off-state current, concomitant with the disappearance of the ability to modulate carrier concentration via a gate.",
+            "affected_property": "Carrier type, off-state current",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Surface oxidation",
+            "to": "p-type doping due to electron transfer from WSe2 to WSexOy",
+            "mechanism": "A blue shift in the W 4f peak suggests that there is electron transfer from WSe2 to WSexOy because of the high work function of oxide",
+            "affected_property": "Work function, Fermi level",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "latency": 0.012125730514526367
+    },
+    {
+      "variant": "NAIVE_KG",
+      "test_id": "forward_2",
+      "test_name": "High temperature oxidation",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "p-type",
+          "carrier_concentration": "1e20/cm\u00b3",
+          "mobility": "250 cm\u00b2/(V\u00b7s)",
+          "conductivity": "0.2 S/m",
+          "band_gap": "1.1 eV",
+          "other_properties": {}
+        },
+        "mechanistic_explanation": "Oxidation synthesis at 800\u00b0C in oxygen atmosphere typically leads to p-type semiconductors such as silicon or germanium due to the creation of acceptor states near the valence band.",
+        "confidence": 1.0,
+        "kg_paths_used": 0,
+        "reasoning_type": "naive_kg",
+        "kg_context": "No relevant causal pathways found in the knowledge graph."
+      },
+      "latency": 7.375781774520874
+    },
+    {
+      "variant": "ARIA_CORE",
+      "test_id": "forward_2",
+      "test_name": "High temperature oxidation",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "p-type",
+          "carrier_concentration": null,
+          "mobility": null,
+          "conductivity": null,
+          "band_gap": null,
+          "other_properties": {}
+        },
+        "mechanistic_explanation": {
+          "primary_mechanism": "Oxidation at 800\u00b0C in oxygen atmosphere increases the density of hole carriers by quenching surface oxygen vacancies and introducing new interstitial Zn donor states.",
+          "chain_of_thought": [
+            "The oxidation process at high temperature creates an excess of positively charged holes.",
+            "Surface oxygen vacancies are reduced, resulting in more available energy levels for electrons to occupy as holes."
+          ],
+          "quantitative_estimates": {},
+          "alternative_mechanisms": "If the oxidation time were increased or if a different material were used, alternative carrier types (n-type or null conductivity) could be induced based on the specific doping effects of the elements involved in the process."
+        },
+        "confidence": 0.9,
+        "tier": 1,
+        "reasoning_type": "direct_path",
+        "kg_paths_used": 12
+      },
+      "latency": 11.699347019195557
+    },
+    {
+      "variant": "BASELINE",
+      "test_id": "forward_3",
+      "test_name": "Phosphorus doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": null,
+          "mobility": null,
+          "conductivity": null,
+          "band_gap": null,
+          "doping_outcome": "High phosphorus concentration will result in n-type doping due to the addition of donor electrons.",
+          "structure_changes": "The introduction of phosphorus atoms via ion implantation may cause lattice distortions or phase transitions, depending on the system's tolerance and temperature conditions during processing.",
+          "phase_transition": null,
+          "defect_formation": "Depends on the degree of mismatch between implanted phosphorus atoms and the host material, leading to defects such as vacancies or interstitials which might affect properties like lattice constant and defect-mediated carrier behavior.",
+          "distribution_characteristics": "The distribution will depend on the implantation energy, dose, and process parameters. Typically aims for uniformity across the target region for optimal performance.",
+          "thermal": null,
+          "mechanical": null,
+          "optical": null
+        },
+        "reasoning": "Based on ion implantation of phosphorus into a material, it is expected to result in n-type doping due to the addition of extra valence electrons (donors) that can conduct electricity. The carrier concentration and specific properties such as mobility and conductivity will depend on various process parameters including the exact concentration of implanted phosphorus atoms, energy of the ions used for implantation, depth of penetration etc., which are not provided here.",
+        "confidence": 0.9,
+        "reasoning_type": "baseline_llm",
+        "model": "qwen2:7b"
+      },
+      "latency": 14.949229001998901
+    },
+    {
+      "variant": "KG_ONLY",
+      "test_id": "forward_3",
+      "test_name": "Phosphorus doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "Enhances near-field observation of inter-layer exciton luminescence.": "Affected (see mechanisms)",
+          "Band gap": "Affected (see mechanisms)",
+          "band gap": "Affected (see mechanisms)",
+          "Magnetism": "Affected (see mechanisms)",
+          "Electronic structure (substantial reduction in bandgap and large electron doping on the nanobubble).": "Affected (see mechanisms)",
+          "electronic and magnetic properties": "Affected (see mechanisms)",
+          "Carrier density, strain": "Affected (see mechanisms)",
+          "conductivity": "Affected (see mechanisms)",
+          "Carrier type, carrier concentration, threshold voltage": "Affected (see mechanisms)",
+          "Appearance of sharp peaks at negative energies in dI/dV spectra": "Affected (see mechanisms)",
+          "Raman intensity recovery, PL recovery, FET properties recovery": "Affected (see mechanisms)",
+          "diffusivity and conductivity": "Affected (see mechanisms)",
+          "Fermi level shift": "Affected (see mechanisms)",
+          "Work function, Fermi level": "Affected (see mechanisms)",
+          "Carrier type, off-state current": "Affected (see mechanisms)",
+          "electronic conductivity": "Affected (see mechanisms)",
+          "electrical conductivity": "Affected (see mechanisms)",
+          "electronic structure": "Affected (see mechanisms)",
+          "Filling of flat bands": "Affected (see mechanisms)",
+          "Carrier type, I\u221260V/I+60V ratio": "Affected (see mechanisms)",
+          "Band gap and Rashba effect": "Affected (see mechanisms)"
+        },
+        "mechanistic_explanation": "Pathway 1: Li intercalation (high electron doping)\nPathway 2: two magnetic transitions in Co electronic configuration\nPathway 3: interactions among the carriers in the itinerant layer\nPathway 4: carrier concentration and interlayer exchange\nPathway 5: combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings \u2192 induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect\n  \u2022 combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings \u2192 induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect: None\nPathway 6: induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect\nPathway 7: repulsion between itinerant carriers (UW)\nPathway 8: correlations in the position of long-range scatterers \u2192 strongly enhances the conductivity\n  \u2022 correlations in the position of long-range scatterers \u2192 strongly enhances the conductivity: None\nPathway 9: correlation between potassium atoms doping graphene\nPathway 10: correlation between potassium atoms doping graphene \u2192 enhances conductivity\n  \u2022 correlation between potassium atoms doping graphene \u2192 enhances conductivity: None\nPathway 11: correlation of extended defects (line scatterers) \u2192 anisotropy of diffusivity and conductivity\n  \u2022 correlation of extended defects (line scatterers) \u2192 anisotropy of diffusivity and conductivity: None\nPathway 12: sharp potential variations in the vicinity of the step due to electrostatic doping from the substrate\nPathway 13: increase conductivity up to hundreds of times vs random distribution\nPathway 14: Better preserves conduction band edge conductance spectra compared to B-doping\nPathway 15: Structural distortion of aGNR edges due to P doping\nPathway 16: Changes energy band hybridization and optical transition peaks.\nPathway 17: Li-ion intercalation \u2192 Electron doping exceeding 5e21 cm-3\n  \u2022 Li-ion intercalation \u2192 Electron doping exceeding 5e21 cm-3: None\nPathway 18: increasing Li ion concentration (and electron doping)\nPathway 19: localized defect modes occur at higher frequencies, creating a phonon band gap that reduces scattering between acoustic and optical phonons, enhancing MFP\nPathway 20: Redshift in optical absorption spectra\nPathway 21: High Re concentration \u2192 Reduced n-type doping, increased strain\n  \u2022 High Re concentration \u2192 Reduced n-type doping, increased strain: None\nPathway 22: Eu doping above a certain concentration\nPathway 23: Eu doping above a certain concentration \u2192 causes the Dirac point to disappear and opens a small band gap\n  \u2022 Eu doping above a certain concentration \u2192 causes the Dirac point to disappear and opens a small band gap: None\nPathway 24: Increasing Eu doping concentration\nPathway 25: Intercalation of TBA+ \u2192 Electron doping\n  \u2022 Intercalation of TBA+ \u2192 Electron doping: charge transfer (electron doping) upon intercalation could lead to the observation of RT ferromagnetism\nPathway 26: Electron doping (from TBA+ intercalation)\nPathway 27: Electron doping (from TBA+ intercalation) \u2192 Changes in electronic density of states near the Fermi level\n  \u2022 Electron doping (from TBA+ intercalation) \u2192 Changes in electronic density of states near the Fermi level: As the Stoner model implies, changes in the density of states near the Fermi level would cause considerable changes to the ferromagnetic ordering of FGT.\nPathway 28: Substitutional doping becomes energetically less favored (increasing formation energy Ef)\nPathway 29: Large local strain and lattice rotations along the 1D boundary \u2192 Doping along the 1D boundary differs from that of the two adjacent regions\n  \u2022 Large local strain and lattice rotations along the 1D boundary \u2192 Doping along the 1D boundary differs from that of the two adjacent regions: Because of large local strain and lattice rotations, the doping along the 1D boundary differs quite from that of the two adjacent regions, which enables us to realize partially-filled flat bands only in the moir\u00e9 sites along the 1D boundary.\nPathway 30: Doping along the 1D boundary differs from that of the two adjacent regions\nPathway 31: Large local lattice rotation (~3.0\u00b0 \u00b1 0.6\u00b0) of the topmost WSe2 around the boundary \u2192 Changes electronic properties of the 1D boundary dramatically\n  \u2022 Large local lattice rotation (~3.0\u00b0 \u00b1 0.6\u00b0) of the topmost WSe2 around the boundary \u2192 Changes electronic properties of the 1D boundary dramatically: Our atomic-resolved STM measurements and the corresponding fast Fourier transform (FFT) images... reveal that there is a large lattice rotation, ~3.0\u00b0 \u00b1 0.6\u00b0, of the topmost WSe2 around the boundary... implying that electronic properties of the 1D boundary could be quite different from that of its two adjacent regions. Our STS measurement indicates that the electronic properties of the 1D boundary is changed dramatically by the large local lattice rotation: sharp peaks at negative energies are observed in the dI/dV spectra recorded along the boundary...\nPathway 32: Interlayer stacking pattern and interlayer compression \u2192 Effectively tunes the band gap. Compression significantly enhances the band gap.\n  \u2022 Interlayer stacking pattern and interlayer compression \u2192 Effectively tunes the band gap. Compression significantly enhances the band gap.: the band gap can be effectively tuned by interlayer stacking pattern and significantly enhanced by interlayer compression\nPathway 33: Effectively tunes the band gap. Compression significantly enhances the band gap.\nPathway 34: Kekul\u00e9 deformation \u2192 Opens a band gap in monolayer graphene in TI/SG/TI QW structure.\n  \u2022 Kekul\u00e9 deformation \u2192 Opens a band gap in monolayer graphene in TI/SG/TI QW structure.: the non-SOC band gap of monolayer graphene is opened to 41 meV due to the Kekul\u00e9 deformation\nPathway 35: Interlayer interaction in bilayer graphene \u2192 Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.\n  \u2022 Interlayer interaction in bilayer graphene \u2192 Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.: the interlayer interaction in bilayer graphene is enhanced, which produces a considerable band splitting at the \u0393 point.  This band splitting largely compensates the gap opened by the Kekul\u00e9 deformation, leading to the diminished band gap\nPathway 36: Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.\nPathway 37: Interlayer compression (reducing distance between graphene and Bi2Te3) \u2192 Increases the SOC band gap to 62 meV and enhances the Rashba effect.\n  \u2022 Interlayer compression (reducing distance between graphene and Bi2Te3) \u2192 Increases the SOC band gap to 62 meV and enhances the Rashba effect.: the SOC gap is significantly increased to 62 meV, which is accompanied by a more obvious Rashba effect\nPathway 38: Suppression of superconductivity\nPathway 39: Covalent surface oxidation (p-doping)\nPathway 40: Laser irradiation (633nm or 514nm) \u2192 Reduction/removal of surface oxygen (n-doping)\n  \u2022 Laser irradiation (633nm or 514nm) \u2192 Reduction/removal of surface oxygen (n-doping): Laser annealing removes the covalently bonded oxygen.\nPathway 41: Reduction/removal of surface oxygen (n-doping)\nPathway 42: increasing concentration of TFSI intercalate (decreasing carbon atom number) \u2192 reduces electronic conductivity\n  \u2022 increasing concentration of TFSI intercalate (decreasing carbon atom number) \u2192 reduces electronic conductivity: unoccupied states of graphene are getting further away from Fermi level\nPathway 43: RGO encapsulation \u2192 reduces band gap from ~3.4 eV to ~0.5 eV\n  \u2022 RGO encapsulation \u2192 reduces band gap from ~3.4 eV to ~0.5 eV: None\nPathway 44: RGO encapsulation \u2192 increases electrical conductivity\n  \u2022 RGO encapsulation \u2192 increases electrical conductivity: lowering the surface band bending induced barrier height\nPathway 45: drastic reduction of thermal conductivity\nPathway 46: introduces carrier injection into bilayer CrI3\nPathway 47: Increases spin splitting of Fe d states, pushes unoccupied minority spin Fe d states to higher energies, increases band gap.\nPathway 48: Polarized (or ionized) molecules trapped in the nanobubble during fabrication. \u2192 Induces doping and electric field to the layers above, modifying the electronic structure.\n  \u2022 Polarized (or ionized) molecules trapped in the nanobubble during fabrication. \u2192 Induces doping and electric field to the layers above, modifying the electronic structure.: None\nPathway 49: Alignment of the interlayer exciton transition dipole with the polarization of the nano-optical field at the nanobubble edge.\nPathway 50: Alignment of the interlayer exciton transition dipole with the polarization of the nano-optical field at the nanobubble edge. \u2192 Increases in- and out-coupling of optical fields.\n  \u2022 Alignment of the interlayer exciton transition dipole with the polarization of the nano-optical field at the nanobubble edge. \u2192 Increases in- and out-coupling of optical fields.: None\nPathway 51: Sharp lateral junctions in doping\nPathway 52: Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics\n  \u2022 Oxidation temperature of 100\u00b0C \u2192 Ineffective p-doping, maintains ambipolar characteristics: None\nPathway 53: Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type\n  \u2022 Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type: None\nPathway 54: Oxidation temperature of 300\u00b0C \u2192 Uncontrolled doping, loss of switching capability, degenerate doping\n  \u2022 Oxidation temperature of 300\u00b0C \u2192 Uncontrolled doping, loss of switching capability, degenerate doping: when exposed to air at 300 \u00b0C, the WSe2 layer underwent drastic oxidation, resulting in degenerate doping, which led to a rapid increase in the off-state current, concomitant with the disappearance of the ability to modulate carrier concentration via a gate.\nPathway 55: Surface oxidation \u2192 p-type doping due to electron transfer from WSe2 to WSexOy\n  \u2022 Surface oxidation \u2192 p-type doping due to electron transfer from WSe2 to WSexOy: A blue shift in the W 4f peak suggests that there is electron transfer from WSe2 to WSexOy because of the high work function of oxide",
+        "confidence": 1.0,
+        "paths_found": 55,
+        "reasoning_type": "kg_only_template",
+        "all_mechanisms": [
+          {
+            "from": "combination of the in-plane 120\u25e6N\u00b4eel order and Ising spin orbit couplings",
+            "to": "induces winding in the electronic wavefunction giving rise to a topologically non-trivial spin texture and an observable anomalous Hall effect",
+            "mechanism": null,
+            "affected_property": "electronic and magnetic properties",
+            "source_file": "Charge_transfer_spin-polarons_and_ferromagnetism_in_weakly_doped\n__AB-stacked_TMD_heterobilayers.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "correlations in the position of long-range scatterers",
+            "to": "strongly enhances the conductivity",
+            "mechanism": null,
+            "affected_property": "conductivity",
+            "source_file": "Configurations_of_structural_defects_in_graphene_and_their_effects_on\n__its_transport_properties.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "correlation between potassium atoms doping graphene",
+            "to": "enhances conductivity",
+            "mechanism": null,
+            "affected_property": "conductivity",
+            "source_file": "Configurations_of_structural_defects_in_graphene_and_their_effects_on\n__its_transport_properties.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "correlation of extended defects (line scatterers)",
+            "to": "anisotropy of diffusivity and conductivity",
+            "mechanism": null,
+            "affected_property": "diffusivity and conductivity",
+            "source_file": "Configurations_of_structural_defects_in_graphene_and_their_effects_on\n__its_transport_properties.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Li-ion intercalation",
+            "to": "Electron doping exceeding 5e21 cm-3",
+            "mechanism": null,
+            "affected_property": "Fermi level shift",
+            "source_file": "Electron-doped_magnetic_Weyl_semimetal_LixCo3Sn2S2_by_bulk-gating.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "High Re concentration",
+            "to": "Reduced n-type doping, increased strain",
+            "mechanism": null,
+            "affected_property": "Carrier density, strain",
+            "source_file": "Influence_of_Rhenium_Concentration_on_Charge_Doping_and_Defect_Formation\n__in_MoS2.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Eu doping above a certain concentration",
+            "to": "causes the Dirac point to disappear and opens a small band gap",
+            "mechanism": null,
+            "affected_property": "electronic structure",
+            "source_file": "Introducing_antiferromagnetic_ordering_on_the_surface_states_of_Bi2Se3\n__topological_insulator_by_Eu.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Intercalation of TBA+",
+            "to": "Electron doping",
+            "mechanism": "charge transfer (electron doping) upon intercalation could lead to the observation of RT ferromagnetism",
+            "affected_property": "Magnetism",
+            "source_file": "Magnetic_properties_of_intercalated_quasi-2D_Fe_3-xGeTe_2_van_der_Waals_magnet.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Electron doping (from TBA+ intercalation)",
+            "to": "Changes in electronic density of states near the Fermi level",
+            "mechanism": "As the Stoner model implies, changes in the density of states near the Fermi level would cause considerable changes to the ferromagnetic ordering of FGT.",
+            "affected_property": "Magnetism",
+            "source_file": "Magnetic_properties_of_intercalated_quasi-2D_Fe_3-xGeTe_2_van_der_Waals_magnet.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Large local strain and lattice rotations along the 1D boundary",
+            "to": "Doping along the 1D boundary differs from that of the two adjacent regions",
+            "mechanism": "Because of large local strain and lattice rotations, the doping along the 1D boundary differs quite from that of the two adjacent regions, which enables us to realize partially-filled flat bands only in the moir\u00e9 sites along the 1D boundary.",
+            "affected_property": "Filling of flat bands",
+            "source_file": "One-dimensional_moire_chains_with_partially-filled_flat_bands_in\n__two-dimensional_twisted_bilayer_W.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Large local lattice rotation (~3.0\u00b0 \u00b1 0.6\u00b0) of the topmost WSe2 around the boundary",
+            "to": "Changes electronic properties of the 1D boundary dramatically",
+            "mechanism": "Our atomic-resolved STM measurements and the corresponding fast Fourier transform (FFT) images... reveal that there is a large lattice rotation, ~3.0\u00b0 \u00b1 0.6\u00b0, of the topmost WSe2 around the boundary... implying that electronic properties of the 1D boundary could be quite different from that of its two adjacent regions. Our STS measurement indicates that the electronic properties of the 1D boundary is changed dramatically by the large local lattice rotation: sharp peaks at negative energies are observed in the dI/dV spectra recorded along the boundary...",
+            "affected_property": "Appearance of sharp peaks at negative energies in dI/dV spectra",
+            "source_file": "One-dimensional_moire_chains_with_partially-filled_flat_bands_in\n__two-dimensional_twisted_bilayer_W.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Interlayer stacking pattern and interlayer compression",
+            "to": "Effectively tunes the band gap. Compression significantly enhances the band gap.",
+            "mechanism": "the band gap can be effectively tuned by interlayer stacking pattern and significantly enhanced by interlayer compression",
+            "affected_property": "Band gap",
+            "source_file": "Opening_Band_Gap_without_Breaking_Lattice_Symmetry_A_New_Route_toward\n__Robust_Graphene-Based_Nanoel.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Kekul\u00e9 deformation",
+            "to": "Opens a band gap in monolayer graphene in TI/SG/TI QW structure.",
+            "mechanism": "the non-SOC band gap of monolayer graphene is opened to 41 meV due to the Kekul\u00e9 deformation",
+            "affected_property": "Band gap",
+            "source_file": "Opening_Band_Gap_without_Breaking_Lattice_Symmetry_A_New_Route_toward\n__Robust_Graphene-Based_Nanoel.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Interlayer interaction in bilayer graphene",
+            "to": "Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.",
+            "mechanism": "the interlayer interaction in bilayer graphene is enhanced, which produces a considerable band splitting at the \u0393 point.  This band splitting largely compensates the gap opened by the Kekul\u00e9 deformation, leading to the diminished band gap",
+            "affected_property": "Band gap",
+            "source_file": "Opening_Band_Gap_without_Breaking_Lattice_Symmetry_A_New_Route_toward\n__Robust_Graphene-Based_Nanoel.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Interlayer compression (reducing distance between graphene and Bi2Te3)",
+            "to": "Increases the SOC band gap to 62 meV and enhances the Rashba effect.",
+            "mechanism": "the SOC gap is significantly increased to 62 meV, which is accompanied by a more obvious Rashba effect",
+            "affected_property": "Band gap and Rashba effect",
+            "source_file": "Opening_Band_Gap_without_Breaking_Lattice_Symmetry_A_New_Route_toward\n__Robust_Graphene-Based_Nanoel.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Laser irradiation (633nm or 514nm)",
+            "to": "Reduction/removal of surface oxygen (n-doping)",
+            "mechanism": "Laser annealing removes the covalently bonded oxygen.",
+            "affected_property": "Raman intensity recovery, PL recovery, FET properties recovery",
+            "source_file": "Redox_Photochemistry_on_Van_Der_Waals_Surfaces_for_Reversible_Doping_in_2D_Mater.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "increasing concentration of TFSI intercalate (decreasing carbon atom number)",
+            "to": "reduces electronic conductivity",
+            "mechanism": "unoccupied states of graphene are getting further away from Fermi level",
+            "affected_property": "electronic conductivity",
+            "source_file": "Revealing_the_formation_and_electrochemical_properties_of\n__bis(trifluoromethanesulfonyl)_imide_inte.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "RGO encapsulation",
+            "to": "reduces band gap from ~3.4 eV to ~0.5 eV",
+            "mechanism": null,
+            "affected_property": "band gap",
+            "source_file": "Selective_Enhancement_in_Phonon_Scattering_leads_to_High_Thermoelectric\n__Figure_of_Merit_in_ZnO_--_.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "RGO encapsulation",
+            "to": "increases electrical conductivity",
+            "mechanism": "lowering the surface band bending induced barrier height",
+            "affected_property": "electrical conductivity",
+            "source_file": "Selective_Enhancement_in_Phonon_Scattering_leads_to_High_Thermoelectric\n__Figure_of_Merit_in_ZnO_--_.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Polarized (or ionized) molecules trapped in the nanobubble during fabrication.",
+            "to": "Induces doping and electric field to the layers above, modifying the electronic structure.",
+            "mechanism": null,
+            "affected_property": "Electronic structure (substantial reduction in bandgap and large electron doping on the nanobubble).",
+            "source_file": "Ultra_Localized_Optoelectronic_Properties_of_Nanobubbles_in_2D\n__Semiconductors.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Alignment of the interlayer exciton transition dipole with the polarization of the nano-optical field at the nanobubble edge.",
+            "to": "Increases in- and out-coupling of optical fields.",
+            "mechanism": null,
+            "affected_property": "Enhances near-field observation of inter-layer exciton luminescence.",
+            "source_file": "Ultra_Localized_Optoelectronic_Properties_of_Nanobubbles_in_2D\n__Semiconductors.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 100\u00b0C",
+            "to": "Ineffective p-doping, maintains ambipolar characteristics",
+            "mechanism": null,
+            "affected_property": "Carrier type, I\u221260V/I+60V ratio",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 200\u00b0C",
+            "to": "Controllable p-type doping, shifts from ambipolar to unipolar p-type",
+            "mechanism": null,
+            "affected_property": "Carrier type, carrier concentration, threshold voltage",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Oxidation temperature of 300\u00b0C",
+            "to": "Uncontrolled doping, loss of switching capability, degenerate doping",
+            "mechanism": "when exposed to air at 300 \u00b0C, the WSe2 layer underwent drastic oxidation, resulting in degenerate doping, which led to a rapid increase in the off-state current, concomitant with the disappearance of the ability to modulate carrier concentration via a gate.",
+            "affected_property": "Carrier type, off-state current",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Surface oxidation",
+            "to": "p-type doping due to electron transfer from WSe2 to WSexOy",
+            "mechanism": "A blue shift in the W 4f peak suggests that there is electron transfer from WSe2 to WSexOy because of the high work function of oxide",
+            "affected_property": "Work function, Fermi level",
+            "source_file": "wu-et-al-2025-controllable-p-type-doping-strategy-for-high-performance-2d-material-complementary-inverters.txt",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "latency": 0.16117405891418457
+    },
+    {
+      "variant": "NAIVE_KG",
+      "test_id": "forward_3",
+      "test_name": "Phosphorus doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": "high",
+          "mobility": "improved due to doping and concentration",
+          "conductivity": "enhanced due to increased carrier density",
+          "band_gap": "reduced or possibly eliminated depending on phosphorus incorporation depth",
+          "other_properties": {}
+        },
+        "mechanistic_explanation": "Phosphorus ion implantation introduces n-type dopants into the material, increasing the number of free carriers. High concentration implies a significant increase in carrier density, which enhances mobility and conductivity by allowing more charge transport. The band gap may be reduced or eliminated as phosphorus atoms can occupy positions within the graphene lattice, creating a valence state that aligns with the conduction band, thus facilitating electron flow.",
+        "confidence": 0.9,
+        "kg_paths_used": 22,
+        "reasoning_type": "naive_kg",
+        "kg_context": "Retrieved causal pathways from knowledge graph:\n\nPathway 1:\n  Path: interactions among the carriers in the itinerant layer\n  Mechanisms:\n\nPathway 2:\n  Path: carrier concentration and interlayer exchange\n  Mechanisms:\n\nPathway 3:\n  Path: repulsion between itinerant carriers (UW)\n  Mechanisms:\n\nPathway 4:\n  Path: correlations in the position of long-range scatterers \u2192 strongly enhances the conductivity\n  Mechanisms:\n    \u2022 correlations in the position of long-range scatterers \u2192 strongly enhances the conductivity\n      Mechanism: None\n      Affects: conductivity\n\nPathway 5:\n  Path: correlation between potassium atoms doping graphene \u2192 enhances conductivity\n  Mechanisms:\n    \u2022 correlation between potassium atoms doping graphene \u2192 enhances conductivity\n      Mechanism: None\n      Affects: conductivity\n\nPathway 6:\n  Path: correlation of extended defects (line scatterers) \u2192 anisotropy of diffusivity and conductivity\n  Mechanisms:\n    \u2022 correlation of extended defects (line scatterers) \u2192 anisotropy of diffusivity and conductivity\n      Mechanism: None\n      Affects: diffusivity and conductivity\n\nPathway 7:\n  Path: increase conductivity up to hundreds of times vs random distribution\n  Mechanisms:\n\nPathway 8:\n  Path: localized defect modes occur at higher frequencies, creating a phonon band gap that reduces scattering between acoustic and optical phonons, enhancing MFP\n  Mechanisms:\n\nPathway 9:\n  Path: Eu doping above a certain concentration \u2192 causes the Dirac point to disappear and opens a small band gap\n  Mechanisms:\n    \u2022 Eu doping above a certain concentration \u2192 causes the Dirac point to disappear and opens a small band gap\n      Mechanism: None\n      Affects: electronic structure\n\nPathway 10:\n  Path: Interlayer stacking pattern and interlayer compression \u2192 Effectively tunes the band gap. Compression significantly enhances the band gap.\n  Mechanisms:\n    \u2022 Interlayer stacking pattern and interlayer compression \u2192 Effectively tunes the band gap. Compression significantly enhances the band gap.\n      Mechanism: the band gap can be effectively tuned by interlayer stacking pattern and significantly enhanced by interlayer compression\n      Affects: Band gap\n\nPathway 11:\n  Path: Effectively tunes the band gap. Compression significantly enhances the band gap.\n  Mechanisms:\n\nPathway 12:\n  Path: Kekul\u00e9 deformation \u2192 Opens a band gap in monolayer graphene in TI/SG/TI QW structure.\n  Mechanisms:\n    \u2022 Kekul\u00e9 deformation \u2192 Opens a band gap in monolayer graphene in TI/SG/TI QW structure.\n      Mechanism: the non-SOC band gap of monolayer graphene is opened to 41 meV due to the Kekul\u00e9 deformation\n      Affects: Band gap\n\nPathway 13:\n  Path: Interlayer interaction in bilayer graphene \u2192 Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.\n  Mechanisms:\n    \u2022 Interlayer interaction in bilayer graphene \u2192 Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.\n      Mechanism: the interlayer interaction in bilayer graphene is enhanced, which produces a considerable band splitting at the \u0393 point.  This band splitting largely compensates the gap opened by the Kekul\u00e9 deformation, leading to the diminished band gap\n      Affects: Band gap\n\nPathway 14:\n  Path: Diminishes the effect of Kekul\u00e9 deformation and reduces the band gap.\n  Mechanisms:\n\nPathway 15:\n  Path: Interlayer compression (reducing distance between graphene and Bi2Te3) \u2192 Increases the SOC band gap to 62 meV and enhances the Rashba effect.\n  Mechanisms:\n    \u2022 Interlayer compression (reducing distance between graphene and Bi2Te3) \u2192 Increases the SOC band gap to 62 meV and enhances the Rashba effect.\n      Mechanism: the SOC gap is significantly increased to 62 meV, which is accompanied by a more obvious Rashba effect\n      Affects: Band gap and Rashba effect\n\nPathway 16:\n  Path: Suppression of superconductivity\n  Mechanisms:\n\nPathway 17:\n  Path: increasing concentration of TFSI intercalate (decreasing carbon atom number) \u2192 reduces electronic conductivity\n  Mechanisms:\n    \u2022 increasing concentration of TFSI intercalate (decreasing carbon atom number) \u2192 reduces electronic conductivity\n      Mechanism: unoccupied states of graphene are getting further away from Fermi level\n      Affects: electronic conductivity\n\nPathway 18:\n  Path: RGO encapsulation \u2192 reduces band gap from ~3.4 eV to ~0.5 eV\n  Mechanisms:\n    \u2022 RGO encapsulation \u2192 reduces band gap from ~3.4 eV to ~0.5 eV\n      Mechanism: None\n      Affects: band gap\n\nPathway 19:\n  Path: RGO encapsulation \u2192 increases electrical conductivity\n  Mechanisms:\n    \u2022 RGO encapsulation \u2192 increases electrical conductivity\n      Mechanism: lowering the surface band bending induced barrier height\n      Affects: electrical conductivity\n\nPathway 20:\n  Path: drastic reduction of thermal conductivity\n  Mechanisms:\n\nPathway 21:\n  Path: introduces carrier injection into bilayer CrI3\n  Mechanisms:\n\nPathway 22:\n  Path: Increases spin splitting of Fe d states, pushes unoccupied minority spin Fe d states to higher energies, increases band gap.\n  Mechanisms:\n\n"
+      },
+      "latency": 12.432224988937378
+    },
+    {
+      "variant": "ARIA_CORE",
+      "test_id": "forward_3",
+      "test_name": "Phosphorus doping",
+      "status": "success",
+      "result": {
+        "predicted_properties": {
+          "carrier_type": "n-type",
+          "carrier_concentration": "high",
+          "mobility": "0.3-1.0 cm\u00b2/Vs or null",
+          "conductivity": "50-200 S/cm or null",
+          "band_gap": "0.8 eV - 1.6 eV",
+          "other_properties": {}
+        },
+        "mechanistic_explanation": {
+          "primary_mechanism": "High concentration of phosphorus dopant with ion implantation results in strong hybridization between interlayer and \u03c0* bands, leading to elimination of carriers from regular lattice sites.",
+          "chain_of_thought": [
+            "Phosphorus is a high-concentration dopant implanted into the material",
+            "Hybridization occurs due to strong interaction with interlayers",
+            "Elimination of carriers leads to n-type doping"
+          ],
+          "quantitative_estimates": {},
+          "alternative_mechanisms": "Alternative pathways could involve different ion implantation conditions, phosphorus concentration control, or post-implantation annealing which might affect the material properties differently."
+        },
+        "confidence": 0.9,
+        "tier": 1,
+        "reasoning_type": "direct_path",
+        "kg_paths_used": 30
+      },
+      "latency": 15.594236135482788
+    },
+    {
+      "variant": "BASELINE",
+      "test_id": "inverse_1",
+      "test_name": "N-type high mobility",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "host_material": "Graphene",
+          "dopant": {
+            "element": "Phosphorus",
+            "concentration": "1E18 cm^-3",
+            "precursor": "Phosphine"
+          },
+          "method": "Chemical Vapor Deposition (CVD)",
+          "temperature_c": 950,
+          "pressure_pa": 6.7,
+          "time_hours": 4,
+          "atmosphere": "Argas / H2 gas mixture",
+          "electric_field": null,
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": "Oxidation of the graphene surface for better dopant incorporation",
+          "additional_parameters": "Synthesis in a vertically aligned system for uniform deposition"
+        },
+        "reasoning": "Phosphorus doping with high concentration enables n-type conductivity. CVD method provides precise control over synthesis conditions, allowing growth of high-quality graphene films. Optimal temperature and pressure ensure good crystal quality and dopant incorporation efficiency.",
+        "confidence": 0.9,
+        "reasoning_type": "baseline_llm_inverse",
+        "model": "qwen2:7b"
+      },
+      "latency": 23.93419599533081
+    },
+    {
+      "variant": "KG_ONLY",
+      "test_id": "inverse_1",
+      "test_name": "N-type high mobility",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "temperature": "Higher growth temperature (600\u00b0C for Bi2Se3/WS2)",
+          "method": "Results in GICs of higher stage number and incomplete staging.",
+          "pressure": "High pressure (56 kbar)"
+        },
+        "mechanistic_explanation": "Pathway 1: Decreases adsorption energy, with greater reduction for higher coordinated sites; corrects site preference\nPathway 2: Higher annealing temperature (300 \u00b0C)\nPathway 3: High annealing temperature (300 \u00b0C) in ambient air\nPathway 4: high transition temperature (C6Yb and C6Ca)\nPathway 5: Heavier oxidation on the ReS2 surface, denser wrinkles and more reduction of Raman intensity \u2192 Higher humidity level during UV treatment\n  \u2022 Heavier oxidation on the ReS2 surface, denser wrinkles and more reduction of Raman intensity \u2190 Higher humidity level during UV treatment: None\nPathway 6: SPS process (high temperature, inert atmosphere)\nPathway 7: reduction of GO to RGO \u2192 SPS process (high temperature, inert atmosphere)\n  \u2022 reduction of GO to RGO \u2190 SPS process (high temperature, inert atmosphere): None\nPathway 8: C60s distance larger than ~ 4.5 nm and high temperature\nPathway 9: Higher intercalation temperature and/or shorter intercalation time\nPathway 10: Results in GICs of higher stage number and incomplete staging. \u2192 Higher intercalation temperature and/or shorter intercalation time\n  \u2022 Results in GICs of higher stage number and incomplete staging. \u2190 Higher intercalation temperature and/or shorter intercalation time: None\nPathway 11: Results in GICs of higher stage number and incomplete staging.\nPathway 12: High pressure (56 kbar)\nPathway 13: High temperature (> 285\u00b0C)\nPathway 14: Constant c1 and c2 at equilibrium (high temperature)\nPathway 15: Higher precursor density near edges, decreased desorption rate (low temperature)\nPathway 16: Higher growth temperature (600\u00b0C for Bi2Se3/WS2)",
+        "confidence": 1.0,
+        "paths_found": 16,
+        "reasoning_type": "kg_only_inverse_template",
+        "all_mechanisms": [
+          {
+            "from": "Higher humidity level during UV treatment",
+            "to": "Heavier oxidation on the ReS2 surface, denser wrinkles and more reduction of Raman intensity",
+            "mechanism": null,
+            "affected_property": "Raman intensity, morphology (wrinkles)",
+            "source_file": "Redox_Photochemistry_on_Van_Der_Waals_Surfaces_for_Reversible_Doping_in_2D_Mater.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "SPS process (high temperature, inert atmosphere)",
+            "to": "reduction of GO to RGO",
+            "mechanism": null,
+            "affected_property": "RGO formation",
+            "source_file": "Selective_Enhancement_in_Phonon_Scattering_leads_to_High_Thermoelectric\n__Figure_of_Merit_in_ZnO_--_.txt",
+            "confidence": 1.0
+          },
+          {
+            "from": "Higher intercalation temperature and/or shorter intercalation time",
+            "to": "Results in GICs of higher stage number and incomplete staging.",
+            "mechanism": null,
+            "affected_property": "Staging",
+            "source_file": "Theory_and_synthesis_of_bilayer_graphene_intercalated_with_ICl_and_IBr\n__for_low_power_device_applic.txt",
+            "confidence": 1.0
+          }
+        ]
+      },
+      "latency": 0.02472996711730957
+    },
+    {
+      "variant": "NAIVE_KG",
+      "test_id": "inverse_1",
+      "test_name": "N-type high mobility",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "method": "SPS process",
+          "temperature_c": 600,
+          "time_hours": null,
+          "atmosphere": "inert atmosphere",
+          "pressure_pa": null,
+          "precursors": [
+            "Bi2Se3",
+            "WS2"
+          ],
+          "other_parameters": {}
+        },
+        "mechanistic_explanation": "By using a high-temperature (600\u00b0C) SPS process in an inert atmosphere, it is possible to synthesize n-type Bi2Se3/WS2 heterostructures with high mobility. The high temperature facilitates the annealing and intercalation processes necessary for creating defect-rich structures that enhance carrier transport properties.",
+        "confidence": 1.0,
+        "kg_paths_used": 18,
+        "reasoning_type": "naive_kg_inverse",
+        "kg_context": "Retrieved causal pathways from knowledge graph:\n\nPathway 1:\n  Path: Higher annealing temperature (300 \u00b0C)\n  Mechanisms:\n\nPathway 2:\n  Path: High annealing temperature (300 \u00b0C) in ambient air\n  Mechanisms:\n\nPathway 3:\n  Path: high transition temperature (C6Yb and C6Ca)\n  Mechanisms:\n\nPathway 4:\n  Path: SPS process (high temperature, inert atmosphere)\n  Mechanisms:\n\nPathway 5:\n  Path: C60s distance larger than ~ 4.5 nm and high temperature\n  Mechanisms:\n\nPathway 6:\n  Path: Higher intercalation temperature and/or shorter intercalation time\n  Mechanisms:\n\nPathway 7:\n  Path: Higher intercalation temperature and/or shorter intercalation time \u2192 Results in GICs of higher stage number and incomplete staging.\n  Mechanisms:\n    \u2022 Higher intercalation temperature and/or shorter intercalation time \u2192 Results in GICs of higher stage number and incomplete staging.\n      Mechanism: None\n      Affects: Staging\n\nPathway 8:\n  Path: Results in GICs of higher stage number and incomplete staging.\n  Mechanisms:\n\nPathway 9:\n  Path: High pressure (56 kbar)\n  Mechanisms:\n\nPathway 10:\n  Path: High temperature (> 285\u00b0C)\n  Mechanisms:\n\nPathway 11:\n  Path: Constant c1 and c2 at equilibrium (high temperature)\n  Mechanisms:\n\nPathway 12:\n  Path: Higher precursor density near edges, decreased desorption rate (low temperature)\n  Mechanisms:\n\nPathway 13:\n  Path: Higher growth temperature (600\u00b0C for Bi2Se3/WS2)\n  Mechanisms:\n\nPathway 14:\n  Path: Increasing U in DFT+U method \u2192 Decreases adsorption energy, with greater reduction for higher coordinated sites; corrects site preference\n  Mechanisms:\n    \u2022 Increasing U in DFT+U method \u2192 Decreases adsorption energy, with greater reduction for higher coordinated sites; corrects site preference\n      Mechanism: The weaker adsorption strength results also in a higher stretching frequency of the adsorbed molecule, also improving agreement with experiment.\n      Affects: thermodynamic / site preference\n\nPathway 15:\n  Path: Higher annealing temperature (300 \u00b0C)\n  Mechanisms:\n\nPathway 16:\n  Path: High annealing temperature (300 \u00b0C) in ambient air\n  Mechanisms:\n\nPathway 17:\n  Path: high transition temperature (C6Yb and C6Ca)\n  Mechanisms:\n\nPathway 18:\n  Path: SPS process (high temperature, inert atmosphere)\n  Mechanisms:\n\nPathway 19:\n  Path: C60s distance larger than ~ 4.5 nm and high temperature\n  Mechanisms:\n\nPathway 20:\n  Path: Higher intercalation temperature and/or shorter intercalation time\n  Mechanisms:\n\nPathway 21:\n  Path: Higher intercalation temperature and/or shorter intercalation time \u2192 Results in GICs of higher stage number and incomplete staging.\n  Mechanisms:\n    \u2022 Higher intercalation temperature and/or shorter intercalation time \u2192 Results in GICs of higher stage number and incomplete staging.\n      Mechanism: None\n      Affects: Staging\n\nPathway 22:\n  Path: Results in GICs of higher stage number and incomplete staging.\n  Mechanisms:\n\nPathway 23:\n  Path: High pressure (56 kbar)\n  Mechanisms:\n\nPathway 24:\n  Path: High temperature (> 285\u00b0C)\n  Mechanisms:\n\nPathway 25:\n  Path: Constant c1 and c2 at equilibrium (high temperature)\n  Mechanisms:\n\nPathway 26:\n  Path: Higher precursor density near edges, decreased desorption rate (low temperature)\n  Mechanisms:\n\nPathway 27:\n  Path: Higher precursor density near edges, decreased desorption rate (low temperature) \u2192 Higher growth rate in sublinear mode\n  Mechanisms:\n    \u2022 Higher precursor density near edges, decreased desorption rate (low temperature) \u2192 Higher growth rate in sublinear mode\n      Mechanism: Compared with the linear mode, the sublinear growth mode exhibits a higher growth rate due to the higher precursor density near the growth edges and decreased desorption rate.\n      Affects: Growth rate\n\nPathway 28:\n  Path: Higher growth temperature (600\u00b0C for Bi2Se3/WS2)\n  Mechanisms:\n\n"
+      },
+      "latency": 11.491247177124023
+    },
+    {
+      "variant": "ARIA_CORE",
+      "test_id": "inverse_1",
+      "test_name": "N-type high mobility",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "method": "Physical Vapor Deposition (PVD)",
+          "temperature_c": 600,
+          "pressure_pa": 0.0001,
+          "time_hours": 2,
+          "atmosphere": "Argon",
+          "other_parameters": {}
+        },
+        "mechanistic_explanation": {
+          "primary_mechanism": "Controlled doping and structural modification through metal ion co-deposition",
+          "chain_of_thought": [
+            "Co-deposited metal ions modify the electronic structure",
+            "Resulting in altered bandgap for increased n-type behavior"
+          ],
+          "confidence_factors": "Based on theoretical models predicting dopant influence"
+        },
+        "confidence": 0.8,
+        "tier": 1,
+        "reasoning_type": "direct_inverse",
+        "kg_paths_used": 7
+      },
+      "latency": 8.566150903701782
+    },
+    {
+      "variant": "BASELINE",
+      "test_id": "inverse_2",
+      "test_name": "P-type doping",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "host_material": "Silicon",
+          "dopant": {
+            "element": "Boron",
+            "concentration": "10^17-10^20 cm^-3",
+            "precursor": "Tetrabromoborane"
+          },
+          "method": "Molecular Beam Epitaxy (MBE)",
+          "temperature_c": 650,
+          "pressure_pa": null,
+          "time_hours": "2-4 hours",
+          "atmosphere": "High purity argon",
+          "electric_field": null,
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": "Silicon surface cleaved at 1100 C under high purity argon atmosphere",
+          "additional_parameters": null
+        },
+        "reasoning": "MBE allows precise control over deposition conditions and enables the creation of p-type materials through the addition of a low concentration of impurity atoms like boron. The specified temperature range promotes successful doping without causing unwanted reactions or degradation, while argon ensures an inert atmosphere that prevents oxidation.",
+        "confidence": 0.95,
+        "reasoning_type": "baseline_llm_inverse",
+        "model": "qwen2:7b"
+      },
+      "latency": 12.23846983909607
+    },
+    {
+      "variant": "KG_ONLY",
+      "test_id": "inverse_2",
+      "test_name": "P-type doping",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {},
+        "mechanistic_explanation": "No causal pathway found in knowledge graph.",
+        "confidence": 0.0,
+        "paths_found": 0,
+        "reasoning_type": "kg_only_inverse_no_match"
+      },
+      "latency": 0.007128000259399414
+    },
+    {
+      "variant": "NAIVE_KG",
+      "test_id": "inverse_2",
+      "test_name": "P-type doping",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "method": "Oxidation",
+          "temperature_c": 200,
+          "time_hours": null,
+          "atmosphere": "Dry atmosphere",
+          "pressure_pa": null,
+          "precursors": [
+            "O2"
+          ],
+          "other_parameters": {}
+        },
+        "mechanistic_explanation": "At a temperature of 200\u00b0C, the oxidation process allows for controlled p-type doping by creating acceptor impurities that shift from ambipolar to unipolar p-type characteristics. This is achieved in a dry atmosphere to minimize side reactions and ensure consistent results. Precursors such as O2 facilitate the formation of p-type dopants without altering other material properties.",
+        "confidence": 0.9,
+        "kg_paths_used": 1,
+        "reasoning_type": "naive_kg_inverse",
+        "kg_context": "Retrieved causal pathways from knowledge graph:\n\nPathway 1:\n  Path: Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type\n  Mechanisms:\n    \u2022 Oxidation temperature of 200\u00b0C \u2192 Controllable p-type doping, shifts from ambipolar to unipolar p-type\n      Mechanism: None\n      Affects: Carrier type, carrier concentration, threshold voltage\n\n"
+      },
+      "latency": 8.69480299949646
+    },
+    {
+      "variant": "ARIA_CORE",
+      "test_id": "inverse_2",
+      "test_name": "P-type doping",
+      "status": "success",
+      "result": {
+        "suggested_synthesis_conditions": {
+          "method": "Hydrothermal synthesis",
+          "temperature_c": 200,
+          "pressure_pa": 1000000.0,
+          "time_hours": 24,
+          "atmosphere": "Oxidizing environment",
+          "other_parameters": {}
+        },
+        "mechanistic_explanation": {
+          "primary_mechanism": "Electron transfer from WSe2 to WSexOy through oxidation at high temperature",
+          "chain_of_thought": [
+            "Controllable p-type doping shifts ambipolar properties",
+            "Oxidation leads to p-type doping"
+          ],
+          "confidence_factors": {
+            "electron_transfer_efficiency": 0.8,
+            "temperature_effectiveness": 0.9,
+            "oxidizing_environment_quality": 0.7
+          }
+        },
+        "confidence": 0.75,
+        "tier": 1,
+        "reasoning_type": "direct_inverse",
+        "kg_paths_used": 9
+      },
+      "latency": 9.626495838165283
+    }
+  ],
+  "summary": {
+    "BASELINE": {
+      "total_tests": 5,
+      "successes": 5,
+      "errors": 0,
+      "success_rate": 1.0,
+      "avg_latency": 18.608067512512207,
+      "avg_confidence": 0.9099999999999999,
+      "avg_kg_paths": 0.0,
+      "kg_usage_rate": 0.0,
+      "tier_usage": null
+    },
+    "KG_ONLY": {
+      "total_tests": 5,
+      "successes": 5,
+      "errors": 0,
+      "success_rate": 1.0,
+      "avg_latency": 0.05204858779907227,
+      "avg_confidence": 0.8,
+      "avg_kg_paths": 18.6,
+      "kg_usage_rate": 0.8,
+      "tier_usage": null
+    },
+    "NAIVE_KG": {
+      "total_tests": 5,
+      "successes": 5,
+      "errors": 0,
+      "success_rate": 1.0,
+      "avg_latency": 10.237314987182618,
+      "avg_confidence": 0.9400000000000001,
+      "avg_kg_paths": 8.2,
+      "kg_usage_rate": 0.6,
+      "tier_usage": null
+    },
+    "ARIA_CORE": {
+      "total_tests": 5,
+      "successes": 5,
+      "errors": 0,
+      "success_rate": 1.0,
+      "avg_latency": 13.227272987365723,
+      "avg_confidence": 0.85,
+      "avg_kg_paths": 29.8,
+      "kg_usage_rate": 1.0,
+      "tier_usage": {
+        "Tier 1": 5
+      }
+    }
+  }
+}

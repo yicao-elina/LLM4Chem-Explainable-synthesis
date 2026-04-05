@@ -1,0 +1,130 @@
+% NEW TABLE 2: 6-Variant Ablation Study Results Schema
+% Phase II-A: Results Table Template for 2D Materials Evaluation
+% Date: 2026-02-02
+
+\begin{table*}[ht!]
+\centering
+\caption{\textbf{Six-variant ablation study on 2D materials processing reasoning.}
+We evaluate six ARIA variants across in-domain (ID) and out-of-domain (OOD) test sets
+on forward prediction and inverse design tasks. Metrics are domain-specific for 2D materials
+(see Table~\ref{tab:metrics_2d}). Bold indicates best performance per domain.}
+\label{tab:ablation_6variants}
+\small
+\begin{tabular}{lcccccc}
+\toprule
+\textbf{System} & \textbf{Domain} & \textbf{Processing} & \textbf{Structure} & \textbf{Property} & \textbf{PSP} & \textbf{Overall} \\
+& & \textbf{Feasibility} & \textbf{Emergence} & \textbf{Consistency} & \textbf{Reasoning} & \\
+& & (0-40) & (0-30) & (0-20) & (0-10) & (0-100) \\
+\midrule
+\multicolumn{7}{c}{\textit{\textbf{Forward Prediction: Processing $\rightarrow$ Properties}}} \\
+\midrule
+
+BASELINE (LLM only) & ID & -- & -- & -- & -- & -- \\
+BASELINE & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+KG\_ONLY (Pure Graph) & ID & -- & -- & -- & -- & -- \\
+KG\_ONLY & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+NAIVE\_KG (KG+LLM) & ID & -- & -- & -- & -- & -- \\
+NAIVE\_KG & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_CORE (3-Tier) & ID & -- & -- & -- & -- & -- \\
+ARIA\_CORE & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_SEARCH (+ Lit.) & ID & -- & -- & -- & -- & -- \\
+ARIA\_SEARCH & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_FULL (+ CoT) & ID & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} \\
+ARIA\_FULL & OOD & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} \\
+
+\midrule
+\midrule
+\multicolumn{7}{c}{\textit{\textbf{Component Contribution Analysis}}} \\
+\midrule
+
+KG Value & (NAIVE - BASE) & +-- & +-- & +-- & +-- & +-- \\
+Tier Value & (CORE - NAIVE) & +-- & +-- & +-- & +-- & +-- \\
+Search Value & (SEARCH - CORE) & +-- & +-- & +-- & +-- & +-- \\
+CoT Value & (FULL - SEARCH) & +-- & +-- & +-- & +-- & +-- \\
+
+\midrule
+\midrule
+\multicolumn{7}{c}{\textit{\textbf{Inverse Design: Properties $\rightarrow$ Processing}}} \\
+\midrule
+
+BASELINE (LLM only) & ID & -- & -- & -- & -- & -- \\
+BASELINE & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+KG\_ONLY (Pure Graph) & ID & -- & -- & -- & -- & -- \\
+KG\_ONLY & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+NAIVE\_KG (KG+LLM) & ID & -- & -- & -- & -- & -- \\
+NAIVE\_KG & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_CORE (3-Tier) & ID & -- & -- & -- & -- & -- \\
+ARIA\_CORE & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_SEARCH (+ Lit.) & ID & -- & -- & -- & -- & -- \\
+ARIA\_SEARCH & OOD & -- & -- & -- & -- & -- \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{--} & \textit{--} & \textit{--} & \textit{--} & \textit{--} \\
+\midrule
+
+ARIA\_FULL (+ CoT) & ID & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} \\
+ARIA\_FULL & OOD & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} & \textbf{--} \\
+\rowcolor{gray!10}
+\textit{Domain Gap (\%)} & & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} & \textit{\textbf{--}} \\
+
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\noindent\textbf{Key Observations (Placeholder):}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item \textbf{KG Impact:} Adding knowledge graph (NAIVE vs BASE) improves processing feasibility by +X\% on average
+    \item \textbf{Tier Impact:} 3-tier reasoning (CORE vs NAIVE) enhances structure emergence predictions by +Y\%
+    \item \textbf{Search Impact:} Literature augmentation (SEARCH vs CORE) boosts OOD performance by +Z\%
+    \item \textbf{CoT Impact:} Chain-of-thought transparency (FULL vs SEARCH) improves PSP reasoning quality by +W\%
+    \item \textbf{Domain Gap:} ARIA\_FULL shows smallest ID-OOD gap (--\%), demonstrating best generalization
+\end{itemize}
+
+\noindent\textbf{System Descriptions:}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item \textbf{BASELINE:} Pure LLM (qwen2:7b) with no knowledge graph access
+    \item \textbf{KG\_ONLY:} Pure graph traversal without LLM reasoning (baseline for KG utility)
+    \item \textbf{NAIVE\_KG:} LLM with entire KG dumped into context (no retrieval)
+    \item \textbf{ARIA\_CORE:} 3-tier reasoning (direct, 1-hop, 2-hop) with semantic retrieval
+    \item \textbf{ARIA\_SEARCH:} ARIA\_CORE + real-time literature search (OpenAlex + Semantic Scholar)
+    \item \textbf{ARIA\_FULL:} ARIA\_SEARCH + chain-of-thought transparency and confidence reporting
+\end{itemize}
+
+\end{table*}

@@ -1,0 +1,118 @@
+% NEW TABLE 1: Evaluation Metrics for 2D Materials Processing Reasoning
+% Phase II-A: 2D Materials-Specific Metric Definitions
+% Date: 2026-02-02
+
+\begin{table*}[ht!]
+\centering
+\caption{\textbf{Evaluation Metrics for 2D Materials Processing Reasoning.}
+We define four domain-specific metrics tailored to evaluate AI-generated predictions
+for processing-structure-property (PSP) relationships in 2D materials. Each metric
+is scored 0-100 by an LLM judge using detailed rubrics.}
+\label{tab:metrics_2d}
+\small
+\begin{tabular}{lccp{9cm}}
+\toprule
+\textbf{Metric} & \textbf{Weight} & \textbf{Range} & \textbf{Definition} \\
+\midrule
+\multicolumn{4}{l}{\textit{\textbf{Core Metrics (90 points total)}}} \\
+\midrule
+
+\textbf{Processing Feasibility} & 40\% & 0-40 &
+\textbf{Thermodynamic \& Kinetic Viability.} Evaluates whether the predicted
+processing conditions are physically realizable and scientifically sound.
+Considers: (1) \textit{Temperature ranges} - appropriate for material phase stability,
+(2) \textit{Pressure conditions} - compatible with synthesis method,
+(3) \textit{Time scales} - realistic for defect formation/annealing,
+(4) \textit{Atmosphere} - correct for doping/oxidation control,
+(5) \textit{Equipment feasibility} - available in typical labs,
+(6) \textit{Safety} - no unrealistic or hazardous conditions.
+\\
+\midrule
+
+\textbf{Structure Emergence} & 30\% & 0-30 &
+\textbf{Defect \& Structural Prediction Accuracy.} Assesses correctness of
+predicted structural outcomes from processing. Considers:
+(1) \textit{Defect type prediction} - correct identification of vacancies,
+substitutions, interstitials, (2) \textit{Defect density} - realistic concentration
+estimates, (3) \textit{Strain effects} - lattice parameter changes,
+(4) \textit{Stacking order} - layer arrangements in heterostructures,
+(5) \textit{Phase purity} - contamination awareness,
+(6) \textit{Crystal structure} - space group and symmetry preservation.
+\\
+\midrule
+
+\textbf{Property Consistency} & 20\% & 0-20 &
+\textbf{Electronic \& Mechanical Property Coherence.} Evaluates whether predicted
+properties are consistent with the predicted structure and processing. Considers:
+(1) \textit{Electronic properties} - band gap, carrier type (n/p), conductivity
+match structural predictions, (2) \textit{Mechanical properties} - strength,
+modulus consistent with defect density, (3) \textit{Optical properties} -
+absorption/emission aligned with electronic structure,
+(4) \textit{Magnetic properties} - spin states match dopant configuration,
+(5) \textit{Physical constraints} - no violations of conservation laws or symmetry.
+\\
+\midrule
+
+\multicolumn{4}{l}{\textit{\textbf{Reasoning Quality (10 points total)}}} \\
+\midrule
+
+\textbf{Causal PSP Reasoning} & 10\% & 0-10 &
+\textbf{Processing$\rightarrow$Structure$\rightarrow$Property Chain Quality.}
+Assesses the quality and clarity of causal reasoning connecting processing to
+structure to properties. Considers: (1) \textit{Mechanism explanations} -
+physical justification for how processing affects structure,
+(2) \textit{Causal chain completeness} - explicit P$\rightarrow$S$\rightarrow$P links,
+(3) \textit{Scientific grounding} - citations or principles referenced,
+(4) \textit{Uncertainty quantification} - acknowledges limitations and unknowns.
+\\
+\midrule
+
+\multicolumn{4}{l}{\textit{\textbf{Overall Score}}} \\
+\midrule
+
+\textbf{Total} & 100\% & 0-100 &
+Weighted sum of above metrics. Scores $\geq 70$ indicate high-quality predictions
+suitable for experimental validation. Scores 40-69 indicate partial correctness
+requiring expert refinement. Scores $< 40$ indicate fundamental errors.
+\\
+
+\bottomrule
+\end{tabular}
+\vspace{0.3cm}
+
+\noindent\textbf{Scoring Rubric Summary:}
+\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]
+    \item \textbf{Processing Feasibility (0-40):}
+    \begin{itemize}[noitemsep]
+        \item 35-40: All conditions thermodynamically/kinetically viable, realistic equipment
+        \item 25-34: Minor feasibility issues (e.g., slightly high temperature, long time)
+        \item 15-24: Significant issues (e.g., wrong atmosphere, unrealistic pressure)
+        \item 0-14: Fundamentally impossible conditions (e.g., violates phase diagram)
+    \end{itemize}
+
+    \item \textbf{Structure Emergence (0-30):}
+    \begin{itemize}[noitemsep]
+        \item 25-30: Correct defect type, realistic density, accurate structural prediction
+        \item 18-24: Correct defect type but minor inaccuracies in density or strain
+        \item 10-17: Partially correct (e.g., right defect family, wrong specific type)
+        \item 0-9: Incorrect defect prediction or major structural errors
+    \end{itemize}
+
+    \item \textbf{Property Consistency (0-20):}
+    \begin{itemize}[noitemsep]
+        \item 17-20: All predicted properties consistent with structure and processing
+        \item 12-16: Minor inconsistencies (e.g., band gap magnitude off by $<$0.5 eV)
+        \item 6-11: Significant inconsistencies (e.g., wrong carrier type)
+        \item 0-5: Major violations (e.g., metallic predicted for insulating structure)
+    \end{itemize}
+
+    \item \textbf{Causal PSP Reasoning (0-10):}
+    \begin{itemize}[noitemsep]
+        \item 8-10: Clear P$\rightarrow$S$\rightarrow$P chain with mechanisms and uncertainty
+        \item 5-7: Partial chain with some mechanistic explanations
+        \item 2-4: Mentions connections but lacks mechanistic detail
+        \item 0-1: No causal reasoning or PSP chain
+    \end{itemize}
+\end{itemize}
+
+\end{table*}

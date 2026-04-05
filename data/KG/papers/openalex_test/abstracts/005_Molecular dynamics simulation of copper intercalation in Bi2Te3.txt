@@ -1,0 +1,10 @@
+TITLE: Molecular dynamics simulation of copper intercalation in Bi2Te3
+
+KEYWORDS: Bi2Te3, copper intercalation, MD simulation, quintuple layer
+
+ABSTRACT:
+Molecular dynamics (MD) simulations at 500K were employed to study Cu intercalation in Bi2Te3 quintuple layers.
+The simulations predict that Cu atoms preferentially occupy the van der Waals gap between quintuple layers at concentrations below 5 at%.
+The interlayer spacing increases linearly with Cu concentration, from 2.4 Å to 3.2 Å at 5 at% doping.
+MD trajectories show surface adsorption is energetically unfavorable (ΔE = +0.8 eV) compared to vdW gap intercalation.
+Electronic structure calculations indicate p-type conductivity with hole concentration of 2×10^19 cm^-3.

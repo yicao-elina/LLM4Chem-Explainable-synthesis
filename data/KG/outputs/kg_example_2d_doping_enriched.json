@@ -1,0 +1,55 @@
+{
+  "doping_experiments": [],
+  "causal_relationships": [
+    {
+      "cause_parameter": "CVD temperature",
+      "effect_on_doping": "increased substitutional fraction",
+      "affected_property": "carrier mobility",
+      "mechanism_quote": "Hall measurements reveal n-type conductivity with carrier concentration increasing from 1×10^18 to 5×10^18 cm^-3. This controlled substitutional doping enables precise tuning of carrier mobility, which increased from 15 to 45 cm2/V·s.",
+      "source_file": "001_Site-selective doping in MoS2 monolayers by chemical vapor deposition.txt"
+    },
+    {
+      "cause_parameter": "phosphorus concentration",
+      "effect_on_doping": "increased substitutional fraction",
+      "affected_property": "carrier concentration",
+      "mechanism_quote": "P atoms preferentially occupy substitutional carbon sites at low doping concentrations (<1 at%).",
+      "source_file": "002_DFT study of phosphorus doping in graphene_ substitutional vs pyridinic sites.txt"
+    },
+    {
+      "cause_parameter": "doping concentration",
+      "effect_on_doping": "higher carrier concentration",
+      "affected_property": "n-type behavior",
+      "mechanism_quote": "Band structure calculations show that substitutional P doping induces n-type behavior by shifting the Fermi level by 0.4 eV.",
+      "source_file": "002_DFT study of phosphorus doping in graphene_ substitutional vs pyridinic sites.txt"
+    },
+    {
+      "cause_parameter": "annealing temperature (900°C vs 600°C)",
+      "effect_on_doping": "increased fraction of substitutional defects",
+      "affected_property": "carrier mobility",
+      "mechanism_quote": "promotes defect healing and reduces interstitial incorporation",
+      "source_file": "004_Nitrogen doping in hBN by ion implantation and thermal annealing.txt"
+    },
+    {
+      "cause_parameter": "Cu concentration",
+      "effect_on_doping": "preferential Cu occupation",
+      "affected_property": "interlayer spacing",
+      "mechanism_quote": "Cu atoms preferentially occupy the van der Waals gap between quintuple layers.",
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    },
+    {
+      "cause_parameter": "doping process",
+      "effect_on_doping": "linear increase in interlayer spacing",
+      "affected_property": "electronic structure",
+      "mechanism_quote": "MD simulations predict that Cu atoms occupy the van der Waals gap, which affects the electronic structure.",
+      "source_file": "005_Molecular dynamics simulation of copper intercalation in Bi2Te3.txt"
+    }
+  ],
+  "metadata": {
+    "source": "OpenAlex + Ollama extraction",
+    "normalization_date": "2026-02-01T14:23:38.734284",
+    "total_experiments": 0,
+    "total_relationships": 6,
+    "complete_psp_chains": 6,
+    "model_used": "qwen2:7b"
+  }
+}

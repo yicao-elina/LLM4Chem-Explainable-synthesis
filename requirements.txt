@@ -1,0 +1,21 @@
+# ARIA: Adaptive Reasoning with Integrated Augmentation
+# Python Dependencies
+
+# Core ML/NLP
+sentence-transformers>=2.2.0
+scikit-learn>=1.3.0
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Graph Processing
+networkx>=3.0
+
+# API and Web
+requests>=2.31.0
+
+# Ollama (local LLM inference)
+# Install separately: pip install ollama (optional, used via HTTP API)
+
+# Optional: For advanced features
+# torch>=2.0.0  # If using GPU acceleration
+# transformers>=4.30.0  # For custom model loading

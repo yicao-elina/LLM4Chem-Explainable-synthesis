@@ -1,0 +1,26 @@
+\section{Introduction}
+\label{sec:intro}
+
+The integration of Artificial Intelligence with scientific discovery promises to revolutionize fields ranging from drug design to materials engineering \cite{butler_machine_2018}. Large Language Models (LLMs) have demonstrated remarkable capabilities in scientific reasoning \cite{xu2025largereasoningmodelssurvey}, yet their reliance on static parametric knowledge limits their ability to address novel, cutting-edge problems. To bridge this gap, Retrieval-Augmented Generation (RAG) with Knowledge Graphs (KGs) has emerged as a standard solution to ground LLMs in structured, domain-specific facts.
+
+However, a critical assumption---that external knowledge consistently improves reasoning---has masked a fundamental failure mode in complex scientific domains. \textbf{We argue for a stronger conclusion: in complex scientific reasoning, naive external knowledge integration can critically degrade performance.} 
+
+Through systematic evaluation in materials discovery---a domain requiring multi-step causal reasoning over Processing-Structure-Property (PSP) relationships---we reveal a counterintuitive phenomenon: naive KG augmentation leads to severe performance drops (20--35\%) compared to vanilla LLMs. We term this failure mode \textbf{\textit{Contextual Tunneling}}. This occurs when LLMs over-anchor on narrowly retrieved knowledge paths, suppressing their broader, more flexible parametric knowledge. The model effectively develops "tunnel vision," adhering to retrieved specifics even when they are tangentially relevant or incomplete, rather than synthesizing a holistic solution.
+
+\todo{Add a sentence here linking to the KDD AI for Sciences track focus: e.g., "This presents a major barrier to 'Trustworthy AI' in science, where provenance is as critical as prediction."} 
+
+To address this, we introduce \texttt{ARIA} (Autonomous Reasoning Intelligence for Atomics), a causally-aware framework designed to make RAG safe and effective for science. \texttt{ARIA} mitigates contextual tunneling through a three-tiered reasoning cascade:
+\begin{enumerate}
+    \item \textbf{Tier 1: High-Fidelity Causal Reasoning}: Utilizes direct, verifiable causal paths from a Causal Knowledge Graph (CKG). \footnote{We define "Causal" here as encoding mechanistic physical laws (e.g., $A \to B$ implies Synthesis A determines Property B), distinct from statistical causal discovery from observational data.}
+    \item \textbf{Tier 2: Analogical Knowledge Transfer}: When direct paths are absent, \texttt{ARIA} leverages a domain-aware similarity metric (checking Factual Consistency and Numerical Compatibility) to adapt known mechanisms to novel problems.
+    \item \textbf{Tier 3: Parametric Fallback}: A safety mechanism that reverts to the LLM's internal knowledge when external evidence is insufficient, preventing the model from being forced into a "tunnel" of bad retrieval.
+\end{enumerate}
+
+We benchmark \texttt{ARIA} against Baseline LLMs, Naive KG+LLM, and Online KG+LLM on complex inverse design tasks. While naive integration significantly hurts performance, \texttt{ARIA} demonstrates a powerful "rescue effect," recovering performance to baseline levels while adding the critical layer of \textbf{provenance and interpretability} that baseline LLMs lack.
+
+Our contributions are:
+\begin{itemize}
+    \item \textbf{Identification of Contextual Tunneling}: We formalize and empirically validate this critical failure mode in scientific RAG.
+    \item \textbf{The \texttt{ARIA} Framework}: A robust, hierarchical architecture that dynamically balances retrieved evidence with parametric reasoning.
+    \item \textbf{Rigorous Evaluation}: We introduce a constraint-based evaluation rubric for materials science that correlates with expert judgment, demonstrating \texttt{ARIA}'s superiority in generating scientifically grounded, verifiable research plans.
+\end{itemize}

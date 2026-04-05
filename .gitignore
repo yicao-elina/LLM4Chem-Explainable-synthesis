@@ -1,0 +1,109 @@
+# ARIA .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+*.ipynb
+
+# Test Results (keep structure, ignore large outputs)
+results/phase*/test_results.json
+results/phase*/test_results.log
+results/phase*/test_results_6_variants.json
+*.log
+
+# Model Files (too large for git)
+*.pth
+*.pt
+*.bin
+*.onnx
+models/
+
+# Data Files (manage separately)
+# Uncomment if KG files are too large
+# data/KG/outputs/*.json
+
+# Environment Variables
+.env
+.env.local
+
+# Temporary Files
+*.tmp
+*.temp
+tmp/
+temp/
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Coverage Reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pytest
+.pytest_cache/
+
+# Sphinx Documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# Claude Code
+.claude/

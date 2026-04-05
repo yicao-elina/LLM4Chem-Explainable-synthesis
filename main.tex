@@ -1,0 +1,149 @@
+\documentclass[sigconf,review]{acmart}
+
+%% 
+%% \BibTeX command to typeset BibTeX logo in the docs
+\AtBeginDocument{
+  \providecommand\BibTeX{{%
+    Bib\TeX}}}
+
+%% Rights management information.
+\setcopyright{acmlicensed}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+
+%% Conference information
+\acmConference[KDD '26]{Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining}{August 9--13, 2026}{Jeju, Korea}
+\acmBooktitle{Proceedings of the 32nd ACM SIGKDD Conference on Knowledge Discovery and Data Mining (KDD '26), August 9--13, 2026, Jeju, Korea}
+\acmISBN{978-1-4503-XXXX-X/26/08}
+
+%% Submission ID
+% \acmSubmissionID{xxxx} 
+
+%% Packages
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{subcaption}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+
+%% Custom Commands
+\newcommand{\jc}[1]{{\color{red}[Jieneng: #1]}}
+\newcommand{\yi}[1]{{\color{teal}[Yi: #1]}}
+\newcommand{\todo}[1]{{\color{blue}\textbf{[TODO: #1]}}}
+\newcommand{\placeholder}[1]{{\color{gray}\textit{[#1]}}}
+
+\begin{document}
+
+%% Title
+\title{When Knowledge Hurts: Enriching Domain Knowledge for Causal Materials Discovery}
+
+%% Authors (Anonymized for Single-Blind Review as per KDD call, but explicitly listed for now based on previous file)
+%% KDD AI4Science is Single-Blind ("Author names and affiliations should be listed")
+\author{Yi Cao}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{ycao73@jh.edu}
+
+\author{Liaoyaqi Wang}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{lwang240@jh.edu}
+
+\author{Jieneng Cheng}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{jchen293@jhu.edu}
+
+\author{Benjamin Van Durme}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{vandurme@jhu.edu}
+
+\author{Alan Yuille}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{ayuille1@jhu.edu}
+
+\author{Paulette Clancy}
+\affiliation{
+  \institution{Johns Hopkins University}
+  \city{Baltimore}
+  \state{MD}
+  \country{USA}
+}
+\email{pclancy3@jhu.edu}
+
+%% Abstract
+\input{abstract}
+
+%% CCS Concepts
+\begin{CCSXML}
+<ccs2012>
+   <concept>
+       <concept_id>10010147.10010178.10010187</concept_id>
+       <concept_desc>Computing methodologies~Knowledge representation and reasoning</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+   <concept>
+       <concept_id>10010405.10010444</concept_id>
+       <concept_desc>Applied computing~Physical sciences and engineering</concept_desc>
+       <concept_significance>500</concept_significance>
+   </concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{Computing methodologies~Knowledge representation and reasoning}
+\ccsdesc[500]{Applied computing~Physical sciences and engineering}
+
+%% Keywords
+\keywords{Materials Discovery, Large Language Models, Knowledge Graphs, Causal Reasoning, Inverse Design, Synthesis Planning}
+
+\maketitle
+
+%% Main Content
+\input{introduction}
+\input{method}
+\input{results}
+\input{limitations}
+
+%% Acknowledgments
+\begin{acks}
+\placeholder{Funding agencies and support acknowledgement...}
+\end{acks}
+
+%% Bibliography
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{iclr2026_conference}
+
+%% Appendix
+\appendix
+\section{Appendix}
+\placeholder{Content from previous appendix... Prompt templates, Case studies detailed data...}
+
+\end{document}

@@ -1,0 +1,12 @@
+\section{Limitations and Ethical Considerations}
+
+\subsection{Limitations}
+While \texttt{ARIA} improves robustness, it relies on the quality of the underlying Causal Knowledge Graph. In extremely sparse domains where neither direct paths nor valid analogies exist, the system degrades to the Baseline LLM, inheriting its limitations (e.g., hallucination potential, though mitigated). Furthermore, the current implementation of the Similarity Metric (Tier 2) relies on manually tuned hyperparameters (\$\tau\$ thresholds), which may require domain-specific calibration. Future work will explore learning these thresholds dynamically.
+
+\subsection{Ethical Considerations}
+The deployment of AI in scientific discovery, particularly in materials science (e.g., novel compound synthesis), carries dual-use risks.
+\begin{itemize}
+    \item \textbf{Safety:} The system could potentially suggest synthesis pathways for hazardous or regulated materials. We mitigate this by curating the source literature and could further implement safety filters on the output.
+    \item \textbf{Bias:} The CKG reflects the biases present in the scientific literature (e.g., over-representation of popular materials like Graphene). This may lead the model to overlook novel, less-studied regions of the chemical space.
+    \item \textbf{Human-in-the-loop:} \texttt{ARIA} is designed as a decision support tool for expert scientists, not an autonomous agent. The "provenance" feature is ethically critical, allowing human experts to verify the AI's reasoning before expending resources on physical experiments.
+\end{itemize}

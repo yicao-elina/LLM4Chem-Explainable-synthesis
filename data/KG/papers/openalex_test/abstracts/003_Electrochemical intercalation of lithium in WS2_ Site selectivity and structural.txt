@@ -1,0 +1,10 @@
+TITLE: Electrochemical intercalation of lithium in WS2: Site selectivity and structural changes
+
+KEYWORDS: WS2, lithium intercalation, electrochemical, van der Waals gap
+
+ABSTRACT:
+Galvanostatic electrochemical intercalation of Li+ ions into WS2 was performed at room temperature.
+X-ray diffraction shows c-axis expansion from 12.3 Å to 15.8 Å, confirming Li intercalation in the van der Waals gap.
+The intercalation occurs exclusively in the vdW gap, with no evidence of substitutional or surface adsorption.
+Time-of-flight secondary ion mass spectrometry (ToF-SIMS) depth profiles confirm uniform Li distribution throughout the layers.
+Electrical conductivity increased from 10^-3 to 10^2 S/cm due to increased carrier concentration.

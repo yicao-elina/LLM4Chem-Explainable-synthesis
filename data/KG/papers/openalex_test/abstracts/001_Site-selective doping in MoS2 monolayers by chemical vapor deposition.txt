@@ -1,0 +1,10 @@
+TITLE: Site-selective doping in MoS2 monolayers by chemical vapor deposition
+
+KEYWORDS: MoS2, CVD, site-selective doping, Nb substitution
+
+ABSTRACT:
+We demonstrate site-selective doping of MoS2 monolayers using Nb substitution via chemical vapor deposition at 750°C.
+Scanning transmission electron microscopy (STEM) and X-ray photoelectron spectroscopy (XPS) confirm that Nb atoms preferentially substitute Mo atoms at a concentration of 2 at%, forming substitutional defects.
+The increased temperature from 650°C to 750°C enhances the substitutional fraction by promoting Mo vacancy formation.
+Hall measurements reveal n-type conductivity with carrier concentration increasing from 1×10^18 to 5×10^18 cm^-3.
+This controlled substitutional doping enables precise tuning of carrier mobility, which increased from 15 to 45 cm2/V·s.

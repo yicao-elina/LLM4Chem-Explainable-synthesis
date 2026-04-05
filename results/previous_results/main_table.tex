@@ -1,0 +1,66 @@
+
+\begin{table*}[ht!]
+\centering
+\caption{\textbf{In-domain vs. out-of-domain performance analysis.} 
+We evaluate four systems on in-domain data (materials/protocols covered in KG) and out-of-domain data (novel materials/protocols not in KG). \texttt{ARIA} demonstrates superior generalization across both forward prediction and inverse design tasks, rescuing performance degradation from naive KG integration.}
+\label{tab:domain_generalization_analysis}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lccccccc}
+\toprule
+\textbf{System} & \textbf{Domain} & \textbf{Scientific} & \textbf{Functional} & \textbf{Reasoning} & \textbf{Completeness} & \textbf{Interpretability} & \textbf{Overall} \\
+& & \textbf{Accuracy}&\textbf{Equivalence} &\textbf{Quality}& & & \\
+\midrule
+\multicolumn{8}{c}{\textbf{Forward Prediction}} \\
+\midrule
+Baseline LLM & In-Domain & 0.68 & 0.42 & 0.66 & 0.33 & 0.68 & 0.52 \\
+Baseline LLM & Out-of-Domain & 0.65 & 0.38 & 0.61 & 0.29 & 0.62 & 0.47 \\
+\textit{Domain Gap} & & \textit{-5.4\%} & \textit{-11.0\%} & \textit{-7.5\%} & \textit{-10.5\%} & \textit{-8.7\%} & \textit{-10.0\%} \\
+\cmidrule{1-8}
+Naive KG+LLM & In-Domain & 0.48 & 0.29 & 0.42 & 0.20 & 0.46 & 0.34 \\
+Naive KG+LLM & Out-of-Domain & 0.49 & 0.29 & 0.45 & 0.22 & 0.50 & 0.37 \\
+\textit{Domain Gap} & & \textit{+1.2\%} & \textit{+1.5\%} & \textit{+8.2\%} & \textit{+9.2\%} & \textit{+7.5\%} & \textit{+6.4\%} \\
+\cmidrule{1-8}
+Online KG+LLM & In-Domain & 0.62 & 0.35 & 0.57 & 0.25 & 0.61 & 0.43 \\
+Online KG+LLM & Out-of-Domain & 0.64 & 0.38 & 0.62 & 0.27 & 0.65 & 0.46 \\
+\textit{Domain Gap} & & \textit{+3.8\%} & \textit{+6.6\%} & \textit{+7.7\%} & \textit{+8.2\%} & \textit{+6.5\%} & \textit{+6.5\%} \\
+\cmidrule{1-8}
+\texttt{ARIA} & In-Domain & 0.62 & 0.36 & 0.58 & 0.25 & 0.61 & 0.44 \\
+\texttt{ARIA} & Out-of-Domain & 0.61 & 0.33 & 0.57 & 0.23 & 0.60 & 0.42 \\
+\textit{Domain Gap} & & \textit{-1.9\%} & \textit{-6.6\%} & \textit{-0.7\%} & \textit{-8.0\%} & \textit{-1.0\%} & \textit{-4.2\%} \\
+\midrule
+\multicolumn{8}{c}{\textbf{Performance Comparison}} \\
+\midrule
+Naive KG+LLM vs Baseline & & \textcolor{red}{\textit{-24.2\%}} & \textcolor{red}{\textit{-22.5\%}} & \textcolor{red}{\textit{-25.3\%}} & \textcolor{red}{\textit{-26.6\%}} & \textcolor{red}{\textit{-20.0\%}} & \textcolor{red}{\textit{-21.5\%}} \\
+Online KG+LLM vs Baseline & & \textcolor{red}{\textit{-1.0\%}} & \textcolor{teal}{\textit{+0.8\%}} & \textcolor{teal}{\textit{+2.1\%}} & \textcolor{red}{\textit{-7.4\%}} & \textcolor{teal}{\textit{+4.0\%}} & \textcolor{red}{\textit{-0.7\%}} \\
+\texttt{ARIA} vs Baseline & & \textcolor{red}{\textit{-6.3\%}} & \textcolor{red}{\textit{-10.8\%}} & \textcolor{red}{\textit{-5.7\%}} & \textcolor{red}{\textit{-21.3\%}} & \textcolor{red}{\textit{-3.5\%}} & \textcolor{red}{\textit{-9.4\%}} \\
+\texttt{ARIA} vs Naive KG & & \textcolor{blue}{\textit{+23.6\%}} & \textcolor{blue}{\textit{+15.1\%}} & \textcolor{blue}{\textit{+26.2\%}} & \textcolor{blue}{\textit{+7.2\%}} & \textcolor{blue}{\textit{+20.6\%}} & \textcolor{blue}{\textit{+15.4\%}} \\
+% \texttt{ARIA} vs Online KG & & \textcolor{red}{\textit{-5.4\%}} & \textcolor{red}{\textit{-11.6\%}} & \textcolor{red}{\textit{-7.6\%}} & \textcolor{red}{\textit{-14.9\%}} & \textcolor{red}{\textit{-7.2\%}} & \textcolor{red}{\textit{-8.8\%}} \\
+\midrule
+\multicolumn{8}{c}{\textbf{Inverse Design}} \\
+\midrule
+Baseline LLM & In-Domain & 0.62 & 0.48 & 0.60 & 0.50 & 0.66 & 0.56 \\
+Baseline LLM & Out-of-Domain & 0.64 & 0.47 & 0.64 & 0.53 & 0.71 & 0.59 \\
+\textit{Domain Gap} & & \textit{+3.8\%} & \textit{-3.2\%} & \textit{+7.0\%} & \textit{+6.7\%} & \textit{+6.9\%} & \textit{+4.0\%} \\
+\cmidrule{1-8}
+Naive KG+LLM & In-Domain & 0.46 & 0.37 & 0.39 & 0.40 & 0.46 & 0.41 \\
+Naive KG+LLM & Out-of-Domain & 0.47 & 0.35 & 0.41 & 0.40 & 0.49 & 0.42 \\
+\textit{Domain Gap} & & \textit{+2.7\%} & \textit{-3.5\%} & \textit{+6.1\%} & \textit{+0.2\%} & \textit{+5.5\%} & \textit{+1.6\%} \\
+\cmidrule{1-8}
+Online KG+LLM & In-Domain & 0.61 & 0.48 & 0.56 & 0.50 & 0.63 & 0.54 \\
+Online KG+LLM & Out-of-Domain & 0.57 & 0.42 & 0.50 & 0.49 & 0.59 & 0.50 \\
+\textit{Domain Gap} & & \textit{-6.0\%} & \textit{-12.7\%} & \textit{-9.7\%} & \textit{-2.5\%} & \textit{-5.1\%} & \textit{-6.4\%} \\
+\cmidrule{1-8}
+\texttt{ARIA} & In-Domain & 0.58 & 0.44 & 0.55 & 0.47 & 0.63 & 0.52 \\
+\texttt{ARIA} & Out-of-Domain & 0.63 & 0.47 & 0.59 & 0.53 & 0.67 & 0.57 \\
+\textit{Domain Gap} & & \textit{+9.6\%} & \textit{+8.1\%} & \textit{+8.4\%} & \textit{+11.3\%} & \textit{+6.8\%} & \textit{+9.7\%} \\
+\midrule
+\multicolumn{8}{c}{\textbf{Performance Comparison}} \\
+\midrule
+Naive KG+LLM vs Baseline & & \textcolor{red}{\textit{-25.9\%}} & \textcolor{red}{\textit{-24.2\%}} & \textcolor{red}{\textit{-35.3\%}} & \textcolor{red}{\textit{-25.1\%}} & \textcolor{red}{\textit{-30.5\%}} & \textcolor{red}{\textit{-28.7\%}} \\
+Online KG+LLM vs Baseline & & \textcolor{red}{\textit{-11.2\%}} & \textcolor{red}{\textit{-10.7\%}} & \textcolor{red}{\textit{-21.1\%}} & \textcolor{red}{\textit{-8.2\%}} & \textcolor{red}{\textit{-15.9\%}} & \textcolor{red}{\textit{-14.4\%}} \\
+\texttt{ARIA} vs Baseline & & \textcolor{red}{\textit{-1.5\%}} & \textcolor{teal}{\textit{+2.0\%}} & \textcolor{red}{\textit{-6.9\%}} & \textcolor{red}{\textit{-1.2\%}} & \textcolor{red}{\textit{-4.9\%}} & \textcolor{red}{\textit{-2.7\%}} \\
+\texttt{ARIA} vs Naive KG & & \textcolor{blue}{\textit{+32.9\%}} & \textcolor{blue}{\textit{+34.5\%}} & \textcolor{blue}{\textit{+43.9\%}} & \textcolor{blue}{\textit{+32.0\%}} & \textcolor{blue}{\textit{+36.9\%}} & \textcolor{blue}{\textit{+36.6\%}} \\
+% \texttt{ARIA} vs Online KG & & \textcolor{blue}{\textit{+11.0\%}} & \textcolor{blue}{\textit{+14.3\%}} & \textcolor{blue}{\textit{+18.0\%}} & \textcolor{blue}{\textit{+7.6\%}} & \textcolor{blue}{\textit{+13.2\%}} & \textcolor{blue}{\textit{+13.7\%}} \\
+\bottomrule
+\end{tabular}}
+\end{table*}

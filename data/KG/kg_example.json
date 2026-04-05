@@ -1,0 +1,404 @@
+{
+    "doping_experiments": [
+      {
+        "experiment_id": "exp_1",
+        "host_material": "Cu5V2O10(CsCl) (averievite)",
+        "dopant": {
+          "element": "Zn",
+          "concentration": null,
+          "precursor": "ZnO"
+        },
+        "synthesis_conditions": {
+          "method": "solid-state reaction",
+          "temperature_c": [
+            500,
+            450
+          ],
+          "time_hours": 12,
+          "atmosphere": "air",
+          "pressure_pa": null,
+          "electric_field": {
+            "strength_v_cm": null,
+            "direction": null
+          },
+          "cooling_rate_c_min": 30,
+          "substrate_pretreatment": null,
+          "additional_parameters": "Excess CsCl added to compensate for volatilization; Pellet pressed and sintered a second time with the same heating cycle"
+        },
+        "doping_outcome": {
+          "site_distribution": {
+            "vdw_gap": null,
+            "surface_adsorption": null,
+            "substitutional": null,
+            "interstitial": null,
+            "primary_site": "substitutional",
+            "site_specificity": "Honeycomb layer preferred (DFT prediction)"
+          },
+          "structural_changes": {
+            "layer_spacing_change_angstrom": null,
+            "lattice_parameter_change": null,
+            "phase_transition": "Suppression of monoclinic distortion and 127K transition",
+            "defect_formation": null
+          },
+          "distribution_characteristics": {
+            "uniformity": "not reported",
+            "penetration_depth": "not reported",
+            "lateral_distribution": null
+          }
+        },
+        "property_changes": {
+          "electronic": {
+            "carrier_concentration": {
+              "value": null,
+              "change_factor": null
+            },
+            "carrier_type": null,
+            "mobility_cm2_v_s": null,
+            "conductivity_s_cm": null,
+            "band_gap_ev": null,
+            "fermi_level_shift_ev": null,
+            "other_electronic": null
+          },
+          "thermal": {
+            "thermal_conductivity_w_m_k": null,
+            "seebeck_coefficient_uv_k": null,
+            "thermal_stability": null
+          },
+          "mechanical": {
+            "youngs_modulus_gpa": null,
+            "hardness": null,
+            "strain_response": null
+          },
+          "optical": {
+            "optical_gap_ev": null,
+            "absorption_changes": null,
+            "photoluminescence": null
+          }
+        },
+        "characterization_evidence": [
+          "Synchrotron XRD",
+          "Magnetic susceptibility",
+          "Specific heat"
+        ],
+        "source_file": "Averievite_a_copper_oxide_kagome_antiferromagnet.txt"
+      },
+      {
+        "experiment_id": "exp_2",
+        "host_material": "Cu3Zn2V2O10(CsCl) (Zn-substituted averievite)",
+        "dopant": {
+          "element": "Ti",
+          "concentration": null,
+          "precursor": null
+        },
+        "synthesis_conditions": {
+          "method": "substitution (DFT calculation)",
+          "temperature_c": null,
+          "time_hours": null,
+          "atmosphere": null,
+          "pressure_pa": null,
+          "electric_field": {
+            "strength_v_cm": null,
+            "direction": null
+          },
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": null,
+          "additional_parameters": "Complete substitution of V5+ by Ti4+"
+        },
+        "doping_outcome": {
+          "site_distribution": {
+            "vdw_gap": null,
+            "surface_adsorption": null,
+            "substitutional": null,
+            "interstitial": null,
+            "primary_site": "substitutional",
+            "site_specificity": "Replaces V5+"
+          },
+          "structural_changes": {
+            "layer_spacing_change_angstrom": null,
+            "lattice_parameter_change": null,
+            "phase_transition": null,
+            "defect_formation": null
+          },
+          "distribution_characteristics": {
+            "uniformity": "not reported",
+            "penetration_depth": "not reported",
+            "lateral_distribution": null
+          }
+        },
+        "property_changes": {
+          "electronic": {
+            "carrier_concentration": {
+              "value": null,
+              "change_factor": null
+            },
+            "carrier_type": "p-type",
+            "mobility_cm2_v_s": null,
+            "conductivity_s_cm": null,
+            "band_gap_ev": null,
+            "fermi_level_shift_ev": null,
+            "other_electronic": "Dirac crossings at K"
+          },
+          "thermal": {
+            "thermal_conductivity_w_m_k": null,
+            "seebeck_coefficient_uv_k": null,
+            "thermal_stability": null
+          },
+          "mechanical": {
+            "youngs_modulus_gpa": null,
+            "hardness": null,
+            "strain_response": null
+          },
+          "optical": {
+            "optical_gap_ev": null,
+            "absorption_changes": null,
+            "photoluminescence": null
+          }
+        },
+        "characterization_evidence": [
+          "DFT calculations"
+        ],
+        "source_file": "Averievite_a_copper_oxide_kagome_antiferromagnet.txt"
+      },
+      {
+        "experiment_id": "exp_1",
+        "host_material": "Eu0.5Ce0.5FBiS2",
+        "dopant": {
+          "element": "Se",
+          "concentration": null,
+          "precursor": "Se"
+        },
+        "synthesis_conditions": {
+          "method": "solid-state reaction",
+          "temperature_c": [
+            780
+          ],
+          "time_hours": 20,
+          "atmosphere": null,
+          "pressure_pa": null,
+          "electric_field": {
+            "strength_v_cm": null,
+            "direction": null
+          },
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": null,
+          "additional_parameters": null
+        },
+        "doping_outcome": {
+          "site_distribution": {
+            "vdw_gap": null,
+            "surface_adsorption": null,
+            "substitutional": null,
+            "interstitial": null,
+            "primary_site": "substitutional",
+            "site_specificity": "Both in-plane Ch1 and out-of-plane Ch2 sites (indistinct selectivity)."
+          },
+          "structural_changes": {
+            "layer_spacing_change_angstrom": null,
+            "lattice_parameter_change": {
+              "a": "+",
+              "c": "+"
+            },
+            "phase_transition": "none",
+            "defect_formation": null
+          },
+          "distribution_characteristics": {
+            "uniformity": "not reported",
+            "penetration_depth": "not reported",
+            "lateral_distribution": null
+          }
+        },
+        "property_changes": {
+          "electronic": {
+            "carrier_concentration": {
+              "value": null,
+              "change_factor": null
+            },
+            "carrier_type": null,
+            "mobility_cm2_v_s": null,
+            "conductivity_s_cm": null,
+            "band_gap_ev": null,
+            "fermi_level_shift_ev": null,
+            "other_electronic": "Weak superconductivity, semiconducting-like transport behavior."
+          },
+          "thermal": {
+            "thermal_conductivity_w_m_k": null,
+            "seebeck_coefficient_uv_k": null,
+            "thermal_stability": null
+          },
+          "mechanical": {
+            "youngs_modulus_gpa": null,
+            "hardness": null,
+            "strain_response": null
+          },
+          "optical": {
+            "optical_gap_ev": null,
+            "absorption_changes": null,
+            "photoluminescence": null
+          }
+        },
+        "characterization_evidence": [
+          "XRD: EuFBiS2-type tetragonal phase",
+          "Magnetic susceptibility: Weak diamagnetism below 2.3K (no zero resistivity)"
+        ],
+        "source_file": "Bulk_Superconductivity_Induced_by_Se_Substitution_in_BiCh2-Based_Layered\n__Compounds_Eu0.5Ce0.5FBiS2.txt"
+      },
+      {
+        "experiment_id": "exp_1",
+        "host_material": "Bi2Te3",
+        "dopant": {
+          "element": "Mo",
+          "concentration": null,
+          "precursor": null
+        },
+        "synthesis_conditions": {
+          "method": "Computational (DFT)",
+          "temperature_c": null,
+          "time_hours": null,
+          "atmosphere": null,
+          "pressure_pa": null,
+          "electric_field": {
+            "strength_v_cm": null,
+            "direction": null
+          },
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": null,
+          "additional_parameters": "4x4 supercell; PBE+U with U=3.6eV, J=0.6eV; HSE06; Gamma centered 4x4x1 k-mesh; Plane-wave cutoff 400eV; Force convergence < 0.01 eV/\u00c5"
+        },
+        "doping_outcome": {
+          "site_distribution": {
+            "vdw_gap": null,
+            "surface_adsorption": null,
+            "substitutional": 100,
+            "interstitial": null,
+            "primary_site": "substitutional",
+            "site_specificity": "Substituting Bi"
+          },
+          "structural_changes": {
+            "layer_spacing_change_angstrom": null,
+            "lattice_parameter_change": null,
+            "phase_transition": null,
+            "defect_formation": null
+          },
+          "distribution_characteristics": {
+            "uniformity": "not reported",
+            "penetration_depth": "not reported",
+            "lateral_distribution": null
+          }
+        },
+        "property_changes": {
+          "electronic": {
+            "carrier_concentration": {
+              "value": null,
+              "change_factor": null
+            },
+            "carrier_type": null,
+            "mobility_cm2_v_s": null,
+            "conductivity_s_cm": null,
+            "band_gap_ev": null,
+            "fermi_level_shift_ev": null,
+            "other_electronic": "Remains insulating; No impurity states in the gap"
+          },
+          "thermal": {
+            "thermal_conductivity_w_m_k": null,
+            "seebeck_coefficient_uv_k": null,
+            "thermal_stability": null
+          },
+          "mechanical": {
+            "youngs_modulus_gpa": null,
+            "hardness": null,
+            "strain_response": null
+          },
+          "optical": {
+            "optical_gap_ev": null,
+            "absorption_changes": null,
+            "photoluminescence": null
+          }
+        },
+        "characterization_evidence": [
+          "DFT calculations",
+          "DOS calculations showing no gap states",
+          "Magnetic moment calculations (3.0 \u00b5B)",
+          "Formation energy calculations"
+        ],
+        "source_file": "Carrier_free_long-range_magnetism_in_Mo_doped_one_quintuple_layer_Bi2Te3\n__and_Sb2Te3.txt"
+      },
+      {
+        "experiment_id": "exp_2",
+        "host_material": "Sb2Te3",
+        "dopant": {
+          "element": "Mo",
+          "concentration": null,
+          "precursor": null
+        },
+        "synthesis_conditions": {
+          "method": "Computational (DFT)",
+          "temperature_c": null,
+          "time_hours": null,
+          "atmosphere": null,
+          "pressure_pa": null,
+          "electric_field": {
+            "strength_v_cm": null,
+            "direction": null
+          },
+          "cooling_rate_c_min": null,
+          "substrate_pretreatment": null,
+          "additional_parameters": "4x4 supercell; PBE+U with U=3.6eV, J=0.6eV; HSE06; Gamma centered 4x4x1 k-mesh; Plane-wave cutoff 400eV; Force convergence < 0.01 eV/\u00c5"
+        },
+        "doping_outcome": {
+          "site_distribution": {
+            "vdw_gap": null,
+            "surface_adsorption": null,
+            "substitutional": 100,
+            "interstitial": null,
+            "primary_site": "substitutional",
+            "site_specificity": "Substituting Sb"
+          },
+          "structural_changes": {
+            "layer_spacing_change_angstrom": null,
+            "lattice_parameter_change": null,
+            "phase_transition": null,
+            "defect_formation": null
+          },
+          "distribution_characteristics": {
+            "uniformity": "not reported",
+            "penetration_depth": "not reported",
+            "lateral_distribution": null
+          }
+        },
+        "property_changes": {
+          "electronic": {
+            "carrier_concentration": {
+              "value": null,
+              "change_factor": null
+            },
+            "carrier_type": null,
+            "mobility_cm2_v_s": null,
+            "conductivity_s_cm": null,
+            "band_gap_ev": null,
+            "fermi_level_shift_ev": null,
+            "other_electronic": "Remains insulating (implied from Bi2Te3 results)"
+          },
+          "thermal": {
+            "thermal_conductivity_w_m_k": null,
+            "seebeck_coefficient_uv_k": null,
+            "thermal_stability": null
+          },
+          "mechanical": {
+            "youngs_modulus_gpa": null,
+            "hardness": null,
+            "strain_response": null
+          },
+          "optical": {
+            "optical_gap_ev": null,
+            "absorption_changes": null,
+            "photoluminescence": null
+          }
+        },
+        "characterization_evidence": [
+          "DFT calculations",
+          "Formation energy calculations"
+        ],
+        "source_file": "Carrier_free_long-range_magnetism_in_Mo_doped_one_quintuple_layer_Bi2Te3\n__and_Sb2Te3.txt"
+      }
+    ]
+  }

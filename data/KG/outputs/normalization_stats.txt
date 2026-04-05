@@ -1,0 +1,53 @@
+============================================================
+KNOWLEDGE GRAPH NORMALIZATION REPORT
+============================================================
+
+INPUT (Raw):
+  Experiments: 5
+  Causal Relationships: 8
+
+OUTPUT (Normalized & Filtered):
+  Experiments: 0 (-5)
+  Causal Relationships: 6 (-2)
+  Complete PSP Chains: 6
+
+FILTERING:
+  Experiments removed: 5
+  Relationships removed: 2
+
+REJECTION REASONS:
+  Missing affected_property: 1
+  Missing cause_parameter: 1
+
+NORMALIZED ENTITIES:
+
+Top 10 Host Materials:
+
+Top 10 Synthesis Methods:
+
+Top 10 Affected Properties:
+  carrier mobility: 2
+  carrier concentration: 1
+  n-type behavior: 1
+  interlayer spacing: 1
+  electronic structure: 1
+
+============================================================
+VALIDATION METRICS:
+
+Graph Metrics:
+  Nodes (unique entities): 5
+  Edges (causal relations): 6
+  Complete PSP chains: 6
+
+Quality Metrics:
+  Experiments with valid synthesis method: 0
+  Experiments with temperature data: 0
+  Relations with mechanism quotes: 6
+
+Coverage:
+  Unique materials: 0
+  Unique methods: 0
+  Unique properties: 5
+
+============================================================
